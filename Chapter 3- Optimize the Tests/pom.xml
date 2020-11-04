@@ -10,4 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>chapter3-optimize-the-tests</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>25.0-jre</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
