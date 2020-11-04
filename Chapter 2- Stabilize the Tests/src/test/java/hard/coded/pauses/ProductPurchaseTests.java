@@ -4,15 +4,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
+import org.testng.annotations.*;
 import java.util.concurrent.TimeUnit;
 
+/*
+ * The order of test execution is important. The tests should be executed in the following order:
+ * completePurchaseSuccessfully_whenNewClient
+ * completePurchaseSuccessfully_whenExistingClient
+ * correctOrderDataDisplayed_WhenNavigateToMyAccountOrderSection
+ *
+ * The tests may fail because the hard-coded pauses were not enough.
+ * This is the expected behavior showing that this is not the best practice.
+ */
 public class ProductPurchaseTests {
     private WebDriver driver;
-    private static String _purchaseEmail;
+    private static String _purchaseEmail = "info@berlinspaceflowers.com";
     private static String _purchaseOrderNumber;
 
     @BeforeClass
@@ -143,7 +149,7 @@ public class ProductPurchaseTests {
         placeOrderButton.click();
 
         Thread.sleep(5000);
-        var receivedMessage = driver.findElement(By.xpath("//h1"));
+        var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
         var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
