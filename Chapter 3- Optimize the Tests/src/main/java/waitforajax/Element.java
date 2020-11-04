@@ -1,4 +1,4 @@
-package decorators;
+package waitforajax;
 
 import org.openqa.selenium.By;
 

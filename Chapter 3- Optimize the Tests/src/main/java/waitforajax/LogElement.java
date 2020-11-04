@@ -1,10 +1,10 @@
-package instrumented.code;
+package waitforajax;
 
 import org.openqa.selenium.By;
 
 public class LogElement extends ElementDecorator {
 
-    protected LogElement(Element element) {
+    protected LogElement(waitforajax.Element element) {
         super(element);
     }
 
@@ -15,25 +15,25 @@ public class LogElement extends ElementDecorator {
 
     @Override
     public String getText() {
-        System.out.print(String.format("Element Text = %s", Element.getText()));
+        System.out.printf("Element Text = %s", Element.getText());
         return Element.getText();
     }
 
     @Override
     public Boolean isEnabled() {
-        System.out.print(String.format("Element Enabled = %b", Element.isEnabled()));
+        System.out.printf("Element Enabled = %b", Element.isEnabled());
         return Element.isEnabled();
     }
 
     @Override
     public Boolean isDisplayed() {
-        System.out.print(String.format("Element Displayed = %b", Element.isDisplayed()));
+        System.out.printf("Element Displayed = %b", Element.isDisplayed());
         return Element.isDisplayed();
     }
 
     @Override
     public void typeText(String text) throws InterruptedException {
-        System.out.print(String.format("Type Text = = %s", text));
+        System.out.printf("Type Text = = %s", text);
         Element.typeText(text);
     }
 

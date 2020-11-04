@@ -30,7 +30,7 @@ public class ElementDecorator extends Element {
     }
 
     @Override
-    public void typeText(String text) {
+    public void typeText(String text) throws InterruptedException {
         Element.typeText(text);
     }
 

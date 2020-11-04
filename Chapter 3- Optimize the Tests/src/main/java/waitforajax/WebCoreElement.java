@@ -1,4 +1,4 @@
-package instrumented.code;
+package waitforajax;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebCoreElement extends Element{
+public class WebCoreElement extends Element {
     private final WebDriver _webDriver;
     private final WebElement _webElement;
     private final By _by;

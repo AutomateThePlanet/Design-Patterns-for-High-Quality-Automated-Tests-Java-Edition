@@ -39,7 +39,8 @@ public class WebCoreElement extends Element{
     }
 
     @Override
-    public void typeText(String text) {
+    public void typeText(String text) throws InterruptedException {
+        Thread.sleep(500);
         _webElement.clear();
         _webElement.sendKeys(text);
     }
