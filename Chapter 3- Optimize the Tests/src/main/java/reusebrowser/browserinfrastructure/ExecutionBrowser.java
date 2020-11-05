@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Target( { ElementType.TYPE, ElementType.METHOD } )
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExecutionBrowser {
-    Browser useBrowser() default Browser.Chrome;
-    BrowserBehavior useBrowserBehavior() default BrowserBehavior.RestartEveryTime;
+    Browser browser() default Browser.Chrome;
+    BrowserBehavior browserBehavior() default BrowserBehavior.RestartEveryTime;
 }

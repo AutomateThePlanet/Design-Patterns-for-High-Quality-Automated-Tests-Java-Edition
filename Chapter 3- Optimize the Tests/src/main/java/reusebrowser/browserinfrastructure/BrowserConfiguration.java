@@ -6,9 +6,9 @@ public class BrowserConfiguration {
     private Browser _browser;
     private BrowserBehavior _browserBehavior;
 
-    public BrowserConfiguration(Browser _browser, BrowserBehavior _browserBehavior) {
-        _browser = _browser;
-        _browserBehavior = _browserBehavior;
+    public BrowserConfiguration(Browser browser, BrowserBehavior browserBehavior) {
+        _browser = browser;
+        _browserBehavior = browserBehavior;
     }
 
     public BrowserBehavior getBrowserBehavior() {

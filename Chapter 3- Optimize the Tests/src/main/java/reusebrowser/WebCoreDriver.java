@@ -50,7 +50,10 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public void quit() {
-        _webDriver.quit();
+        if (_webDriver != null)
+        {
+            _webDriver.quit();
+        }
     }
 
     @Override

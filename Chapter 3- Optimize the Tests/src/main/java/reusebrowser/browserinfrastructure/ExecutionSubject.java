@@ -24,7 +24,9 @@ public class ExecutionSubject implements TestExecutionSubject{
 
     @Override
     public void preTestInit(ITestResult result, Method memberInfo) {
-
+        for (var currentObserver:_testBehaviorObservers) {
+            currentObserver.preTestInit(result, memberInfo);
+        }
     }
 
     @Override

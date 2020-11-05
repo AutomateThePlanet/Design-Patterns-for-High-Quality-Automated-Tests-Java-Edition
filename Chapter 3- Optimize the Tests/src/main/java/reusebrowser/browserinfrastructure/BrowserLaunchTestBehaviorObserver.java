@@ -61,7 +61,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
     private BrowserConfiguration getBrowserConfiguration(Method memberInfo)
     {
         BrowserConfiguration result = null;
-        var classBrowserType = getExecutionBrowserClassLevel(memberInfo.getClass());
+        var classBrowserType = getExecutionBrowserClassLevel(memberInfo.getDeclaringClass());
         var methodBrowserType = getExecutionBrowserMethodLevel(memberInfo);
         if (methodBrowserType != null)
         {
@@ -77,13 +77,23 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
 
     private BrowserConfiguration getExecutionBrowserMethodLevel(Method memberInfo)
     {
-        var executionBrowserAnnotation = memberInfo.getDeclaredAnnotation(ExecutionBrowser.class);
-        return new BrowserConfiguration(executionBrowserAnnotation.useBrowser(), executionBrowserAnnotation.useBrowserBehavior());
+        var executionBrowserAnnotation = (ExecutionBrowser)memberInfo.getDeclaredAnnotation(ExecutionBrowser.class);
+        if (executionBrowserAnnotation == null)
+        {
+            return null;
+        }
+
+        return new BrowserConfiguration(executionBrowserAnnotation.browser(), executionBrowserAnnotation.browserBehavior());
     }
 
     private BrowserConfiguration getExecutionBrowserClassLevel(Class<?> type)
     {
-        var executionBrowserAnnotation = type.getDeclaredAnnotation(ExecutionBrowser.class);
-        return new BrowserConfiguration(executionBrowserAnnotation.useBrowser(), executionBrowserAnnotation.useBrowserBehavior());
+        var executionBrowserAnnotation = (ExecutionBrowser)type.getDeclaredAnnotation(ExecutionBrowser.class);
+        if (executionBrowserAnnotation == null)
+        {
+            return null;
+        }
+
+        return new BrowserConfiguration(executionBrowserAnnotation.browser(), executionBrowserAnnotation.browserBehavior());
     }
 }
