@@ -1,4 +1,4 @@
-package webdriver.wait;
+package webdriverwait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;

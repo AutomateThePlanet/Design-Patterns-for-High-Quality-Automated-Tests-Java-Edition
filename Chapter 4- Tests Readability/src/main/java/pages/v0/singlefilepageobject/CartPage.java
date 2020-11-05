@@ -17,25 +17,25 @@ public class CartPage {
         _driver.waitForAjax();
     }
 
-    public void IncreaseProductQuantity(int newQuantity) throws InterruptedException {
+    public void increaseProductQuantity(int newQuantity) throws InterruptedException {
         quantityBox().typeText(String.valueOf(newQuantity));
         updateCart().click();
         _driver.waitForAjax();
     }
 
-    public void ClickProceedToCheckout()
+    public void clickProceedToCheckout()
     {
         proceedToCheckout().click();
         _driver.waitUntilPageLoadsCompletely();
     }
 
-    public String GetTotal()
+    public String getTotal()
     {
         return totalSpan().getText();
     }
 
 
-    public String GetMessageNotification()
+    public String getMessageNotification()
     {
         return messageAlert().getText();
     }

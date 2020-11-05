@@ -21,7 +21,7 @@ public class MainPage {
         return _driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
     }
 
-    public void AddRocketToShoppingCart()
+    public void addRocketToShoppingCart()
     {
         _driver.goToUrl(_url);
         addToCartFalcon9().click();

@@ -1,20 +1,13 @@
-package waitforajax;
+package pages.v0.singlefilepageobject;
 
-import org.junit.Before;
+import core.*;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-/*
- * The order of test execution is important. The tests should be executed in the following order:
- * completePurchaseSuccessfully_whenNewClient
- * completePurchaseSuccessfully_whenExistingClient
- * correctOrderDataDisplayed_WhenNavigateToMyAccountOrderSection
- *
- * The tests may fail because the hard-coded pauses were not enough.
- * This is the expected behavior showing that this is not the best practice.
- */
-public class ProductPurchaseTests {
+public class ProductPurchaseWithoutPagesObjectsTests {
     private Driver _driver;
     private static String _purchaseEmail;
     private static String _purchaseOrderNumber;
@@ -145,31 +138,6 @@ public class ProductPurchaseTests {
 
         var orderNumber = _driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
         _purchaseOrderNumber = orderNumber.getText();
-    }
-
-    @Test(priority=3)
-    public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
-        _driver.goToUrl("http://demos.bellatrix.solutions/");
-
-        var myAccountLink = _driver.findElement(By.linkText("My account"));
-        myAccountLink.click();
-        var userName = _driver.findElement(By.id("username"));
-        _driver.waitForAjax();
-        userName.typeText(_purchaseEmail);
-        var password = _driver.findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(_purchaseEmail)));
-        var loginButton = _driver.findElement(By.xpath("//button[@name='login']"));
-        loginButton.click();
-
-        var orders = _driver.findElement(By.linkText("Orders"));
-        orders.click();
-
-        var viewButtons = _driver.findElements(By.linkText("View"));
-        viewButtons.get(0).click();
-
-        var orderName = _driver.findElement(By.xpath("//h1"));
-        String expectedMessage = String.format("Order #%s", _purchaseOrderNumber);
-        Assert.assertEquals(expectedMessage, orderName.getText());
     }
 
     private String GetUserPasswordFromDb(String userName)
