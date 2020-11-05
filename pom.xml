@@ -11,6 +11,12 @@
     <modules>
         <module>Chapter 2- Stabilize the Tests</module>
         <module>Chapter 3- Optimize the Tests</module>
+        <module>Chapter 4- Tests Readability</module>
+        <module>Chapter 5- Tests Maintainability</module>
+        <module>Chapter 6- API Usability</module>
+        <module>Chapter 8-Assessment System</module>
+        <module>chapter9-benchmarking</module>
+        <module>chapter10-test-data-preparation</module>
     </modules>
 
     <properties>
