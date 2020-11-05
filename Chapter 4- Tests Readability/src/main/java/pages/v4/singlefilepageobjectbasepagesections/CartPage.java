@@ -3,6 +3,7 @@ package pages.v4.singlefilepageobjectbasepagesections;
 import core.Driver;
 import core.Element;
 import org.openqa.selenium.By;
+import pages.v3.singlefilepageobjectssections.sections.BreadcrumbSection;
 
 public class CartPage extends BaseEShopPage {
     public CartPage(Driver driver) {
@@ -40,6 +41,10 @@ public class CartPage extends BaseEShopPage {
 
     private Element proceedToCheckout() {
         return driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
+    }
+
+    public BreadcrumbSection breadcrumbSection() {
+        return new BreadcrumbSection(driver);
     }
 
     public void applyCoupon(String coupon) throws InterruptedException {
