@@ -56,6 +56,15 @@ public class WebCoreElement extends Element {
         return _webElement.getAttribute(attributeName);
     }
 
+    @Override
+    public Element findElement(By locator) {
+        var nativeWebElement = _webElement.findElement(locator);
+        Element element = new WebCoreElement(_webDriver, nativeWebElement, locator);
+        Element logElement = new LogElement(element);
+
+        return logElement;
+    }
+
     private void waitToBeClickable(By by)
     {
         var webDriverWait = new WebDriverWait(_webDriver, 30);

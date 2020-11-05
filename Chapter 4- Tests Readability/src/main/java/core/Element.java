@@ -10,4 +10,5 @@ public abstract class Element {
     public abstract void typeText(String text) throws InterruptedException;
     public abstract void click();
     public abstract String getAttribute(String attributeName);
+    public abstract Element findElement(By locator);
 }

@@ -43,4 +43,9 @@ public class ElementDecorator extends Element {
     public String getAttribute(String attributeName) {
         return Element.getAttribute(attributeName);
     }
+
+    @Override
+    public Element findElement(By locator) {
+        return Element.findElement(locator);
+    }
 }
