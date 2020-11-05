@@ -1,10 +1,9 @@
 package waitforajax;
 
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 /*
  * The order of test execution is important. The tests should be executed in the following order:
@@ -17,22 +16,21 @@ import org.testng.annotations.Test;
  */
 public class ProductPurchaseTests {
     private Driver _driver;
-    private static String _purchaseEmail = "info@berlinspaceflowers.com";
+    private static String _purchaseEmail;
     private static String _purchaseOrderNumber;
 
-    @BeforeTest
-    public void beforeTest() {
-        System.setProperty("webdriver.chrome.driver", "..\\src\\main\\resources\\chromedriver.exe");
+    @BeforeMethod
+    public void testInit() {
         _driver = new LoggingDriver(new WebCoreDriver());
         _driver.start(Browser.Chrome);
     }
 
-    @AfterTest
-    public void afterTest() throws InterruptedException {
+    @AfterMethod
+    public void testCleanup() throws InterruptedException {
         _driver.quit();
     }
 
-    @Test
+    @Test(priority=1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = _driver.findElement(By.cssSelector("[data-product_id*='28']"));
@@ -97,8 +95,8 @@ public class ProductPurchaseTests {
         var receivedMessage = _driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div/header/h1"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
-    
-    @Test
+
+    @Test(priority=2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -149,7 +147,7 @@ public class ProductPurchaseTests {
         _purchaseOrderNumber = orderNumber.getText();
     }
 
-    @Test
+    @Test(priority=2)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
 

@@ -1,5 +1,6 @@
 package decorators;
 
+import org.junit.After;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -15,22 +16,21 @@ import org.testng.annotations.*;
  */
 public class ProductPurchaseTests {
     private Driver _driver;
-    private static String _purchaseEmail = "info@berlinspaceflowers.com";
+    private static String _purchaseEmail;
     private static String _purchaseOrderNumber;
 
-    @BeforeTest
-    public void beforeTest() {
-        System.setProperty("webdriver.chrome.driver", "..\\src\\main\\resources\\chromedriver.exe");
+    @BeforeMethod
+    public void testInit() {
         _driver = new LoggingDriver(new WebCoreDriver());
         _driver.start(Browser.Chrome);
     }
 
-    @AfterTest
-    public void afterTest() throws InterruptedException {
+    @AfterMethod
+    public void testCleanup() throws InterruptedException {
         _driver.quit();
     }
 
-    @Test
+    @Test(priority=1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = _driver.findElement(By.cssSelector("[data-product_id*='28']"));
@@ -93,8 +93,8 @@ public class ProductPurchaseTests {
         var receivedMessage = _driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div/header/h1"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
-    
-    @Test
+
+    @Test(priority=2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -144,19 +144,12 @@ public class ProductPurchaseTests {
         _purchaseOrderNumber = orderNumber.getText();
     }
 
-    @Test
+    @Test(priority=3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         _driver.goToUrl("http://demos.bellatrix.solutions/");
 
         var myAccountLink = _driver.findElement(By.linkText("My account"));
         myAccountLink.click();
-        var userName = _driver.findElement(By.id("username"));
-        Thread.sleep(4000);
-        userName.typeText(_purchaseEmail);
-        var password = _driver.findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(_purchaseEmail)));
-        var loginButton = _driver.findElement(By.xpath("//button[@name='login']"));
-        loginButton.click();
 
         var orders = _driver.findElement(By.linkText("Orders"));
         orders.click();

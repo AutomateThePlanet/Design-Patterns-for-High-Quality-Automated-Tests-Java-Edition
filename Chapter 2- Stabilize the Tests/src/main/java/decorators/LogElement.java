@@ -32,7 +32,7 @@ public class LogElement extends ElementDecorator {
     }
 
     @Override
-    public void typeText(String text) {
+    public void typeText(String text) throws InterruptedException {
         System.out.print(String.format("Type Text = = %s", text));
         Element.typeText(text);
     }

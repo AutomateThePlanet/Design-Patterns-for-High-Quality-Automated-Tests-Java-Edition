@@ -1,5 +1,6 @@
 package webdriver.wait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,22 +23,22 @@ import java.util.concurrent.TimeUnit;
  */
 public class ProductPurchaseTests {
     private WebDriver driver;
-    private static String _purchaseEmail = "info@berlinspaceflowers.com";
+    private static String _purchaseEmail;
     private static String _purchaseOrderNumber;
 
-    @BeforeClass
-    public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", "..\\src\\main\\resources\\chromedriver.exe");
+    @BeforeMethod
+    public void testInit() {
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
-    @AfterClass
-    public void afterClass() throws InterruptedException {
+    @AfterMethod
+    public void testCleanup() throws InterruptedException {
         driver.quit();
     }
 
-    @Test
+    @Test(priority=1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         driver.navigate().to("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = waitAndFindElement(By.cssSelector("[data-product_id*='28']"));
@@ -104,8 +104,8 @@ public class ProductPurchaseTests {
         var receivedMessage = waitAndFindElement(By.xpath("/html/body/div[1]/div/div/div/main/div/header/h1"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
-    
-    @Test
+
+    @Test(priority=2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         driver.navigate().to("http://demos.bellatrix.solutions/");
 
@@ -156,7 +156,7 @@ public class ProductPurchaseTests {
         _purchaseOrderNumber = orderNumber.getText();
     }
 
-    @Test
+    @Test(priority=3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         driver.navigate().to("http://demos.bellatrix.solutions/");
 
