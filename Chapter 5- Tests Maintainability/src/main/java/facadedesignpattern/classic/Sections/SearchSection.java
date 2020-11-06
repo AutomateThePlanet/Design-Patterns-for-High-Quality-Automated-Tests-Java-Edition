@@ -1,4 +1,4 @@
-package pages.v3.singlefilepageobjectssections;
+package facadedesignpattern.classic.Sections;
 
 import core.Driver;
 import core.Element;

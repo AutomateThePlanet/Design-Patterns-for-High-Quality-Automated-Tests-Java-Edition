@@ -1,9 +1,9 @@
 package pages.v4.singlefilepageobjectbasepagesections;
 
 import core.Driver;
-import pages.v3.singlefilepageobjectssections.CartInfoSection;
-import pages.v3.singlefilepageobjectssections.MainMenuSection;
-import pages.v3.singlefilepageobjectssections.SearchSection;
+import pages.v3.singlefilepageobjectssections.Sections.CartInfoSection;
+import pages.v3.singlefilepageobjectssections.Sections.MainMenuSection;
+import pages.v3.singlefilepageobjectssections.Sections.SearchSection;
 
 public abstract class BaseEShopPage {
     protected final Driver driver;

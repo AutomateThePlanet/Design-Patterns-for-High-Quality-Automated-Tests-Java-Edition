@@ -1,4 +1,4 @@
-package pages.v4.singlefilepageobjectbasepagesections;
+package pages.v4.singlefilepageobjectbasepagesections.Sections;
 
 import core.Driver;
 import core.Element;

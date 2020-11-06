@@ -1,4 +1,4 @@
-package pages.v3.singlefilepageobjectssections;
+package pages.v6.multifilepageobjectnavibasepagesections.Sections;
 
 import core.Driver;
 import core.Element;

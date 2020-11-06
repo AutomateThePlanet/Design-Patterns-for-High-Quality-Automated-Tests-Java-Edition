@@ -3,6 +3,9 @@ package pages.v3.singlefilepageobjectssections;
 import core.Driver;
 import core.Element;
 import org.openqa.selenium.By;
+import pages.v3.singlefilepageobjectssections.Sections.CartInfoSection;
+import pages.v3.singlefilepageobjectssections.Sections.MainMenuSection;
+import pages.v3.singlefilepageobjectssections.Sections.SearchSection;
 
 public class MainPage {
     private final Driver _driver;

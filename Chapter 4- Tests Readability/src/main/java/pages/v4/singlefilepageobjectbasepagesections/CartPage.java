@@ -3,7 +3,7 @@ package pages.v4.singlefilepageobjectbasepagesections;
 import core.Driver;
 import core.Element;
 import org.openqa.selenium.By;
-import pages.v3.singlefilepageobjectssections.BreadcrumbSection;
+import pages.v3.singlefilepageobjectssections.Sections.BreadcrumbSection;
 
 public class CartPage extends BaseEShopPage {
     public CartPage(Driver driver) {
