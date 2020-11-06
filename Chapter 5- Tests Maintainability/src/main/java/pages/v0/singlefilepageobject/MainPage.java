@@ -1,4 +1,4 @@
-package pages.v3.singlefilepageobjectssections;
+package pages.v0.singlefilepageobject;
 
 import core.Driver;
 import core.Element;
@@ -19,18 +19,6 @@ public class MainPage {
 
     private Element viewCartButton() {
         return _driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
-    }
-
-    public MainMenuSection mainMenuSection() {
-        return new MainMenuSection(_driver);
-    }
-
-    public CartInfoSection cartInfoSection() {
-        return new CartInfoSection(_driver);
-    }
-
-    public SearchSection searchSection() {
-        return new SearchSection(_driver);
     }
 
     public void addRocketToShoppingCart()

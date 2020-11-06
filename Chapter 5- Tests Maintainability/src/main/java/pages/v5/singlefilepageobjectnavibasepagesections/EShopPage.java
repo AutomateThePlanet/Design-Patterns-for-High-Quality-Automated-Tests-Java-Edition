@@ -1,14 +1,14 @@
-package pages.v4.singlefilepageobjectbasepagesections;
+package pages.v5.singlefilepageobjectnavibasepagesections;
 
 import core.Driver;
 import pages.v3.singlefilepageobjectssections.CartInfoSection;
 import pages.v3.singlefilepageobjectssections.MainMenuSection;
 import pages.v3.singlefilepageobjectssections.SearchSection;
 
-public abstract class BaseEShopPage {
+public abstract class EShopPage {
     protected final Driver driver;
 
-    public BaseEShopPage(Driver driver) {
+    public EShopPage(Driver driver) {
         this.driver = driver;
     }
 
@@ -22,12 +22,5 @@ public abstract class BaseEShopPage {
 
     public SearchSection searchSection() {
         return new SearchSection(driver);
-    }
-
-    protected abstract String getUrl();
-
-    public void open()
-    {
-        driver.goToUrl(getUrl());
     }
 }

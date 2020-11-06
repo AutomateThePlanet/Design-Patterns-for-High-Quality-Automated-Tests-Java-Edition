@@ -1,11 +1,11 @@
-package pages.v4.singlefilepageobjectbasepagesections;
+package pages.v5.singlefilepageobjectnavibasepagesections;
 
 import core.Driver;
 import core.Element;
 import org.openqa.selenium.By;
 import pages.v3.singlefilepageobjectssections.BreadcrumbSection;
 
-public class CartPage extends BaseEShopPage {
+public class CartPage extends NavigatableEShopPage {
     public CartPage(Driver driver) {
         super(driver);
     }
