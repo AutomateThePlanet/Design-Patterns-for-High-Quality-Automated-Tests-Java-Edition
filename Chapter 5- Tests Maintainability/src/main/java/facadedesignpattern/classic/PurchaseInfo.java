@@ -11,8 +11,8 @@ public class PurchaseInfo {
     private String zip;
     private String phone;
     private String email;
-    private Boolean shouldCreateAccount;
-    private Boolean shouldCheckPayment;
+    private Boolean shouldCreateAccount = false;
+    private Boolean shouldCheckPayment = false;
 
     public String getFirstName() {
         return firstName;

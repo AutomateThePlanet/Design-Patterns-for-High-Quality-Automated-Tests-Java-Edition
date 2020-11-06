@@ -11,7 +11,7 @@ public class CartPageAssertions {
 
     public void assertCouponAppliedSuccessfully()
     {
-        Assert.assertEquals(_elements.messageAlert(), "Coupon code applied successfully.");
+        Assert.assertEquals(_elements.messageAlert().getText(), "Coupon code applied successfully.");
     }
 
     public void assertTotalPrice(String expectedPrice)

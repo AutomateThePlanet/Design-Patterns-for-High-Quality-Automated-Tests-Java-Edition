@@ -23,10 +23,11 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
-    public void addRocketToShoppingCart()
+    public void addRocketToShoppingCart(String rocketName)
     {
         open();
-        elements().addToCartFalcon9().click();
+        elements().getProductBoxByName(rocketName).click();
+//        driver.waitForAjax();
         elements().viewCartButton().click();
     }
 }

@@ -19,7 +19,7 @@ public class CheckoutPage extends EShopPage {
         return new CheckoutAssertions(elements());
     }
 
-    public void FillBillingInfo(PurchaseInfo purchaseInfo) throws InterruptedException {
+    public void fillBillingInfo(PurchaseInfo purchaseInfo) throws InterruptedException {
         elements().billingFirstName().typeText(purchaseInfo.getFirstName());
         elements().billingLastName().typeText(purchaseInfo.getLastName());
         elements().billingCompany().typeText(purchaseInfo.getCompany());

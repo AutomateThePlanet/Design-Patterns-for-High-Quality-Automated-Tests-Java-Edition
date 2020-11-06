@@ -27,6 +27,6 @@ public class MainPageElements {
 
     public Element getProductBoxByName(String name)
     {
-        return _driver.findElement(By.xpath(String.format("//h2[text()='%s']/parent::a[1]", name)));
+        return _driver.findElement(By.xpath(String.format("//h2[text()='%s']/parent::a[1]/following-sibling::a[1]", name)));
     }
 }
