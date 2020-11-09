@@ -1,5 +1,6 @@
 package core;
 
+import core.locators.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -64,32 +65,6 @@ public class WebCoreDriver extends Driver {
     }
 
     @Override
-    public Element findElement(By locator) {
-        var nativeWebElement =
-                _webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        Element element = new WebCoreElement(_webDriver, nativeWebElement, locator);
-
-        // If we use log decorator.
-        Element logElement = new LogElement(element);
-
-        return logElement;
-    }
-
-    @Override
-    public List<Element> findElements(By locator) {
-        List<WebElement> nativeWebElements =
-                _webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
-        var elements = new ArrayList<Element>();
-        for (WebElement nativeWebElement:nativeWebElements) {
-            Element element = new WebCoreElement(_webDriver, nativeWebElement, locator);
-            Element logElement = new LogElement(element);
-            elements.add(logElement);
-        }
-
-        return elements;
-    }
-
-    @Override
     public void waitForAjax() {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
         _webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
@@ -99,5 +74,91 @@ public class WebCoreDriver extends Driver {
     public void waitUntilPageLoadsCompletely() {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
         _webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
+    }
+
+    @Override
+    public Element findById(String id) {
+        return find(new IdFindStrategy(id));
+    }
+
+    @Override
+    public Element findByXPath(String xpath) {
+        return find(new XPathFindStrategy(xpath));
+    }
+
+    @Override
+    public Element findByTag(String tag) {
+        return find(new TagFindStrategy(tag));
+    }
+
+    @Override
+    public Element findByClass(String cssClass) {
+        return find(new ClassFindStrategy(cssClass));
+    }
+
+    @Override
+    public Element findByCss(String css) {
+        return find(new CssFindStrategy(css));
+    }
+
+    @Override
+    public Element findByLinkText(String linkText) {
+        return find(new LinkTextFindStrategy(linkText));
+    }
+
+    @Override
+    public List<Element> findAllById(String id) {
+        return findAll(new IdFindStrategy(id));
+    }
+
+    @Override
+    public List<Element> findAllByXPath(String xpath) {
+        return findAll(new XPathFindStrategy(xpath));
+    }
+
+    @Override
+    public List<Element> findAllByTag(String tag) {
+        return findAll(new TagFindStrategy(tag));
+    }
+
+    @Override
+    public List<Element> findAllByClass(String cssClass) {
+        return findAll(new ClassFindStrategy(cssClass));
+    }
+
+    @Override
+    public List<Element> findAllByCss(String css) {
+        return findAll(new CssFindStrategy(css));
+    }
+
+    @Override
+    public List<Element> findAllByLinkText(String linkText) {
+        return findAll(new LinkTextFindStrategy(linkText));
+    }
+
+    @Override
+    public List<Element> findAll(FindStrategy findStrategy) {
+        List<WebElement> nativeWebElements =
+                _webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(findStrategy.convert()));
+        var elements = new ArrayList<Element>();
+        for (WebElement nativeWebElement:nativeWebElements) {
+            Element element = new WebCoreElement(_webDriver, nativeWebElement, findStrategy.convert());
+            Element logElement = new LogElement(element);
+            elements.add(logElement);
+        }
+
+        return elements;
+    }
+
+    @Override
+    public Element find(FindStrategy findStrategy) {
+        var nativeWebElement =
+                _webDriverWait.until(ExpectedConditions.presenceOfElementLocated(findStrategy.convert()));
+        Element element = new WebCoreElement(_webDriver, nativeWebElement, findStrategy.convert());
+
+        // If we use log decorator.
+        Element logElement = new LogElement(element);
+
+        return logElement;
     }
 }

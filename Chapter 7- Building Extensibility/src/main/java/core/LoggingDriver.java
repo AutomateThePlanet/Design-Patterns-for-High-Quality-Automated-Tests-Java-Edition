@@ -26,16 +26,4 @@ public class LoggingDriver extends DriverDecorator {
         System.out.print(String.format("go to url = %s", url));
         Driver.goToUrl(url);
     }
-
-    @Override
-    public Element findElement(By locator) {
-        System.out.print("find element");
-        return Driver.findElement(locator);
-    }
-
-    @Override
-    public List<Element> findElements(By locator) {
-        System.out.print("find elements");
-        return Driver.findElements(locator);
-    }
 }

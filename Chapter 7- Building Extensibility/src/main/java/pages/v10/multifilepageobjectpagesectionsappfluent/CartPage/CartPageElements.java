@@ -12,30 +12,30 @@ public class CartPageElements {
     }
 
     public Element couponCodeTextField() {
-        return _elementFindService.findElement(By.id("coupon_code"));
+        return _elementFindService.findById("coupon_code");
     }
 
     public Element applyCouponButton() {
-        return _elementFindService.findElement(By.cssSelector("[value*='Apply coupon']"));
+        return _elementFindService.findByCss("[value*='Apply coupon']");
     }
 
     public Element quantityBox() {
-        return _elementFindService.findElement(By.cssSelector("[class*='input-text qty text']"));
+        return _elementFindService.findByCss("[class*='input-text qty text']");
     }
 
     public Element updateCart() {
-        return _elementFindService.findElement(By.cssSelector("[value*='Update cart']"));
+        return _elementFindService.findByCss("[value*='Update cart']");
     }
 
     public Element messageAlert() {
-        return _elementFindService.findElement(By.cssSelector("[class*='woocommerce-message']"));
+        return _elementFindService.findByCss("[class*='woocommerce-message']");
     }
 
     public Element totalSpan() {
-        return _elementFindService.findElement(By.xpath("//*[@class='order-total']//span"));
+        return _elementFindService.findByXPath("//*[@class='order-total']//span");
     }
 
     public Element proceedToCheckout() {
-        return _elementFindService.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
+        return _elementFindService.findByCss("[class*='checkout-button button alt wc-forward']");
     }
 }

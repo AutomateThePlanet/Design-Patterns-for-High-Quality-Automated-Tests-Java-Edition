@@ -1,5 +1,9 @@
 package core;
 
+import core.interfaces.BrowserService;
+import core.interfaces.CookiesService;
+import core.interfaces.DialogService;
+import core.interfaces.NavigationService;
 import pages.v10.multifilepageobjectpagesectionsappfluent.EShopPage;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 

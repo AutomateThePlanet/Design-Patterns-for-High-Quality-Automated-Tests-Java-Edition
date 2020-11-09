@@ -12,11 +12,11 @@ public class CartInfoSection {
     }
 
     private Element cartIcon() {
-        return _elementFindService.findElement(By.className("cart-contents"));
+        return _elementFindService.findByClass("cart-contents");
     }
 
     private Element cartAmount() {
-        return _elementFindService.findElement(By.className("amount"));
+        return _elementFindService.findByClass("amount");
     }
 
     public String getCurrentAmount()

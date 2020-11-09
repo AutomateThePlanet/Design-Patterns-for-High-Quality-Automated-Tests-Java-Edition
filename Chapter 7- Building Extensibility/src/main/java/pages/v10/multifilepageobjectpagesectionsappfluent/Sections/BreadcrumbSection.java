@@ -12,7 +12,7 @@ public class BreadcrumbSection {
     }
 
     private Element breadcrumb() {
-        return _elementFindService.findElement(By.className("woocommerce-breadcrumb"));
+        return _elementFindService.findByClass("woocommerce-breadcrumb");
     }
 
     public void openBreadcrumbItem(String itemToOpen)

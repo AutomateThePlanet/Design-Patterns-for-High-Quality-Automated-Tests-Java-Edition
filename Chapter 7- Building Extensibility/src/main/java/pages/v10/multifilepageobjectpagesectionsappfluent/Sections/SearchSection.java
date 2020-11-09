@@ -12,7 +12,7 @@ public class SearchSection {
     }
 
     private Element searchField() {
-        return _elementFindService.findElement(By.id("woocommerce-product-search-field-0"));
+        return _elementFindService.findById("woocommerce-product-search-field-0");
     }
 
     public void searchForItem(String searchText) throws InterruptedException {

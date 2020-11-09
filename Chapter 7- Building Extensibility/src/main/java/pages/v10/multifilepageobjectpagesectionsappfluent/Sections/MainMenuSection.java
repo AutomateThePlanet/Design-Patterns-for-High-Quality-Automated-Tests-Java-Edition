@@ -12,27 +12,27 @@ public class MainMenuSection {
     }
 
     private Element homeLink() {
-        return _elementFindService.findElement(By.linkText("Home"));
+        return _elementFindService.findByLinkText("Home");
     }
 
     private Element blogLink() {
-        return _elementFindService.findElement(By.linkText("Blog"));
+        return _elementFindService.findByLinkText("Blog");
     }
 
     private Element cartLink() {
-        return _elementFindService.findElement(By.linkText("Cart"));
+        return _elementFindService.findByLinkText("Cart");
     }
 
     private Element checkoutLink() {
-        return _elementFindService.findElement(By.linkText("Checkout"));
+        return _elementFindService.findByLinkText("Checkout");
     }
 
     private Element myAccountLink() {
-        return _elementFindService.findElement(By.linkText("My Account"));
+        return _elementFindService.findByLinkText("My Account");
     }
 
     private Element promotionsLink() {
-        return _elementFindService.findElement(By.linkText("Promotions"));
+        return _elementFindService.findByLinkText("Promotions");
     }
 
     public void openHomePage()
