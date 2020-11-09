@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.v8.multifilepageobjectsectionssingleton.MainPage.MainPage;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class ProductPurchaseTestsWithPageObjects {
 
     @BeforeMethod
@@ -28,9 +30,9 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void saturnVLinkAddsCorrectProduct() {
-        MainPage.getInstance().open();
+    public void saturnVLinkAddsCorrectProduct() throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
+        MainPage.getInstanceFactory().open();
 
-        MainPage.getInstance().assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
+        MainPage.getInstanceFactory().assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
     }
 }

@@ -1,29 +1,29 @@
 package pages.v8.multifilepageobjectsectionssingleton.CartPage;
 
 import core.BrowserService;
-import core.ElementFindService;
-import core.NavigationService;
 import pages.v8.multifilepageobjectsectionssingleton.LoggingSingletonDriver;
 import pages.v8.multifilepageobjectsectionssingleton.NavigatableEShopPage;
 import pages.v8.multifilepageobjectsectionssingleton.Sections.BreadcrumbSection;
+import pages.v8.multifilepageobjectsectionssingleton.SingletonFactory;
+
+import java.lang.reflect.InvocationTargetException;
 
 public class CartPage extends NavigatableEShopPage {
     private static CartPage _instance;
-    private final BrowserService _browserService;
-
-    private CartPage(ElementFindService elementFindService, NavigationService navigationService, BrowserService browserService) {
-        super(elementFindService, navigationService);
-        _browserService = browserService;
-    }
+    private final BrowserService _browserService = LoggingSingletonDriver.getInstance();
 
     public static CartPage getInstance()
     {
         if (_instance == null)
         {
-            _instance = new CartPage(LoggingSingletonDriver.getInstance(), LoggingSingletonDriver.getInstance(), LoggingSingletonDriver.getInstance());
+            _instance = new CartPage();
         }
 
         return _instance;
+    }
+
+    public static CartPage getInstanceFactory() throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        return SingletonFactory.getInstance(CartPage.class);
     }
 
     @Override
