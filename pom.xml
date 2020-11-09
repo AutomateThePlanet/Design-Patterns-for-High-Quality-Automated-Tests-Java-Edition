@@ -14,10 +14,8 @@
         <module>Chapter 4- Tests Readability</module>
         <module>Chapter 5- Tests Maintainability</module>
         <module>Chapter 6- API Usability</module>
-        <module>Chapter 8-Assessment System</module>
-        <module>chapter9-benchmarking</module>
-        <module>chapter10-test-data-preparation</module>
         <module>Chapter 7- Building Extensibility in Your Test Library</module>
+        <module>Chapter 7- Building Extensibility</module>
     </modules>
 
     <properties>

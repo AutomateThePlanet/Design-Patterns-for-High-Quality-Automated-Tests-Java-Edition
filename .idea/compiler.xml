@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Chapter 7- Building Extensibility" />
         <module name="Chapter 6- API Usability" />
         <module name="Chapter 4- Tests Readability" />
+        <module name="Chapter 7- Building Extensibility in Your Test Library" />
         <module name="Chapter 2- Stabilize the Tests" />
         <module name="Chapter 3- Optimize the Tests" />
         <module name="Chapter 5- Tests Maintainability" />
