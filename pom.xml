@@ -17,6 +17,7 @@
         <module>Chapter 8-Assessment System</module>
         <module>chapter9-benchmarking</module>
         <module>chapter10-test-data-preparation</module>
+        <module>Chapter 7- Building Extensibility in Your Test Library</module>
     </modules>
 
     <properties>

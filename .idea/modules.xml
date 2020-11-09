@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Chapter 10- Test Data Preparation/Chapter 10- Test Data Preparation.iml" filepath="$PROJECT_DIR$/Chapter 10- Test Data Preparation/Chapter 10- Test Data Preparation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter 8- Assessment System/Chapter 8- Assessment System.iml" filepath="$PROJECT_DIR$/Chapter 8- Assessment System/Chapter 8- Assessment System.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Chapter 9- Benchmarking/Chapter 9- Benchmarking.iml" filepath="$PROJECT_DIR$/Chapter 9- Benchmarking/Chapter 9- Benchmarking.iml" />
+    </modules>
+  </component>
+</project>
