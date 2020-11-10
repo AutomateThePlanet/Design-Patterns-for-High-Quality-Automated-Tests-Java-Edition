@@ -18,6 +18,7 @@
         <module>Chapter 7- Building Extensibility</module>
         <module>Chapter 8- Assessment System</module>
         <module>Chapter 10- Test Data Preparation</module>
+        <module>Chapter 9- Benchmarking</module>
     </modules>
 
     <properties>
