@@ -17,6 +17,7 @@
         <module>Chapter 7- Building Extensibility in Your Test Library</module>
         <module>Chapter 7- Building Extensibility</module>
         <module>Chapter 8- Assessment System</module>
+        <module>Chapter 10- Test Data Preparation</module>
     </modules>
 
     <properties>
