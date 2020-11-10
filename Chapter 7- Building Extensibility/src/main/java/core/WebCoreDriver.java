@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class WebCoreDriver extends Driver {
     private WebDriver _webDriver;
     private WebDriverWait _webDriverWait;
+    private EventFiringWebDriver _eventFiringWebDriver;
 
     @Override
     public void start(Browser browser) {
@@ -47,6 +49,8 @@ public class WebCoreDriver extends Driver {
         }
 
         _webDriverWait = new WebDriverWait(_webDriver, 30);
+        _eventFiringWebDriver = new EventFiringWebDriver(_webDriver);
+        _eventFiringWebDriver.register(new LoggingListener());
     }
 
     @Override
