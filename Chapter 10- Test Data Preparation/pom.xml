@@ -11,5 +11,12 @@
 
     <artifactId>chapter10-test-data-preparation</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+        </dependency>
+    </dependencies>
 
 </project>
