@@ -1,4 +1,4 @@
-package pages.v10.multifilepageobjectpagesectionsappfluent.Sections;
+package multifilepageobjectpagesectionsappfluent.Sections;
 
 import core.Element;
 import core.interfaces.ElementFindService;

@@ -13,12 +13,12 @@
         <module name="Chapter 2- Stabilize the Tests" />
         <module name="Chapter 3- Optimize the Tests" />
         <module name="Chapter 5- Tests Maintainability" />
+        <module name="Chapter 8- Assessment System" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Chapter 10- Test Data Preparation" target="1.11" />
       <module name="Chapter 7- Building Extensibility in Your Test Library" target="1.11" />
-      <module name="Chapter 8- Assessment System" target="1.11" />
       <module name="Chapter 9- Benchmarking" target="1.11" />
     </bytecodeTargetLevel>
   </component>
