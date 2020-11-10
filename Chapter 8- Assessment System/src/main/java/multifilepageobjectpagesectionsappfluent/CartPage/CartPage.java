@@ -1,10 +1,10 @@
 package multifilepageobjectpagesectionsappfluent.CartPage;
 
-import core.LoggingSingletonDriver;
-import core.interfaces.BrowserService;
+import core.BrowserService;
+import multifilepageobjectpagesectionsappfluent.LoggingSingletonDriver;
+import multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
+import multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 import org.testng.Assert;
-import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
-import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 
 public class CartPage extends NavigatableEShopPage {
     private final BrowserService _browserService = LoggingSingletonDriver.getInstance();

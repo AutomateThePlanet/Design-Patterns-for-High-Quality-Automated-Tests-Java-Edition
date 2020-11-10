@@ -1,7 +1,8 @@
 package multifilepageobjectpagesectionsappfluent.Sections;
 
 import core.Element;
-import core.interfaces.ElementFindService;
+import core.ElementFindService;
+import org.openqa.selenium.By;
 
 public class SearchSection {
     private final ElementFindService _elementFindService;
@@ -11,7 +12,7 @@ public class SearchSection {
     }
 
     private Element searchField() {
-        return _elementFindService.findById("woocommerce-product-search-field-0");
+        return _elementFindService.findElement(By.id("woocommerce-product-search-field-0"));
     }
 
     public void searchForItem(String searchText) throws InterruptedException {

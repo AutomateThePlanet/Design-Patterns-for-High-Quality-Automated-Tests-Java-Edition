@@ -1,7 +1,7 @@
 package multifilepageobjectpagesectionsappfluent.MainPage;
 
+import multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import org.testng.Assert;
-import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 
 public class MainPage extends NavigatableEShopPage {
 

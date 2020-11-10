@@ -1,7 +1,8 @@
 package multifilepageobjectpagesectionsappfluent.Sections;
 
 import core.Element;
-import core.interfaces.ElementFindService;
+import core.ElementFindService;
+import org.openqa.selenium.By;
 
 public class BreadcrumbSection {
     private final ElementFindService _elementFindService;
@@ -11,11 +12,11 @@ public class BreadcrumbSection {
     }
 
     private Element breadcrumb() {
-        return _elementFindService.findByClass("woocommerce-breadcrumb");
+        return _elementFindService.findElement(By.className("woocommerce-breadcrumb"));
     }
 
     public void openBreadcrumbItem(String itemToOpen)
     {
-        breadcrumb().findByLinkText(itemToOpen).click();
+        breadcrumb().findElement(By.linkText(itemToOpen)).click();
     }
 }

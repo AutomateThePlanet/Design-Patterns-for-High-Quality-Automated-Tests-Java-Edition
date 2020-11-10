@@ -1,7 +1,8 @@
 package multifilepageobjectpagesectionsappfluent.Sections;
 
 import core.Element;
-import core.interfaces.ElementFindService;
+import core.ElementFindService;
+import org.openqa.selenium.By;
 
 public class MainMenuSection {
     private final ElementFindService _elementFindService;
@@ -11,27 +12,27 @@ public class MainMenuSection {
     }
 
     private Element homeLink() {
-        return _elementFindService.findByLinkText("Home");
+        return _elementFindService.findElement(By.linkText("Home"));
     }
 
     private Element blogLink() {
-        return _elementFindService.findByLinkText("Blog");
+        return _elementFindService.findElement(By.linkText("Blog"));
     }
 
     private Element cartLink() {
-        return _elementFindService.findByLinkText("Cart");
+        return _elementFindService.findElement(By.linkText("Cart"));
     }
 
     private Element checkoutLink() {
-        return _elementFindService.findByLinkText("Checkout");
+        return _elementFindService.findElement(By.linkText("Checkout"));
     }
 
     private Element myAccountLink() {
-        return _elementFindService.findByLinkText("My Account");
+        return _elementFindService.findElement(By.linkText("My Account"));
     }
 
     private Element promotionsLink() {
-        return _elementFindService.findByLinkText("Promotions");
+        return _elementFindService.findElement(By.linkText("Promotions"));
     }
 
     public void openHomePage()

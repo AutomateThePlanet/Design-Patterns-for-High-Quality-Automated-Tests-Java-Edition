@@ -1,7 +1,8 @@
 package multifilepageobjectpagesectionsappfluent.Sections;
 
 import core.Element;
-import core.interfaces.ElementFindService;
+import core.ElementFindService;
+import org.openqa.selenium.By;
 
 public class CartInfoSection {
     private final ElementFindService _elementFindService;
@@ -11,11 +12,11 @@ public class CartInfoSection {
     }
 
     private Element cartIcon() {
-        return _elementFindService.findByClass("cart-contents");
+        return _elementFindService.findElement(By.className("cart-contents"));
     }
 
     private Element cartAmount() {
-        return _elementFindService.findByClass("amount");
+        return _elementFindService.findElement(By.className("amount"));
     }
 
     public String getCurrentAmount()

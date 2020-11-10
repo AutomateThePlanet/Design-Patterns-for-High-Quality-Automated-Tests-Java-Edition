@@ -1,7 +1,6 @@
 package multifilepageobjectpagesectionsappfluent;
 
-import core.LoggingSingletonDriver;
-import core.interfaces.NavigationService;
+import core.NavigationService;
 
 public abstract class NavigatableEShopPage extends EShopPage {
     protected final NavigationService navigationService;

@@ -1,10 +1,9 @@
 package multifilepageobjectpagesectionsappfluent;
 
-import core.LoggingSingletonDriver;
-import core.interfaces.ElementFindService;
-import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.CartInfoSection;
-import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.MainMenuSection;
-import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.SearchSection;
+import core.ElementFindService;
+import multifilepageobjectpagesectionsappfluent.Sections.CartInfoSection;
+import multifilepageobjectpagesectionsappfluent.Sections.MainMenuSection;
+import multifilepageobjectpagesectionsappfluent.Sections.SearchSection;
 
 public abstract class EShopPage {
     protected final ElementFindService elementFindService;
