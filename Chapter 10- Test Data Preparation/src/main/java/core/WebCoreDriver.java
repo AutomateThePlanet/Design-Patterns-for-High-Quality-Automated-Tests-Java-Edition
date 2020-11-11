@@ -1,5 +1,7 @@
 package core;
 
+import configuration.ConfigurationService;
+import configuration.WebSettings;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,24 +12,31 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class WebCoreDriver extends Driver {
     private WebDriver _webDriver;
     private WebDriverWait _webDriverWait;
 
     @Override
-    public void start(Browser browser) {
+    public void start(Browser browser) throws IOException {
+        var webSettings = ConfigurationService.get(WebSettings.class);
         switch (browser)
         {
             case Chrome:
                 WebDriverManager.chromedriver().setup();
                 _webDriver = new ChromeDriver();
+                _webDriver.manage().timeouts().pageLoadTimeout(webSettings.getChrome().getPageLoadTimeout(), TimeUnit.SECONDS);
+                _webDriver.manage().timeouts().setScriptTimeout(webSettings.getChrome().getScriptTimeout(), TimeUnit.SECONDS);
                 break;
             case Firefox:
                 WebDriverManager.firefoxdriver().setup();
                 _webDriver = new FirefoxDriver();
+                _webDriver.manage().timeouts().pageLoadTimeout(webSettings.getFirefox().getPageLoadTimeout(), TimeUnit.SECONDS);
+                _webDriver.manage().timeouts().setScriptTimeout(webSettings.getFirefox().getScriptTimeout(), TimeUnit.SECONDS);
                 break;
             case Edge:
                 //_webDriver = new EdgeDriver();
@@ -45,7 +54,7 @@ public class WebCoreDriver extends Driver {
                 throw new IllegalArgumentException(browser.name());
         }
 
-        _webDriverWait = new WebDriverWait(_webDriver, 30);
+        _webDriverWait = new WebDriverWait(_webDriver, webSettings.getElementWaitTimeout());
     }
 
     @Override

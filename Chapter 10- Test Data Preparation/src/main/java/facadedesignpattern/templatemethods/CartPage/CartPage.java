@@ -1,8 +1,12 @@
 package facadedesignpattern.templatemethods.CartPage;
 
+import configuration.UrlDeterminer;
 import core.Driver;
 import facadedesignpattern.templatemethods.NavigatableEShopPage;
 import facadedesignpattern.templatemethods.Sections.BreadcrumbSection;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class CartPage extends NavigatableEShopPage {
     public CartPage(Driver driver) {
@@ -10,8 +14,8 @@ public class CartPage extends NavigatableEShopPage {
     }
 
     @Override
-    protected String getUrl() {
-        return "http://demos.bellatrix.solutions/cart/";
+    protected String getUrl() throws IOException, URISyntaxException {
+        return UrlDeterminer.getShopUrl("cart");
     }
 
     public CartPageAssertions assertions() {

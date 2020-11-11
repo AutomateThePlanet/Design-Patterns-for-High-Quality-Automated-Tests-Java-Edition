@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class ProductPurchaseTestsWithPageObjects {
     private Driver _driver;
     private static MainPage _mainPage;
@@ -19,7 +21,7 @@ public class ProductPurchaseTestsWithPageObjects {
     private static NewPurchaseFacade _purchaseFacade;
 
     @BeforeMethod
-    public void testInit() {
+    public void testInit() throws IOException {
         _driver = new LoggingDriver(new WebCoreDriver());
         _driver.start(Browser.Chrome);
         _mainPage = new MainPage(_driver);
@@ -34,7 +36,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseFalcon9WithoutFacade() throws InterruptedException {
+    public void purchaseFalcon9WithoutFacade() throws InterruptedException, IOException {
         _mainPage.open();
         _mainPage.addRocketToShoppingCart("Falcon 9");
         _cartPage.applyCoupon("happybirthday");
@@ -60,7 +62,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseSaturnVWithoutFacade() throws InterruptedException {
+    public void purchaseSaturnVWithoutFacade() throws InterruptedException, IOException {
         _mainPage.open();
         _mainPage.addRocketToShoppingCart("Saturn V");
         _cartPage.applyCoupon("happybirthday");
@@ -86,7 +88,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseFalcon9WithFacade() throws InterruptedException {
+    public void purchaseFalcon9WithFacade() throws InterruptedException, IOException {
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
         purchaseInfo.setFirstName("Anton");
@@ -103,7 +105,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseSaturnVWithFacade() throws InterruptedException {
+    public void purchaseSaturnVWithFacade() throws InterruptedException, IOException {
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
         purchaseInfo.setFirstName("Anton");
