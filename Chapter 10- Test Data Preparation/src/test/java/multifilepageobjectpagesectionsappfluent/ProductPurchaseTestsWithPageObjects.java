@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class ProductPurchaseTestsWithPageObjects {
     private App _app;
@@ -24,7 +25,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void testConfig() throws IOException {
+    public void testConfig() throws IOException, URISyntaxException {
         var appap = _app;
         var webSettings = ConfigurationService.get(WebSettings.class);
         var urlSettings = ConfigurationService.get(UrlSettings.class);
@@ -32,6 +33,7 @@ public class ProductPurchaseTestsWithPageObjects {
         System.out.print(webSettings);
         System.out.print(urlSettings);
         System.out.print(billingInfoDefaultValues);
+        var part = UrlDeterminer.getAccountUrl("part1");
     }
 
     @Test
