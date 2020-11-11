@@ -1,0 +1,52 @@
+{
+  "webSettings": {
+    "baseUrl": "http://qa.bellatrix.solutions/",
+    "elementWaitTimeout": "60",
+    "chrome": {
+      "pageLoadTimeout": "120",
+      "scriptTimeout": "5",
+      "artificialDelayBeforeAction": "0"
+    },
+    "firefox": {
+      "pageLoadTimeout": "60",
+      "scriptTimeout": "1",
+      "artificialDelayBeforeAction": "0"
+    },
+    "edge": {
+      "pageLoadTimeout": "60",
+      "scriptTimeout": "1",
+      "artificialDelayBeforeAction": "0"
+    },
+    "internetExplorer": {
+      "pageLoadTimeout": "60",
+      "scriptTimeout": "1",
+      "artificialDelayBeforeAction": "0"
+    },
+    "opera": {
+      "pageLoadTimeout": "60",
+      "scriptTimeout": "1",
+      "artificialDelayBeforeAction": "0"
+    },
+    "safari": {
+      "pageLoadTimeout": "60",
+      "scriptTimeout": "1",
+      "artificialDelayBeforeAction": "0"
+    }
+  },
+  "urlSettings": {
+    "shopUrl": "http://qa.bellatrix.solutions/cart/",
+    "accountUrl": "http://qa.bellatrix.solutions/account/"
+  },
+  "billingInfoDefaultValues": {
+    "email": "info@spaceFlowers.com",
+    "company": "Space Flowers",
+    "country": "Germany",
+    "firstName": "Anton",
+    "lastName": "Angelov",
+    "phone": "+00498888999281",
+    "zip": "10115",
+    "city": "Berlin",
+    "address1": "1 Willi Brandt Avenue Tiergarten",
+    "address2": "2 Willi Brandt Avenue Tiergarten"
+  }
+}

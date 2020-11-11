@@ -1,28 +1,21 @@
 package multifilepageobjectpagesectionsappfluent;
 
-import configuration.AppInitializer;
-import configuration.Props;
+import configuration.*;
 import core.Browser;
 import multifilepageobjectpagesectionsappfluent.CartPage.CartPage;
 import multifilepageobjectpagesectionsappfluent.MainPage.MainPage;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-@SpringBootTest(classes = TestNGWithSpringApplication.class)
-public class ProductPurchaseTestsWithPageObjects extends AbstractTestNGSpringContextTests {
+import java.io.IOException;
+
+public class ProductPurchaseTestsWithPageObjects {
     private App _app;
 
     @BeforeMethod
     public void testInit() {
-        ApplicationContext appContext = new AnnotationConfigApplicationContext(AppInitializer.class);
-        var props = appContext.getBean(Props.class);
-        _app = appContext.getBean(App.class);
-        _app.start(Browser.Chrome);
+        _app = new App(Browser.Chrome);
     }
 
     @AfterMethod
@@ -31,10 +24,14 @@ public class ProductPurchaseTestsWithPageObjects extends AbstractTestNGSpringCon
     }
 
     @Test
-    public void testConfig() {
+    public void testConfig() throws IOException {
         var appap = _app;
-//        var appPropsUserName = _app.getProps().getPassword();
-//        System.out.print(appPropsUserName);
+        var webSettings = ConfigurationService.get(WebSettings.class);
+        var urlSettings = ConfigurationService.get(UrlSettings.class);
+        var billingInfoDefaultValues = ConfigurationService.get(BillingInfoDefaultValues.class);
+        System.out.print(webSettings);
+        System.out.print(urlSettings);
+        System.out.print(billingInfoDefaultValues);
     }
 
     @Test
