@@ -33,6 +33,9 @@ import org.openjdk.jmh.results.AggregationPolicy;
 import org.openjdk.jmh.runner.FailureAssistException;
 
 import core.generated.BenchmarkRunner_jmhType;
+import core.browserinfrastructure.generated.BaseBenchmark_PluginState_jmhType;
+import core.browserinfrastructure.generated.BaseBenchmark_PluginState_jmhType;
+import core.browserinfrastructure.generated.BaseBenchmark_PluginState_jmhType;
 public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
 
     boolean p000, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015;
@@ -68,24 +71,31 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            BenchmarkRunner_jmhType l_benchmarkrunner0_G = _jmh_tryInit_f_benchmarkrunner0_G(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_2 = _jmh_tryInit_f_pluginstate1_2(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_1 = _jmh_tryInit_f_pluginstate1_1(control);
+            BenchmarkRunner_jmhType l_benchmarkrunner0_0 = _jmh_tryInit_f_benchmarkrunner0_0(control, l_pluginstate1_1, l_pluginstate1_2);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_3 = _jmh_tryInit_f_pluginstate1_3(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            benchmarkWebDriverClick_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_benchmarkrunner0_G);
+            benchmarkWebDriverClick_thrpt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_pluginstate1_3, l_benchmarkrunner0_0, l_pluginstate1_1, l_pluginstate1_2);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                    l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                    l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                    l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -94,31 +104,13 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (BenchmarkRunner_jmhType.tearTrialMutexUpdater.compareAndSet(l_benchmarkrunner0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_benchmarkrunner0_G.readyTrial) {
-                            l_benchmarkrunner0_G.tearDown();
-                            l_benchmarkrunner0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        BenchmarkRunner_jmhType.tearTrialMutexUpdater.set(l_benchmarkrunner0_G, 0);
-                    }
-                } else {
-                    long l_benchmarkrunner0_G_backoff = 1;
-                    while (BenchmarkRunner_jmhType.tearTrialMutexUpdater.get(l_benchmarkrunner0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_benchmarkrunner0_G_backoff);
-                        l_benchmarkrunner0_G_backoff = Math.max(1024, l_benchmarkrunner0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_benchmarkrunner0_G = null;
-                }
+                l_pluginstate1_3.doTearDown();
+                l_pluginstate1_1.doTearDown();
+                l_pluginstate1_2.doTearDown();
+                f_pluginstate1_3 = null;
+                f_benchmarkrunner0_0 = null;
+                f_pluginstate1_1 = null;
+                f_pluginstate1_2 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -135,12 +127,16 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void benchmarkWebDriverClick_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, BenchmarkRunner_jmhType l_benchmarkrunner0_G) throws Throwable {
+    public static void benchmarkWebDriverClick_thrpt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, BaseBenchmark_PluginState_jmhType l_pluginstate1_3, BenchmarkRunner_jmhType l_benchmarkrunner0_0, BaseBenchmark_PluginState_jmhType l_pluginstate1_1, BaseBenchmark_PluginState_jmhType l_pluginstate1_2) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_benchmarkrunner0_G.benchmarkWebDriverClick();
+            l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+            long rt = System.nanoTime();
+            l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+            realTime += (System.nanoTime() - rt);
+            l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -159,24 +155,31 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            BenchmarkRunner_jmhType l_benchmarkrunner0_G = _jmh_tryInit_f_benchmarkrunner0_G(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_2 = _jmh_tryInit_f_pluginstate1_2(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_1 = _jmh_tryInit_f_pluginstate1_1(control);
+            BenchmarkRunner_jmhType l_benchmarkrunner0_0 = _jmh_tryInit_f_benchmarkrunner0_0(control, l_pluginstate1_1, l_pluginstate1_2);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_3 = _jmh_tryInit_f_pluginstate1_3(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                 res.allOps++;
             }
 
             notifyControl.startMeasurement = true;
-            benchmarkWebDriverClick_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_benchmarkrunner0_G);
+            benchmarkWebDriverClick_avgt_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, l_pluginstate1_3, l_benchmarkrunner0_0, l_pluginstate1_1, l_pluginstate1_2);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                    l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                    l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                    l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -185,31 +188,13 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (BenchmarkRunner_jmhType.tearTrialMutexUpdater.compareAndSet(l_benchmarkrunner0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_benchmarkrunner0_G.readyTrial) {
-                            l_benchmarkrunner0_G.tearDown();
-                            l_benchmarkrunner0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        BenchmarkRunner_jmhType.tearTrialMutexUpdater.set(l_benchmarkrunner0_G, 0);
-                    }
-                } else {
-                    long l_benchmarkrunner0_G_backoff = 1;
-                    while (BenchmarkRunner_jmhType.tearTrialMutexUpdater.get(l_benchmarkrunner0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_benchmarkrunner0_G_backoff);
-                        l_benchmarkrunner0_G_backoff = Math.max(1024, l_benchmarkrunner0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_benchmarkrunner0_G = null;
-                }
+                l_pluginstate1_3.doTearDown();
+                l_pluginstate1_1.doTearDown();
+                l_pluginstate1_2.doTearDown();
+                f_pluginstate1_3 = null;
+                f_benchmarkrunner0_0 = null;
+                f_pluginstate1_1 = null;
+                f_pluginstate1_2 = null;
             }
             res.allOps += res.measuredOps;
             int batchSize = iterationParams.getBatchSize();
@@ -226,12 +211,16 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void benchmarkWebDriverClick_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, BenchmarkRunner_jmhType l_benchmarkrunner0_G) throws Throwable {
+    public static void benchmarkWebDriverClick_avgt_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, BaseBenchmark_PluginState_jmhType l_pluginstate1_3, BenchmarkRunner_jmhType l_benchmarkrunner0_0, BaseBenchmark_PluginState_jmhType l_pluginstate1_1, BaseBenchmark_PluginState_jmhType l_pluginstate1_2) throws Throwable {
         long operations = 0;
         long realTime = 0;
         result.startTime = System.nanoTime();
         do {
-            l_benchmarkrunner0_G.benchmarkWebDriverClick();
+            l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+            long rt = System.nanoTime();
+            l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+            realTime += (System.nanoTime() - rt);
+            l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
             operations++;
         } while(!control.isDone);
         result.stopTime = System.nanoTime();
@@ -250,14 +239,19 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
         }
         if (threadParams.getSubgroupIndex() == 0) {
             RawResults res = new RawResults();
-            BenchmarkRunner_jmhType l_benchmarkrunner0_G = _jmh_tryInit_f_benchmarkrunner0_G(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_2 = _jmh_tryInit_f_pluginstate1_2(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_1 = _jmh_tryInit_f_pluginstate1_1(control);
+            BenchmarkRunner_jmhType l_benchmarkrunner0_0 = _jmh_tryInit_f_benchmarkrunner0_0(control, l_pluginstate1_1, l_pluginstate1_2);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_3 = _jmh_tryInit_f_pluginstate1_3(control);
 
             control.preSetup();
 
 
             control.announceWarmupReady();
             while (control.warmupShouldWait) {
-                l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                 res.allOps++;
             }
 
@@ -266,12 +260,14 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             int batchSize = iterationParams.getBatchSize();
             int opsPerInv = benchmarkParams.getOpsPerInvocation();
             SampleBuffer buffer = new SampleBuffer();
-            benchmarkWebDriverClick_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_benchmarkrunner0_G);
+            benchmarkWebDriverClick_sample_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, buffer, targetSamples, opsPerInv, batchSize, l_pluginstate1_3, l_benchmarkrunner0_0, l_pluginstate1_1, l_pluginstate1_2);
             notifyControl.stopMeasurement = true;
             control.announceWarmdownReady();
             try {
                 while (control.warmdownShouldWait) {
-                    l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                    l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+                    l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+                    l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
                     res.allOps++;
                 }
                 control.preTearDown();
@@ -280,31 +276,13 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             }
 
             if (control.isLastIteration()) {
-                if (BenchmarkRunner_jmhType.tearTrialMutexUpdater.compareAndSet(l_benchmarkrunner0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_benchmarkrunner0_G.readyTrial) {
-                            l_benchmarkrunner0_G.tearDown();
-                            l_benchmarkrunner0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        BenchmarkRunner_jmhType.tearTrialMutexUpdater.set(l_benchmarkrunner0_G, 0);
-                    }
-                } else {
-                    long l_benchmarkrunner0_G_backoff = 1;
-                    while (BenchmarkRunner_jmhType.tearTrialMutexUpdater.get(l_benchmarkrunner0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_benchmarkrunner0_G_backoff);
-                        l_benchmarkrunner0_G_backoff = Math.max(1024, l_benchmarkrunner0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_benchmarkrunner0_G = null;
-                }
+                l_pluginstate1_3.doTearDown();
+                l_pluginstate1_1.doTearDown();
+                l_pluginstate1_2.doTearDown();
+                f_pluginstate1_3 = null;
+                f_benchmarkrunner0_0 = null;
+                f_pluginstate1_1 = null;
+                f_pluginstate1_2 = null;
             }
             res.allOps += res.measuredOps * batchSize;
             res.allOps *= opsPerInv;
@@ -318,7 +296,7 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void benchmarkWebDriverClick_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, BenchmarkRunner_jmhType l_benchmarkrunner0_G) throws Throwable {
+    public static void benchmarkWebDriverClick_sample_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, SampleBuffer buffer, int targetSamples, long opsPerInv, int batchSize, BaseBenchmark_PluginState_jmhType l_pluginstate1_3, BenchmarkRunner_jmhType l_benchmarkrunner0_0, BaseBenchmark_PluginState_jmhType l_pluginstate1_1, BaseBenchmark_PluginState_jmhType l_pluginstate1_2) throws Throwable {
         long realTime = 0;
         long operations = 0;
         int rnd = (int)System.nanoTime();
@@ -326,6 +304,8 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
         long time = 0;
         int currentStride = 0;
         do {
+            l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+            long rt = System.nanoTime();
             rnd = (rnd * 1664525 + 1013904223);
             boolean sample = (rnd & rndMask) == 0;
             if (sample) {
@@ -333,7 +313,7 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             }
             for (int b = 0; b < batchSize; b++) {
                 if (control.volatileSpoiler) return;
-                l_benchmarkrunner0_G.benchmarkWebDriverClick();
+                l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
             }
             if (sample) {
                 buffer.add((System.nanoTime() - time) / opsPerInv);
@@ -343,6 +323,8 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
                     rndMask = (rndMask << 1) + 1;
                 }
             }
+            realTime += (System.nanoTime() - rt);
+            l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
             operations++;
         } while(!control.isDone);
         startRndMask = Math.max(startRndMask, rndMask);
@@ -360,7 +342,10 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             this.blackhole = new Blackhole("Today's password is swordfish. I understand instantiating Blackholes directly is dangerous.");
         }
         if (threadParams.getSubgroupIndex() == 0) {
-            BenchmarkRunner_jmhType l_benchmarkrunner0_G = _jmh_tryInit_f_benchmarkrunner0_G(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_2 = _jmh_tryInit_f_pluginstate1_2(control);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_1 = _jmh_tryInit_f_pluginstate1_1(control);
+            BenchmarkRunner_jmhType l_benchmarkrunner0_0 = _jmh_tryInit_f_benchmarkrunner0_0(control, l_pluginstate1_1, l_pluginstate1_2);
+            BaseBenchmark_PluginState_jmhType l_pluginstate1_3 = _jmh_tryInit_f_pluginstate1_3(control);
 
             control.preSetup();
 
@@ -368,35 +353,17 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             notifyControl.startMeasurement = true;
             RawResults res = new RawResults();
             int batchSize = iterationParams.getBatchSize();
-            benchmarkWebDriverClick_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_benchmarkrunner0_G);
+            benchmarkWebDriverClick_ss_jmhStub(control, res, benchmarkParams, iterationParams, threadParams, blackhole, notifyControl, startRndMask, batchSize, l_pluginstate1_3, l_benchmarkrunner0_0, l_pluginstate1_1, l_pluginstate1_2);
             control.preTearDown();
 
             if (control.isLastIteration()) {
-                if (BenchmarkRunner_jmhType.tearTrialMutexUpdater.compareAndSet(l_benchmarkrunner0_G, 0, 1)) {
-                    try {
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (l_benchmarkrunner0_G.readyTrial) {
-                            l_benchmarkrunner0_G.tearDown();
-                            l_benchmarkrunner0_G.readyTrial = false;
-                        }
-                    } catch (Throwable t) {
-                        control.isFailing = true;
-                        throw t;
-                    } finally {
-                        BenchmarkRunner_jmhType.tearTrialMutexUpdater.set(l_benchmarkrunner0_G, 0);
-                    }
-                } else {
-                    long l_benchmarkrunner0_G_backoff = 1;
-                    while (BenchmarkRunner_jmhType.tearTrialMutexUpdater.get(l_benchmarkrunner0_G) == 1) {
-                        TimeUnit.MILLISECONDS.sleep(l_benchmarkrunner0_G_backoff);
-                        l_benchmarkrunner0_G_backoff = Math.max(1024, l_benchmarkrunner0_G_backoff * 2);
-                        if (control.isFailing) throw new FailureAssistException();
-                        if (Thread.interrupted()) throw new InterruptedException();
-                    }
-                }
-                synchronized(this.getClass()) {
-                    f_benchmarkrunner0_G = null;
-                }
+                l_pluginstate1_3.doTearDown();
+                l_pluginstate1_1.doTearDown();
+                l_pluginstate1_2.doTearDown();
+                f_pluginstate1_3 = null;
+                f_benchmarkrunner0_0 = null;
+                f_pluginstate1_1 = null;
+                f_pluginstate1_2 = null;
             }
             int opsPerInv = control.benchmarkParams.getOpsPerInvocation();
             long totalOps = opsPerInv;
@@ -408,40 +375,69 @@ public final class BenchmarkRunner_benchmarkWebDriverClick_jmhTest {
             throw new IllegalStateException("Harness failed to distribute threads among groups properly");
     }
 
-    public static void benchmarkWebDriverClick_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, BenchmarkRunner_jmhType l_benchmarkrunner0_G) throws Throwable {
+    public static void benchmarkWebDriverClick_ss_jmhStub(InfraControl control, RawResults result, BenchmarkParams benchmarkParams, IterationParams iterationParams, ThreadParams threadParams, Blackhole blackhole, Control notifyControl, int startRndMask, int batchSize, BaseBenchmark_PluginState_jmhType l_pluginstate1_3, BenchmarkRunner_jmhType l_benchmarkrunner0_0, BaseBenchmark_PluginState_jmhType l_pluginstate1_1, BaseBenchmark_PluginState_jmhType l_pluginstate1_2) throws Throwable {
         long realTime = 0;
         result.startTime = System.nanoTime();
         for (int b = 0; b < batchSize; b++) {
             if (control.volatileSpoiler) return;
-            l_benchmarkrunner0_G.benchmarkWebDriverClick();
+            l_benchmarkrunner0_0.setup(l_pluginstate1_1);
+            long rt = System.nanoTime();
+            l_benchmarkrunner0_0.benchmarkWebDriverClick(l_pluginstate1_3);
+            realTime += (System.nanoTime() - rt);
+            l_benchmarkrunner0_0.tearDown(l_pluginstate1_2);
         }
         result.stopTime = System.nanoTime();
         result.realTime = realTime;
     }
 
     
-    static volatile BenchmarkRunner_jmhType f_benchmarkrunner0_G;
+    BenchmarkRunner_jmhType f_benchmarkrunner0_0;
     
-    BenchmarkRunner_jmhType _jmh_tryInit_f_benchmarkrunner0_G(InfraControl control) throws Throwable {
-        BenchmarkRunner_jmhType val = f_benchmarkrunner0_G;
-        if (val != null) {
-            return val;
-        }
-        synchronized(this.getClass()) {
-            try {
-            if (control.isFailing) throw new FailureAssistException();
-            val = f_benchmarkrunner0_G;
-            if (val != null) {
-                return val;
-            }
+    BenchmarkRunner_jmhType _jmh_tryInit_f_benchmarkrunner0_0(InfraControl control, BaseBenchmark_PluginState_jmhType l_pluginstate1_1, BaseBenchmark_PluginState_jmhType l_pluginstate1_2) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        BenchmarkRunner_jmhType val = f_benchmarkrunner0_0;
+        if (val == null) {
             val = new BenchmarkRunner_jmhType();
-            val.setup();
-            val.readyTrial = true;
-            f_benchmarkrunner0_G = val;
-            } catch (Throwable t) {
-                control.isFailing = true;
-                throw t;
-            }
+            f_benchmarkrunner0_0 = val;
+        }
+        return val;
+    }
+    
+    BaseBenchmark_PluginState_jmhType f_pluginstate1_1;
+    
+    BaseBenchmark_PluginState_jmhType _jmh_tryInit_f_pluginstate1_1(InfraControl control) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        BaseBenchmark_PluginState_jmhType val = f_pluginstate1_1;
+        if (val == null) {
+            val = new BaseBenchmark_PluginState_jmhType();
+            val.doSetup();
+            f_pluginstate1_1 = val;
+        }
+        return val;
+    }
+    
+    BaseBenchmark_PluginState_jmhType f_pluginstate1_2;
+    
+    BaseBenchmark_PluginState_jmhType _jmh_tryInit_f_pluginstate1_2(InfraControl control) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        BaseBenchmark_PluginState_jmhType val = f_pluginstate1_2;
+        if (val == null) {
+            val = new BaseBenchmark_PluginState_jmhType();
+            val.doSetup();
+            f_pluginstate1_2 = val;
+        }
+        return val;
+    }
+    
+    BaseBenchmark_PluginState_jmhType f_pluginstate1_3;
+    
+    BaseBenchmark_PluginState_jmhType _jmh_tryInit_f_pluginstate1_3(InfraControl control) throws Throwable {
+        if (control.isFailing) throw new FailureAssistException();
+        BaseBenchmark_PluginState_jmhType val = f_pluginstate1_3;
+        if (val == null) {
+            val = new BaseBenchmark_PluginState_jmhType();
+            val.doSetup();
+            f_pluginstate1_3 = val;
         }
         return val;
     }

@@ -45,4 +45,9 @@ public class DriverDecorator extends Driver {
     public void waitUntilPageLoadsCompletely() {
         Driver.waitUntilPageLoadsCompletely();
     }
+
+    @Override
+    public void executeScript(String script, Object... args) {
+        Driver.executeScript(script, args);
+    }
 }

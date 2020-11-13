@@ -50,7 +50,9 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public void quit() {
-        _webDriver.quit();
+        if (_webDriver != null) {
+            _webDriver.quit();
+        }
     }
 
     @Override
@@ -94,5 +96,11 @@ public class WebCoreDriver extends Driver {
     public void waitUntilPageLoadsCompletely() {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
         _webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
+    }
+
+    @Override
+    public void executeScript(String script, Object... args) {
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) _webDriver;
+        javascriptExecutor.executeScript(script, args);
     }
 }

@@ -5,5 +5,7 @@ dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
 inline,core/BenchmarkRunner.benchmarkJavaScriptClick
 inline,core/BenchmarkRunner.benchmarkWebDriverClick
-inline,core/BenchmarkRunner.setup
-inline,core/BenchmarkRunner.tearDown
+inline,core/browserinfrastructure/BaseBenchmark$PluginState.doSetup
+inline,core/browserinfrastructure/BaseBenchmark$PluginState.doTearDown
+inline,core/browserinfrastructure/BaseBenchmark.setup
+inline,core/browserinfrastructure/BaseBenchmark.tearDown
