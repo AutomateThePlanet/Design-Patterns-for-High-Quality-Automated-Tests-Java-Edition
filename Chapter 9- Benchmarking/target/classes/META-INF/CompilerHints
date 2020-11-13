@@ -3,7 +3,6 @@ dontinline,*.*_avgt_jmhStub
 dontinline,*.*_sample_jmhStub
 dontinline,*.*_ss_jmhStub
 dontinline,*.*_thrpt_jmhStub
-inline,core/BenchmarkRunner.benchmarkJavaScriptClick
 inline,core/BenchmarkRunner.benchmarkWebDriverClick
 inline,core/browserinfrastructure/BaseBenchmark$PluginState.doSetup
 inline,core/browserinfrastructure/BaseBenchmark$PluginState.doTearDown

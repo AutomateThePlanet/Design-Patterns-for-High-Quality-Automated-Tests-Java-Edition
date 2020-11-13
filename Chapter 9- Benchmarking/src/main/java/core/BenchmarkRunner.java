@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.SECONDS)
 @State(Scope.Thread)
-@Warmup(iterations = 1)
+@Warmup(iterations = 0)
 @Measurement(iterations = 10)
 @ExecutionBrowser(browser = Browser.Chrome, browserBehavior = BrowserBehavior.RestartEveryTime)
 public class BenchmarkRunner extends BaseBenchmark {
@@ -52,11 +52,11 @@ public class BenchmarkRunner extends BaseBenchmark {
         }
     }
 
-    @Benchmark
-    public void benchmarkJavaScriptClick(PluginState pluginState) {
-        var buttons = pluginState.getDriver().findElements(By.xpath("//input[@value='Submit']"));
-        for (var button:buttons) {
-            pluginState.getDriver().executeScript("arguments[0].click();", button);
-        }
-    }
+//    @Benchmark
+//    public void benchmarkJavaScriptClick(PluginState pluginState) {
+//        var buttons = pluginState.getDriver().findElements(By.xpath("//input[@value='Submit']"));
+//        for (var button:buttons) {
+//            pluginState.getDriver().executeScript("arguments[0].click();", button);
+//        }
+//    }
 }
