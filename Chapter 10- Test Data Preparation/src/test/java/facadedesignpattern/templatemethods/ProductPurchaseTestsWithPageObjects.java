@@ -1,3 +1,16 @@
+/*
+ * Copyright 2021 Automate The Planet Ltd.
+ * Author: Anton Angelov
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package facadedesignpattern.templatemethods;
 
 import core.Browser;
@@ -12,6 +25,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class ProductPurchaseTestsWithPageObjects {
     private Driver _driver;
@@ -36,7 +50,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseFalcon9WithoutFacade() throws InterruptedException, IOException {
+    public void purchaseFalcon9WithoutFacade() throws InterruptedException, IOException, URISyntaxException {
         _mainPage.open();
         _mainPage.addRocketToShoppingCart("Falcon 9");
         _cartPage.applyCoupon("happybirthday");
@@ -62,7 +76,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseSaturnVWithoutFacade() throws InterruptedException, IOException {
+    public void purchaseSaturnVWithoutFacade() throws InterruptedException, IOException, URISyntaxException {
         _mainPage.open();
         _mainPage.addRocketToShoppingCart("Saturn V");
         _cartPage.applyCoupon("happybirthday");
@@ -88,7 +102,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseFalcon9WithFacade() throws InterruptedException, IOException {
+    public void purchaseFalcon9WithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
         purchaseInfo.setFirstName("Anton");
@@ -105,7 +119,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void purchaseSaturnVWithFacade() throws InterruptedException, IOException {
+    public void purchaseSaturnVWithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
         purchaseInfo.setFirstName("Anton");

@@ -8,14 +8,23 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Chapter 7- Building Extensibility" />
         <module name="Chapter 6- API Usability" />
-        <module name="Chapter 10- Test Data Preparation" />
+        <module name="chapter3-optimize-the-tests" />
+        <module name="chapter5-tests-maintainability" />
+        <module name="chapter8-assessment-system" />
         <module name="Chapter 9- Benchmarking" />
-        <module name="Chapter 4- Tests Readability" />
+        <module name="chapter9-benchmarking" />
+        <module name="chapter4-tests-readability" />
         <module name="Chapter 7- Building Extensibility in Your Test Library" />
         <module name="Chapter 2- Stabilize the Tests" />
         <module name="Chapter 3- Optimize the Tests" />
         <module name="Chapter 5- Tests Maintainability" />
         <module name="Chapter 8- Assessment System" />
+        <module name="chapter7-building-extensibility-tests" />
+        <module name="Chapter 10- Test Data Preparation" />
+        <module name="chapter7-extensibility" />
+        <module name="chapter10-test-data-preparation" />
+        <module name="Chapter 4- Tests Readability" />
+        <module name="chapter2-stabilize-the-tests" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

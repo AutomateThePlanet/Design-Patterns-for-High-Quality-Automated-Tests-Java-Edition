@@ -1,3 +1,16 @@
+/*
+ * Copyright 2021 Automate The Planet Ltd.
+ * Author: Anton Angelov
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * You may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package webdriverwait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -23,8 +36,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class ProductPurchaseTests {
     private WebDriver driver;
-    private static String _purchaseEmail;
-    private static String _purchaseOrderNumber;
+    private static String purchaseEmail;
+    private static String purchaseOrderNumber;
 
     @BeforeMethod
     public void testInit() {
@@ -93,7 +106,7 @@ public class ProductPurchaseTests {
         billingPhone.sendKeys("+00498888999281");
         var billingEmail = waitAndFindElement(By.id("billing_email"));
         billingEmail.sendKeys("info@berlinspaceflowers.com");
-        _purchaseEmail = "info@berlinspaceflowers.com";
+        purchaseEmail = "info@berlinspaceflowers.com";
 
         // This pause will be removed when we introduce a logic for waiting for AJAX requests.
         Thread.sleep(5000);
@@ -138,9 +151,9 @@ public class ProductPurchaseTests {
         var loginHereLink = waitAndFindElement(By.linkText("Click here to login"));
         loginHereLink.click();
         var userName = waitAndFindElement(By.id("username"));
-        userName.sendKeys(_purchaseEmail);
+        userName.sendKeys(purchaseEmail);
         var password = waitAndFindElement(By.id("password"));
-        password.sendKeys(GetUserPasswordFromDb(_purchaseEmail));
+        password.sendKeys(GetUserPasswordFromDb(purchaseEmail));
         var loginButton = waitAndFindElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 
@@ -153,7 +166,7 @@ public class ProductPurchaseTests {
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
         var orderNumber = waitAndFindElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
-        _purchaseOrderNumber = orderNumber.getText();
+        purchaseOrderNumber = orderNumber.getText();
     }
 
     @Test(priority=3)
@@ -164,9 +177,9 @@ public class ProductPurchaseTests {
         myAccountLink.click();
         var userName = waitAndFindElement(By.id("username"));
         Thread.sleep(4000);
-        userName.sendKeys(_purchaseEmail);
+        userName.sendKeys(purchaseEmail);
         var password = waitAndFindElement(By.id("password"));
-        password.sendKeys(GetUserPasswordFromDb(GetUserPasswordFromDb(_purchaseEmail)));
+        password.sendKeys(GetUserPasswordFromDb(GetUserPasswordFromDb(purchaseEmail)));
         var loginButton = waitAndFindElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 
@@ -177,7 +190,7 @@ public class ProductPurchaseTests {
         viewButtons.get(0).click();
 
         var orderName = waitAndFindElement(By.xpath("//h1"));
-        String expectedMessage = String.format("Order #%s", _purchaseOrderNumber);
+        String expectedMessage = String.format("Order #%s", purchaseOrderNumber);
         Assert.assertEquals(expectedMessage, orderName.getText());
     }
 
