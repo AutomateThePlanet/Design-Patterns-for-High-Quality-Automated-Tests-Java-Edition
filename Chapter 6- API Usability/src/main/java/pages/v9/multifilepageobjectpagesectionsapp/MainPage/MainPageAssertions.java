@@ -16,15 +16,15 @@ package pages.v9.multifilepageobjectpagesectionsapp.MainPage;
 import org.testng.Assert;
 
 public class MainPageAssertions {
-    private final MainPageElements _elements;
+    private final MainPageElements elements;
 
     public MainPageAssertions(MainPageElements mainPageElements) {
-        _elements = mainPageElements;
+        elements = mainPageElements;
     }
 
     public void assertProductBoxLink(String name, String expectedLink)
     {
-        var actualLink = _elements.getProductBoxByName(name).getAttribute("href");
+        var actualLink = elements.getProductBoxByName(name).getAttribute("href");
         Assert.assertEquals(actualLink, expectedLink);
     }
 }

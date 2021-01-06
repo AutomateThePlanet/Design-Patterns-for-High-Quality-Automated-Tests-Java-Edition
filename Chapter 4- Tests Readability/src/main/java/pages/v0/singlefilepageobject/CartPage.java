@@ -18,28 +18,28 @@ import core.Element;
 import org.openqa.selenium.By;
 
 public class CartPage {
-    private final Driver _driver;
+    private final Driver driver;
 
     public CartPage(Driver driver) {
-        _driver = driver;
+        this.driver = driver;
     }
 
     public void applyCoupon(String coupon) throws InterruptedException {
         couponCodeTextField().typeText(coupon);
         applyCouponButton().click();
-        _driver.waitForAjax();
+        driver.waitForAjax();
     }
 
     public void increaseProductQuantity(int newQuantity) throws InterruptedException {
         quantityBox().typeText(String.valueOf(newQuantity));
         updateCart().click();
-        _driver.waitForAjax();
+        driver.waitForAjax();
     }
 
     public void clickProceedToCheckout()
     {
         proceedToCheckout().click();
-        _driver.waitUntilPageLoadsCompletely();
+        driver.waitUntilPageLoadsCompletely();
     }
 
     public String getTotal()
@@ -54,30 +54,30 @@ public class CartPage {
     }
 
     private Element couponCodeTextField() {
-        return _driver.findElement(By.id("coupon_code"));
+        return driver.findElement(By.id("coupon_code"));
     }
 
     private Element applyCouponButton() {
-        return _driver.findElement(By.cssSelector("[value*='Apply coupon']"));
+        return driver.findElement(By.cssSelector("[value*='Apply coupon']"));
     }
 
     private Element quantityBox() {
-        return _driver.findElement(By.cssSelector("[class*='input-text qty text']"));
+        return driver.findElement(By.cssSelector("[class*='input-text qty text']"));
     }
 
     private Element updateCart() {
-        return _driver.findElement(By.cssSelector("[value*='Update cart']"));
+        return driver.findElement(By.cssSelector("[value*='Update cart']"));
     }
 
     private Element messageAlert() {
-        return _driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
+        return driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
     }
 
     private Element totalSpan() {
-        return _driver.findElement(By.xpath("//*[@class='order-total']//span"));
+        return driver.findElement(By.xpath("//*[@class='order-total']//span"));
     }
 
     private Element proceedToCheckout() {
-        return _driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
+        return driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
     }
 }

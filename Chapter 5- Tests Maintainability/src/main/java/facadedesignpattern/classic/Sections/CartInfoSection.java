@@ -18,18 +18,18 @@ import core.Element;
 import org.openqa.selenium.By;
 
 public class CartInfoSection {
-    private final Driver _driver;
+    private final Driver driver;
 
     public CartInfoSection(Driver driver) {
-        _driver = driver;
+        this.driver = driver;
     }
 
     private Element cartIcon() {
-        return _driver.findElement(By.className("cart-contents"));
+        return driver.findElement(By.className("cart-contents"));
     }
 
     private Element cartAmount() {
-        return _driver.findElement(By.className("amount"));
+        return driver.findElement(By.className("amount"));
     }
 
     public String getCurrentAmount()

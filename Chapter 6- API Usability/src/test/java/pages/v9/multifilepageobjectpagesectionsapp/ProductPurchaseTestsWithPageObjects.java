@@ -20,29 +20,29 @@ import org.testng.annotations.Test;
 import pages.v9.multifilepageobjectpagesectionsapp.MainPage.MainPage;
 
 public class ProductPurchaseTestsWithPageObjects {
-    private static App _app;
+    private static App app;
 
     @BeforeMethod
     public void testInit() {
-        _app = new App(Browser.Chrome);
+        app = new App(Browser.CHROME);
     }
 
     @AfterMethod
     public void testCleanup() throws Exception {
-        _app.close();
+        app.close();
     }
 
     @Test
     public void falcon9LinkAddsCorrectProduct() {
-        var mainPage = _app.goTo(MainPage.class);
+        var mainPage = app.goTo(MainPage.class);
 
         mainPage.assertions().assertProductBoxLink("Falcon 9", "http://demos.bellatrix.solutions/product/falcon-9/");
     }
 
     @Test
     public void saturnVLinkAddsCorrectProduct() {
-        var mainPage = _app.goTo(MainPage.class);
+        var mainPage = app.goTo(MainPage.class);
 
-        _app.create(MainPage.class).assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
+        app.create(MainPage.class).assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
     }
 }

@@ -18,18 +18,18 @@ import core.ElementFindService;
 import org.openqa.selenium.By;
 
 public class CartInfoSection {
-    private final ElementFindService _elementFindService;
+    private final ElementFindService elementFindService;
 
     public CartInfoSection(ElementFindService elementFindService) {
-        _elementFindService = elementFindService;
+        this.elementFindService = elementFindService;
     }
 
     private Element cartIcon() {
-        return _elementFindService.findElement(By.className("cart-contents"));
+        return elementFindService.findElement(By.className("cart-contents"));
     }
 
     private Element cartAmount() {
-        return _elementFindService.findElement(By.className("amount"));
+        return elementFindService.findElement(By.className("amount"));
     }
 
     public String getCurrentAmount()

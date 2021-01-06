@@ -13,26 +13,20 @@
 
 package pages.v8.multifilepageobjectsectionssingleton.MainPage;
 
-import core.ElementFindService;
-import core.NavigationService;
-import pages.v8.multifilepageobjectsectionssingleton.CartPage.CartPage;
-import pages.v8.multifilepageobjectsectionssingleton.LoggingSingletonDriver;
 import pages.v8.multifilepageobjectsectionssingleton.NavigatableEShopPage;
 import pages.v8.multifilepageobjectsectionssingleton.SingletonFactory;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class MainPage extends NavigatableEShopPage {
-    private static MainPage _instance;
+    private static MainPage instance;
 
     public static MainPage getInstance()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = new MainPage();
+            instance = new MainPage();
         }
 
-        return _instance;
+        return instance;
     }
 
     public static MainPage getInstanceFactory() {

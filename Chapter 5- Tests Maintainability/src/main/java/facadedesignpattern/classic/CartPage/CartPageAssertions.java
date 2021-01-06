@@ -16,19 +16,19 @@ package facadedesignpattern.classic.CartPage;
 import org.testng.Assert;
 
 public class CartPageAssertions {
-    private final CartPageElements _elements;
+    private final CartPageElements elements;
 
     public CartPageAssertions(CartPageElements elements) {
-        _elements = elements;
+        this.elements = elements;
     }
 
     public void assertCouponAppliedSuccessfully()
     {
-        Assert.assertEquals(_elements.messageAlert().getText(), "Coupon code applied successfully.");
+        Assert.assertEquals(elements.messageAlert().getText(), "Coupon code applied successfully.");
     }
 
     public void assertTotalPrice(String expectedPrice)
     {
-        Assert.assertEquals(_elements.totalSpan().getText(), expectedPrice);
+        Assert.assertEquals(elements.totalSpan().getText(), expectedPrice);
     }
 }

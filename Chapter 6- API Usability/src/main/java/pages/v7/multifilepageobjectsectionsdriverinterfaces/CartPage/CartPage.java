@@ -20,11 +20,11 @@ import pages.v7.multifilepageobjectsectionsdriverinterfaces.NavigatableEShopPage
 import pages.v7.multifilepageobjectsectionsdriverinterfaces.Sections.BreadcrumbSection;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService _browserService;
+    private final BrowserService browserService;
 
     public CartPage(ElementFindService elementFindService, NavigationService navigationService, BrowserService browserService) {
         super(elementFindService, navigationService);
-        _browserService = browserService;
+        this.browserService = browserService;
     }
 
     @Override
@@ -43,19 +43,19 @@ public class CartPage extends NavigatableEShopPage {
     public void applyCoupon(String coupon) throws InterruptedException {
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
     }
 
     public void increaseProductQuantity(int newQuantity) throws InterruptedException {
         elements().quantityBox().typeText(String.valueOf(newQuantity));
         elements().updateCart().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
     }
 
     public void clickProceedToCheckout()
     {
         elements().proceedToCheckout().click();
-        _browserService.waitUntilPageLoadsCompletely();
+        browserService.waitUntilPageLoadsCompletely();
     }
 
     public String getTotal()

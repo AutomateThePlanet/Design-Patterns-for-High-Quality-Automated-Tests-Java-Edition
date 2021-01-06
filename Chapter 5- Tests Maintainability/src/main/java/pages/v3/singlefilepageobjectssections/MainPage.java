@@ -21,37 +21,37 @@ import pages.v3.singlefilepageobjectssections.Sections.MainMenuSection;
 import pages.v3.singlefilepageobjectssections.Sections.SearchSection;
 
 public class MainPage {
-    private final Driver _driver;
-    private final String _url = "http://demos.bellatrix.solutions/";
+    private final Driver driver;
+    private final String url = "http://demos.bellatrix.solutions/";
 
     public MainPage(Driver driver)
     {
-        _driver = driver;
+        this.driver = driver;
     }
 
     private Element addToCartFalcon9() {
-        return _driver.findElement(By.cssSelector("[data-product_id*='28']"));
+        return driver.findElement(By.cssSelector("[data-product_id*='28']"));
     }
 
     private Element viewCartButton() {
-        return _driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
+        return driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
     }
 
     public MainMenuSection mainMenuSection() {
-        return new MainMenuSection(_driver);
+        return new MainMenuSection(driver);
     }
 
     public CartInfoSection cartInfoSection() {
-        return new CartInfoSection(_driver);
+        return new CartInfoSection(driver);
     }
 
     public SearchSection searchSection() {
-        return new SearchSection(_driver);
+        return new SearchSection(driver);
     }
 
     public void addRocketToShoppingCart()
     {
-        _driver.goToUrl(_url);
+        driver.goToUrl(url);
         addToCartFalcon9().click();
         viewCartButton().click();
     }

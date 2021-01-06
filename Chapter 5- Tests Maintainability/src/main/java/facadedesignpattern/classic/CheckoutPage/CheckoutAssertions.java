@@ -16,14 +16,14 @@ package facadedesignpattern.classic.CheckoutPage;
 import org.testng.Assert;
 
 public class CheckoutAssertions {
-    private final CheckoutElements _elements;
+    private final CheckoutElements elements;
 
     public CheckoutAssertions(CheckoutElements elements) {
-        _elements = elements;
+        this.elements = elements;
     }
 
     public void assertOrderReceived()
     {
-        Assert.assertEquals(_elements.receivedMessage().getText(), "Order received");
+        Assert.assertEquals(elements.receivedMessage().getText(), "Order received");
     }
 }

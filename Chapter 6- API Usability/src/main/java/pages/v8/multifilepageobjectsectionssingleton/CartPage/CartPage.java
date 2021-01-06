@@ -22,17 +22,17 @@ import pages.v8.multifilepageobjectsectionssingleton.SingletonFactory;
 import java.lang.reflect.InvocationTargetException;
 
 public class CartPage extends NavigatableEShopPage {
-    private static CartPage _instance;
-    private final BrowserService _browserService = LoggingSingletonDriver.getInstance();
+    private static CartPage instance;
+    private final BrowserService browserService = LoggingSingletonDriver.getInstance();
 
     public static CartPage getInstance()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = new CartPage();
+            instance = new CartPage();
         }
 
-        return _instance;
+        return instance;
     }
 
     public static CartPage getInstanceFactory() throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
@@ -55,19 +55,19 @@ public class CartPage extends NavigatableEShopPage {
     public void applyCoupon(String coupon) throws InterruptedException {
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
     }
 
     public void increaseProductQuantity(int newQuantity) throws InterruptedException {
         elements().quantityBox().typeText(String.valueOf(newQuantity));
         elements().updateCart().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
     }
 
     public void clickProceedToCheckout()
     {
         elements().proceedToCheckout().click();
-        _browserService.waitUntilPageLoadsCompletely();
+        browserService.waitUntilPageLoadsCompletely();
     }
 
     public String getTotal()

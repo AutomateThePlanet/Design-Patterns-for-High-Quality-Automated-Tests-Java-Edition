@@ -25,7 +25,7 @@ public class ProductPurchaseTestsWithPageObjects {
 
     @BeforeMethod
     public void testInit() {
-        LoggingSingletonDriver.getInstance().start(Browser.Chrome);
+        LoggingSingletonDriver.getInstance().start(Browser.CHROME);
 
         MainPage.getInstance().open();
     }

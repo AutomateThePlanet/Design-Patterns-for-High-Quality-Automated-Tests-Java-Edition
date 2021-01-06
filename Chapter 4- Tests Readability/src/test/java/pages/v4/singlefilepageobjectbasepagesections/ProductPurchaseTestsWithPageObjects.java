@@ -22,40 +22,40 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ProductPurchaseTestsWithPageObjects {
-    private Driver _driver;
-    private static MainPage _mainPage;
-    private static CartPage _cartPage;
+    private Driver driver;
+    private static MainPage mainPage;
+    private static CartPage cartPage;
 
     @BeforeMethod
     public void testInit() {
-        _driver = new LoggingDriver(new WebCoreDriver());
-        _driver.start(Browser.Chrome);
-        _mainPage = new MainPage(_driver);
-        _cartPage = new CartPage(_driver);
+        driver = new LoggingDriver(new WebCoreDriver());
+        driver.start(Browser.CHROME);
+        mainPage = new MainPage(driver);
+        cartPage = new CartPage(driver);
 
-        _mainPage.open();
+        mainPage.open();
     }
 
     @AfterMethod
     public void testCleanup() throws InterruptedException {
-        _driver.quit();
+        driver.quit();
     }
 
     @Test
     public void openBlogPage() {
-        _mainPage.mainMenuSection().openBlogPage();
+        mainPage.mainMenuSection().openBlogPage();
         // verify page title
     }
 
     @Test
     public void searchForItem() throws InterruptedException {
-        _mainPage.searchSection().searchForItem("Falcon 9");
+        mainPage.searchSection().searchForItem("Falcon 9");
         // add the item to cart
     }
 
     @Test
     public void openCart() {
-        _mainPage.cartInfoSection().openCart();
+        mainPage.cartInfoSection().openCart();
         // verify items in the cart
     }
 }

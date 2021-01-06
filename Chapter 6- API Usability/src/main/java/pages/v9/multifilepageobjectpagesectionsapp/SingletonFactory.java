@@ -13,19 +13,13 @@
 
 package pages.v9.multifilepageobjectpagesectionsapp;
 
-import pages.v8.multifilepageobjectsectionssingleton.MainPage.MainPage;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 // Based on http://neutrofoton.github.io/blog/2013/08/29/generic-singleton-pattern-in-java/
 // Can be used inside App design pattern.
 public class SingletonFactory {
-    private static final SingletonFactory _instance = new SingletonFactory();
+    private static final SingletonFactory SINGLETON_FACTORY = new SingletonFactory();
 
     private final Map<String,Object> mapHolder = new HashMap<>();
 
@@ -34,13 +28,13 @@ public class SingletonFactory {
     public static <T> T getInstance(Class<T> classOf) {
         try
         {
-            if(!_instance.mapHolder.containsKey(classOf.getName())){
+            if(!SINGLETON_FACTORY.mapHolder.containsKey(classOf.getName())){
 
                 T obj = (T) classOf.getConstructors()[0].newInstance();
-                _instance.mapHolder.put(classOf.getName(), obj);
+                SINGLETON_FACTORY.mapHolder.put(classOf.getName(), obj);
             }
 
-            return (T) _instance.mapHolder.get(classOf.getName());
+            return (T) SINGLETON_FACTORY.mapHolder.get(classOf.getName());
         }
         catch (Exception e)
         {

@@ -18,14 +18,14 @@ import core.Element;
 import org.openqa.selenium.By;
 
 public class SearchSection {
-    private final Driver _driver;
+    private final Driver driver;
 
     public SearchSection(Driver driver) {
-        _driver = driver;
+        this.driver = driver;
     }
 
     private Element searchField() {
-        return _driver.findElement(By.id("woocommerce-product-search-field-0"));
+        return driver.findElement(By.id("woocommerce-product-search-field-0"));
     }
 
     public void searchForItem(String searchText) throws InterruptedException {

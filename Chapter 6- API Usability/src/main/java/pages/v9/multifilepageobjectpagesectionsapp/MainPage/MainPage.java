@@ -17,16 +17,16 @@ import pages.v9.multifilepageobjectpagesectionsapp.NavigatableEShopPage;
 import pages.v9.multifilepageobjectpagesectionsapp.SingletonFactory;
 
 public class MainPage extends NavigatableEShopPage {
-    private static MainPage _instance;
+    private static MainPage instance;
 
     public static MainPage getInstance()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = new MainPage();
+            instance = new MainPage();
         }
 
-        return _instance;
+        return instance;
     }
 
     public static MainPage getInstanceFactory() {

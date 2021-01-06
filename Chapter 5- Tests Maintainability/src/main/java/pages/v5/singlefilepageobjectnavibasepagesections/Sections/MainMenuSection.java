@@ -18,34 +18,34 @@ import core.Element;
 import org.openqa.selenium.By;
 
 public class MainMenuSection {
-    private final Driver _driver;
+    private final Driver driver;
 
     public MainMenuSection(Driver driver) {
-        _driver = driver;
+        this.driver = driver;
     }
 
     private Element homeLink() {
-        return _driver.findElement(By.linkText("Home"));
+        return driver.findElement(By.linkText("Home"));
     }
 
     private Element blogLink() {
-        return _driver.findElement(By.linkText("Blog"));
+        return driver.findElement(By.linkText("Blog"));
     }
 
     private Element cartLink() {
-        return _driver.findElement(By.linkText("Cart"));
+        return driver.findElement(By.linkText("Cart"));
     }
 
     private Element checkoutLink() {
-        return _driver.findElement(By.linkText("Checkout"));
+        return driver.findElement(By.linkText("Checkout"));
     }
 
     private Element myAccountLink() {
-        return _driver.findElement(By.linkText("My Account"));
+        return driver.findElement(By.linkText("My Account"));
     }
 
     private Element promotionsLink() {
-        return _driver.findElement(By.linkText("Promotions"));
+        return driver.findElement(By.linkText("Promotions"));
     }
 
     public void openHomePage()
