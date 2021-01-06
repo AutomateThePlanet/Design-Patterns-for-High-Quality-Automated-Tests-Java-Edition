@@ -22,8 +22,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.function.Function;
 
 public abstract class WaitStrategy {
-    private int _timeoutIntervalSeconds;
-    private int _sleepIntervalSeconds;
+    private final int _timeoutIntervalSeconds;
+    private final int _sleepIntervalSeconds;
 
     public WaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
         this._timeoutIntervalSeconds = timeoutIntervalSeconds;

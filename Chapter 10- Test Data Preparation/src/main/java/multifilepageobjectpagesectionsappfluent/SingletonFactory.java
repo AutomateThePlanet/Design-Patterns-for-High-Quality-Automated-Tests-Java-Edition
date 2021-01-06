@@ -21,7 +21,7 @@ import java.util.Map;
 public class SingletonFactory {
     private static final SingletonFactory _instance = new SingletonFactory();
 
-    private Map<String,Object> mapHolder = new HashMap<>();
+    private final Map<String,Object> mapHolder = new HashMap<>();
 
     private SingletonFactory() {}
 

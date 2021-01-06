@@ -29,9 +29,9 @@ import reusebrowser.browserinfrastructure.ExecutionBrowser;
  * The tests may fail because the hard-coded pauses were not enough.
  * This is the expected behavior showing that this is not the best practice.
  */
-@ExecutionBrowser(browser = Browser.Chrome, browserBehavior = BrowserBehavior.RestartEveryTime)
+@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RestartEveryTime)
 public class ProductPurchaseTests extends BaseTest {
-    private static String _purchaseEmail;
+    private static String purchaseEmail;
     private static String _purchaseOrderNumber;
 
     @Test(priority=1)
@@ -88,7 +88,7 @@ public class ProductPurchaseTests extends BaseTest {
         billingPhone.typeText("+00498888999281");
         var billingEmail = getDriver().findElement(By.id("billing_email"));
         billingEmail.typeText("info@berlinspaceflowers.com");
-        _purchaseEmail = "info@berlinspaceflowers.com";
+        purchaseEmail = "info@berlinspaceflowers.com";
 
         // This pause will be removed when we introduce a logic for waiting for AJAX requests.
         getDriver().waitForAjax();
@@ -134,9 +134,9 @@ public class ProductPurchaseTests extends BaseTest {
         loginHereLink.click();
         var userName = getDriver().findElement(By.id("username"));
         getDriver().waitForAjax();
-        userName.typeText(_purchaseEmail);
+        userName.typeText(purchaseEmail);
         var password = getDriver().findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(_purchaseEmail));
+        password.typeText(GetUserPasswordFromDb(purchaseEmail));
         var loginButton = getDriver().findElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 
@@ -159,9 +159,9 @@ public class ProductPurchaseTests extends BaseTest {
         myAccountLink.click();
         var userName = getDriver().findElement(By.id("username"));
         getDriver().waitForAjax();
-        userName.typeText(_purchaseEmail);
+        userName.typeText(purchaseEmail);
         var password = getDriver().findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(_purchaseEmail)));
+        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(purchaseEmail)));
         var loginButton = getDriver().findElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 

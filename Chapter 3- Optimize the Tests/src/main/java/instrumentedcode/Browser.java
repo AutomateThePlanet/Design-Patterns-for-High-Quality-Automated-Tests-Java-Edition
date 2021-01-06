@@ -14,10 +14,10 @@
 package instrumentedcode;
 
 public enum Browser {
-    Chrome,
-    Firefox,
+    CHROME,
+    FIREFOX,
     Edge,
-    Opera,
-    Safari,
-    InternetExplorer
+    OPERA,
+    SAFARI,
+    INTERNET_EXPLORER
 }

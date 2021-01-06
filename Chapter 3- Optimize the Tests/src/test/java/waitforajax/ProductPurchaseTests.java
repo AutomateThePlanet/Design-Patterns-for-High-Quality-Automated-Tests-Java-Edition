@@ -13,7 +13,6 @@
 
 package waitforajax;
 
-import org.junit.Before;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
@@ -28,160 +27,160 @@ import org.testng.annotations.*;
  * This is the expected behavior showing that this is not the best practice.
  */
 public class ProductPurchaseTests {
-    private Driver _driver;
-    private static String _purchaseEmail;
-    private static String _purchaseOrderNumber;
+    private Driver driver;
+    private static String purchaseEmail;
+    private static String purchaseOrderNumber;
 
     @BeforeMethod
     public void testInit() {
-        _driver = new LoggingDriver(new WebCoreDriver());
-        _driver.start(Browser.Chrome);
+        driver = new LoggingDriver(new WebCoreDriver());
+        driver.start(Browser.CHROME);
     }
 
     @AfterMethod
     public void testCleanup() throws InterruptedException {
-        _driver.quit();
+        driver.quit();
     }
 
     @Test(priority=1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
-        _driver.goToUrl("http://demos.bellatrix.solutions/");
-        var addToCartFalcon9 = _driver.findElement(By.cssSelector("[data-product_id*='28']"));
+        driver.goToUrl("http://demos.bellatrix.solutions/");
+        var addToCartFalcon9 = driver.findElement(By.cssSelector("[data-product_id*='28']"));
         addToCartFalcon9.click();
-        var viewCartButton = _driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
+        var viewCartButton = driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
         viewCartButton.click();
 
-        var couponCodeTextField = _driver.findElement(By.id("coupon_code"));
+        var couponCodeTextField = driver.findElement(By.id("coupon_code"));
         couponCodeTextField.typeText("happybirthday");
-        var applyCouponButton = _driver.findElement(By.cssSelector("[value*='Apply coupon']"));
+        var applyCouponButton = driver.findElement(By.cssSelector("[value*='Apply coupon']"));
         applyCouponButton.click();
-        _driver.waitForAjax();
-        var messageAlert = _driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
+        driver.waitForAjax();
+        var messageAlert = driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
         Assert.assertEquals(messageAlert.getText(), "Coupon code applied successfully.");
 
-        var quantityBox = _driver.findElement(By.cssSelector("[class*='input-text qty text']"));
+        var quantityBox = driver.findElement(By.cssSelector("[class*='input-text qty text']"));
         quantityBox.typeText("2");
-        _driver.waitForAjax();
+        driver.waitForAjax();
 
-        var updateCart = _driver.findElement(By.cssSelector("[value*='Update cart']"));
+        var updateCart = driver.findElement(By.cssSelector("[value*='Update cart']"));
         updateCart.click();
-        _driver.waitForAjax();
-        var totalSpan = _driver.findElement(By.xpath("//*[@class='order-total']//span"));
+        driver.waitForAjax();
+        var totalSpan = driver.findElement(By.xpath("//*[@class='order-total']//span"));
         Assert.assertEquals("114.00€", totalSpan.getText());
 
-        var proceedToCheckout = _driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
+        var proceedToCheckout = driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
         proceedToCheckout.click();
-        _driver.waitUntilPageLoadsCompletely();
+        driver.waitUntilPageLoadsCompletely();
 
-        var billingFirstName = _driver.findElement(By.id("billing_first_name"));
+        var billingFirstName = driver.findElement(By.id("billing_first_name"));
         billingFirstName.typeText("Anton");
-        var billingLastName = _driver.findElement(By.id("billing_last_name"));
+        var billingLastName = driver.findElement(By.id("billing_last_name"));
         billingLastName.typeText("Angelov");
-        var billingCompany = _driver.findElement(By.id("billing_company"));
+        var billingCompany = driver.findElement(By.id("billing_company"));
         billingCompany.typeText("Space Flowers");
-        var billingCountryWrapper = _driver.findElement(By.id("select2-billing_country-container"));
+        var billingCountryWrapper = driver.findElement(By.id("select2-billing_country-container"));
         billingCountryWrapper.click();
-        var billingCountryFilter = _driver.findElement(By.className("select2-search__field"));
+        var billingCountryFilter = driver.findElement(By.className("select2-search__field"));
         billingCountryFilter.typeText("Germany");
-        var germanyOption = _driver.findElement(By.xpath("//*[contains(text(),'Germany')]"));
+        var germanyOption = driver.findElement(By.xpath("//*[contains(text(),'Germany')]"));
         germanyOption.click();
-        var billingAddress1 = _driver.findElement(By.id("billing_address_1"));
+        var billingAddress1 = driver.findElement(By.id("billing_address_1"));
         billingAddress1.typeText("1 Willi Brandt Avenue Tiergarten");
-        var billingAddress2 = _driver.findElement(By.id("billing_address_2"));
+        var billingAddress2 = driver.findElement(By.id("billing_address_2"));
         billingAddress2.typeText("Lьtzowplatz 17");
-        var billingCity = _driver.findElement(By.id("billing_city"));
+        var billingCity = driver.findElement(By.id("billing_city"));
         billingCity.typeText("Berlin");
-        var billingZip = _driver.findElement(By.id("billing_postcode"));
+        var billingZip = driver.findElement(By.id("billing_postcode"));
         billingZip.typeText("10115");
-        var billingPhone = _driver.findElement(By.id("billing_phone"));
+        var billingPhone = driver.findElement(By.id("billing_phone"));
         billingPhone.typeText("+00498888999281");
-        var billingEmail = _driver.findElement(By.id("billing_email"));
+        var billingEmail = driver.findElement(By.id("billing_email"));
         billingEmail.typeText("info@berlinspaceflowers.com");
-        _purchaseEmail = "info@berlinspaceflowers.com";
+        purchaseEmail = "info@berlinspaceflowers.com";
 
         // This pause will be removed when we introduce a logic for waiting for AJAX requests.
-        _driver.waitForAjax();
-        var placeOrderButton = _driver.findElement(By.id("place_order"));
+        driver.waitForAjax();
+        var placeOrderButton = driver.findElement(By.id("place_order"));
         placeOrderButton.click();
 
-        _driver.waitForAjax();
-        var receivedMessage = _driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div/header/h1"));
+        driver.waitForAjax();
+        var receivedMessage = driver.findElement(By.xpath("/html/body/div[1]/div/div/div/main/div/header/h1"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
 
     @Test(priority=2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
-        _driver.goToUrl("http://demos.bellatrix.solutions/");
+        driver.goToUrl("http://demos.bellatrix.solutions/");
 
-        var addToCartFalcon9 = _driver.findElement(By.cssSelector("[data-product_id*='28']"));
+        var addToCartFalcon9 = driver.findElement(By.cssSelector("[data-product_id*='28']"));
         addToCartFalcon9.click();
-        var viewCartButton = _driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
+        var viewCartButton = driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
         viewCartButton.click();
 
-        var couponCodeTextField = _driver.findElement(By.id("coupon_code"));
+        var couponCodeTextField = driver.findElement(By.id("coupon_code"));
         couponCodeTextField.typeText("happybirthday");
-        var applyCouponButton = _driver.findElement(By.cssSelector("[value*='Apply coupon']"));
+        var applyCouponButton = driver.findElement(By.cssSelector("[value*='Apply coupon']"));
         applyCouponButton.click();
-        var messageAlert = _driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
-        _driver.waitForAjax();
+        var messageAlert = driver.findElement(By.cssSelector("[class*='woocommerce-message']"));
+        driver.waitForAjax();
         Assert.assertEquals(messageAlert.getText(), "Coupon code applied successfully.");
 
-        var quantityBox = _driver.findElement(By.cssSelector("[class*='input-text qty text']"));
+        var quantityBox = driver.findElement(By.cssSelector("[class*='input-text qty text']"));
         quantityBox.typeText("2");
-        _driver.waitForAjax();
-        var updateCart = _driver.findElement(By.cssSelector("[value*='Update cart']"));
+        driver.waitForAjax();
+        var updateCart = driver.findElement(By.cssSelector("[value*='Update cart']"));
         updateCart.click();
-        _driver.waitForAjax();
-        var totalSpan = _driver.findElement(By.xpath("//*[@class='order-total']//span"));
+        driver.waitForAjax();
+        var totalSpan = driver.findElement(By.xpath("//*[@class='order-total']//span"));
         Assert.assertEquals(totalSpan.getText(), "114.00€");
 
-        var proceedToCheckout = _driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
+        var proceedToCheckout = driver.findElement(By.cssSelector("[class*='checkout-button button alt wc-forward']"));
         proceedToCheckout.click();
-        _driver.waitUntilPageLoadsCompletely();
+        driver.waitUntilPageLoadsCompletely();
 
-        var loginHereLink = _driver.findElement(By.linkText("Click here to login"));
+        var loginHereLink = driver.findElement(By.linkText("Click here to login"));
         loginHereLink.click();
-        var userName = _driver.findElement(By.id("username"));
-        _driver.waitForAjax();
-        userName.typeText(_purchaseEmail);
-        var password = _driver.findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(_purchaseEmail));
-        var loginButton = _driver.findElement(By.xpath("//button[@name='login']"));
+        var userName = driver.findElement(By.id("username"));
+        driver.waitForAjax();
+        userName.typeText(purchaseEmail);
+        var password = driver.findElement(By.id("password"));
+        password.typeText(GetUserPasswordFromDb(purchaseEmail));
+        var loginButton = driver.findElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 
-        _driver.waitForAjax();
-        var placeOrderButton = _driver.findElement(By.id("place_order"));
+        driver.waitForAjax();
+        var placeOrderButton = driver.findElement(By.id("place_order"));
         placeOrderButton.click();
 
-        var receivedMessage = _driver.findElement(By.xpath("//h1[text() = 'Order received']"));
+        var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = _driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
-        _purchaseOrderNumber = orderNumber.getText();
+        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        purchaseOrderNumber = orderNumber.getText();
     }
 
     @Test(priority=3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
-        _driver.goToUrl("http://demos.bellatrix.solutions/");
+        driver.goToUrl("http://demos.bellatrix.solutions/");
 
-        var myAccountLink = _driver.findElement(By.linkText("My account"));
+        var myAccountLink = driver.findElement(By.linkText("My account"));
         myAccountLink.click();
-        var userName = _driver.findElement(By.id("username"));
-        _driver.waitForAjax();
-        userName.typeText(_purchaseEmail);
-        var password = _driver.findElement(By.id("password"));
-        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(_purchaseEmail)));
-        var loginButton = _driver.findElement(By.xpath("//button[@name='login']"));
+        var userName = driver.findElement(By.id("username"));
+        driver.waitForAjax();
+        userName.typeText(purchaseEmail);
+        var password = driver.findElement(By.id("password"));
+        password.typeText(GetUserPasswordFromDb(GetUserPasswordFromDb(purchaseEmail)));
+        var loginButton = driver.findElement(By.xpath("//button[@name='login']"));
         loginButton.click();
 
-        var orders = _driver.findElement(By.linkText("Orders"));
+        var orders = driver.findElement(By.linkText("Orders"));
         orders.click();
 
-        var viewButtons = _driver.findElements(By.linkText("View"));
+        var viewButtons = driver.findElements(By.linkText("View"));
         viewButtons.get(0).click();
 
-        var orderName = _driver.findElement(By.xpath("//h1"));
-        String expectedMessage = String.format("Order #%s", _purchaseOrderNumber);
+        var orderName = driver.findElement(By.xpath("//h1"));
+        String expectedMessage = String.format("Order #%s", purchaseOrderNumber);
         Assert.assertEquals(expectedMessage, orderName.getText());
     }
 

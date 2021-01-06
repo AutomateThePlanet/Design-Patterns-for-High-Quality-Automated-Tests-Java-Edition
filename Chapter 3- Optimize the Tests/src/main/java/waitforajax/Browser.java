@@ -14,10 +14,10 @@
 package waitforajax;
 
 public enum Browser {
-    Chrome,
-    Firefox,
-    Edge,
-    Opera,
-    Safari,
-    InternetExplorer
+    CHROME,
+    FIREFOX,
+    EDGE,
+    OPERA,
+    SAFARI,
+    INTERNET_EXPLORER
 }

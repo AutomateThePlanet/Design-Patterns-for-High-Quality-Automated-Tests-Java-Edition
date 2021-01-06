@@ -23,6 +23,6 @@ import java.lang.annotation.Target;
 @Target( { ElementType.TYPE, ElementType.METHOD } )
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExecutionBrowser {
-    Browser browser() default Browser.Chrome;
-    BrowserBehavior browserBehavior() default BrowserBehavior.RestartEveryTime;
+    Browser browser() default Browser.CHROME;
+    BrowserBehavior browserBehavior() default BrowserBehavior.RESTART_EVERY_TIME;
 }

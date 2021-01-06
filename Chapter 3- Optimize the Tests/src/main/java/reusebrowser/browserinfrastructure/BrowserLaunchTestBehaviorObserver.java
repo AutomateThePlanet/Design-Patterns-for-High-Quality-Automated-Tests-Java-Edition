@@ -66,7 +66,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
         }
 
         Boolean shouldRestartBrowser =
-                browserConfiguration.getBrowserBehavior() == BrowserBehavior.RestartEveryTime || browserConfiguration.getBrowser() == Browser.NotSet;
+                browserConfiguration.getBrowserBehavior() == BrowserBehavior.RestartEveryTime || browserConfiguration.getBrowser() == Browser.NOT_SET;
 
         return shouldRestartBrowser;
     }

@@ -24,7 +24,7 @@ import reusebrowser.WebCoreDriver;
 
 public class BaseTest {
     private static final TestExecutionSubject CurrentTestExecutionSubject;
-    private static Driver _driver;
+    private static final Driver _driver;
     private ITestResult _result;
 
     static {

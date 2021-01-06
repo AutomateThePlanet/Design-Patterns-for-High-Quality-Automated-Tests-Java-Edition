@@ -67,16 +67,16 @@ public class BaseBenchmark {
 
     @Setup(Level.Invocation)
     public void setup(PluginState pluginState) throws NoSuchMethodException, ClassNotFoundException {
-        pluginState.getCurrentTestExecutionSubject().preTestInit(_currentClass);
-        init(pluginState.getDriver());
-        pluginState.getCurrentTestExecutionSubject().postTestInit(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().preTestInit(_currentClass);
+        init(PluginState.getDriver());
+        PluginState.getCurrentTestExecutionSubject().postTestInit(_currentClass);
     }
 
     @TearDown(Level.Invocation)
     public void tearDown(PluginState pluginState) {
-        pluginState.getCurrentTestExecutionSubject().preTestCleanup(_currentClass);
-        cleanup(pluginState.getDriver());
-        pluginState.getCurrentTestExecutionSubject().postTestCleanup(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().preTestCleanup(_currentClass);
+        cleanup(PluginState.getDriver());
+        PluginState.getCurrentTestExecutionSubject().postTestCleanup(_currentClass);
     }
 
     public void init(Driver driver)
