@@ -19,7 +19,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class FileLogger {
+public class FileLogger implements Logger {
     public void createLogEntry(String error) throws IOException {
         Path path = Paths.get("C:\\errors.txt");
         BufferedWriter writer = Files.newBufferedWriter(path);

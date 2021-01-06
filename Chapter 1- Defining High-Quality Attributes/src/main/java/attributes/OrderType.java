@@ -16,4 +16,6 @@ package main.java.attributes;
 public enum OrderType {
     NORMAL,
     SILVER,
+    GOLD,
+    PLATINUM
 }

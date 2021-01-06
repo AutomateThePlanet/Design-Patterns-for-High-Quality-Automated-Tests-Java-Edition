@@ -13,13 +13,11 @@
 
 package main.java.attributes;
 
-public class PlatinumDiscountCalculator extends DiscountCalculator {
-    @Override
+public class PlatinumDiscountCalculator implements DiscountCalculator {
     public double calculateRegularDiscount(double totalPrice) {
-        return super.calculateRegularDiscount(totalPrice) - 100;
+        return totalPrice - 100;
     }
 
-    @Override
     public double calculateBonusPointsDiscount(double totalPrice, int points) throws NoSuchMethodException {
         throw new NoSuchMethodException("Not applicable for Platinum orders.");
     }

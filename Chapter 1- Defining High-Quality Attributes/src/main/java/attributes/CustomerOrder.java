@@ -17,11 +17,39 @@ import java.io.IOException;
 
 public class CustomerOrder {
     private final FileLogger fileLogger = new FileLogger();
+    private final Logger logger;
+
+    public CustomerOrder(Logger logger)
+    {
+        this.logger = logger;
+    }
 
     public void create() throws IOException {
         try {
             // Database code goes here
         } catch (Exception ex) {
+            logger.createLogEntry(ex.getLocalizedMessage());
+        }
+    }
+
+    public void create(OrderType orderType) throws IOException {
+        try {
+            // Database code goes here
+        } catch (Exception ex) {
+            switch (orderType)
+            {
+                case NORMAL:
+                    new SmsLogger().createLogEntry(ex.getMessage());
+                    break;
+                case SILVER:
+                case GOLD:
+                    new EmailLogger().createLogEntry(ex.getMessage());
+                    break;
+                case PLATINUM:
+                    new FileLogger().createLogEntry(ex.getMessage());
+                    break;
+            }
+
             fileLogger.createLogEntry(ex.getLocalizedMessage());
         }
     }

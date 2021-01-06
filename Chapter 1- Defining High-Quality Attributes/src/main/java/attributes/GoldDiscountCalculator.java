@@ -13,13 +13,11 @@
 
 package main.java.attributes;
 
-public class GoldDiscountCalculator extends DiscountCalculator {
-    @Override
+public class GoldDiscountCalculator implements DiscountCalculator {
     public double calculateRegularDiscount(double totalPrice) {
-        return super.calculateRegularDiscount(totalPrice) - 50;
+        return totalPrice - 50;
     }
 
-    @Override
     public double calculateBonusPointsDiscount(double totalPrice, int points) {
         return totalPrice - points * 1;
     }
