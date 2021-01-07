@@ -30,7 +30,7 @@ import reusebrowser.browserinfrastructure.ExecutionBrowser;
  * The tests may fail because the hard-coded pauses were not enough.
  * This is the expected behavior showing that this is not the best practice.
  */
-@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RestartEveryTime)
+@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RESTART_EVERY_TIME)
 public class ProductPurchaseTests extends BaseTest {
     private static String purchaseEmail;
     private static String purchaseOrderNumber;

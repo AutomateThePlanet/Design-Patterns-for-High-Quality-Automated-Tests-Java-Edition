@@ -44,7 +44,7 @@ public class App implements AutoCloseable {
         return SingletonFactory.getInstance(DialogService.class);
     }
 
-    public <TPage extends NavigatableEShopPage> TPage goTo(Class<TPage> pageOf)
+    public <PageT extends NavigatableEShopPage> PageT goTo(Class<PageT> pageOf)
     {
         var page = SingletonFactory.getInstance(pageOf);
         page.open();
@@ -52,7 +52,7 @@ public class App implements AutoCloseable {
         return page;
     }
 
-    public <TPage extends EShopPage> TPage create(Class<TPage> pageOf)
+    public <PageT extends EShopPage> PageT create(Class<PageT> pageOf)
     {
         return SingletonFactory.getInstance(pageOf);
     }

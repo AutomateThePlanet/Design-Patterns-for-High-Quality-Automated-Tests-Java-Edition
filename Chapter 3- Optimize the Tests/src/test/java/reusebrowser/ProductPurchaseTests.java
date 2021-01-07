@@ -29,10 +29,10 @@ import reusebrowser.browserinfrastructure.ExecutionBrowser;
  * The tests may fail because the hard-coded pauses were not enough.
  * This is the expected behavior showing that this is not the best practice.
  */
-@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RestartEveryTime)
+@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RESTART_EVERY_TIME)
 public class ProductPurchaseTests extends BaseTest {
     private static String purchaseEmail;
-    private static String _purchaseOrderNumber;
+    private static String purchaseOrderNumber;
 
     @Test(priority=1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
@@ -148,7 +148,7 @@ public class ProductPurchaseTests extends BaseTest {
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
         var orderNumber = getDriver().findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
-        _purchaseOrderNumber = orderNumber.getText();
+        purchaseOrderNumber = orderNumber.getText();
     }
 
     @Test(priority=3)
@@ -172,7 +172,7 @@ public class ProductPurchaseTests extends BaseTest {
         viewButtons.get(0).click();
 
         var orderName = getDriver().findElement(By.xpath("//h1"));
-        String expectedMessage = String.format("Order #%s", _purchaseOrderNumber);
+        String expectedMessage = String.format("Order #%s", purchaseOrderNumber);
         Assert.assertEquals(expectedMessage, orderName.getText());
     }
 

@@ -22,7 +22,7 @@ import pages.v3.singlefilepageobjectssections.Sections.SearchSection;
 
 public class MainPage {
     private final Driver driver;
-    private final String _url = "http://demos.bellatrix.solutions/";
+    private final String url = "http://demos.bellatrix.solutions/";
 
     public MainPage(Driver driver)
     {
@@ -51,7 +51,7 @@ public class MainPage {
 
     public void addRocketToShoppingCart()
     {
-        driver.goToUrl(_url);
+        driver.goToUrl(url);
         addToCartFalcon9().click();
         viewCartButton().click();
     }

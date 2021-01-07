@@ -17,6 +17,8 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.UUID;
+
 /*
  * The order of test execution is important. The tests should be executed in the following order:
  * completePurchaseSuccessfully_whenNewClient
@@ -177,5 +179,9 @@ public class ProductPurchaseTests {
     private String GetUserPasswordFromDb(String userName)
     {
         return "@purISQzt%%DYBnLCIhaoG6$";
+    }
+
+    private String generateUniqueEmail() {
+        return UUID.randomUUID().toString() + "@berlinspaceflowers.com";
     }
 }

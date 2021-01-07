@@ -23,5 +23,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExecutionBrowser {
     Browser browser() default Browser.CHROME;
-    BrowserBehavior browserBehavior() default BrowserBehavior.RestartEveryTime;
+    BrowserBehavior browserBehavior() default BrowserBehavior.RESTART_EVERY_TIME;
 }

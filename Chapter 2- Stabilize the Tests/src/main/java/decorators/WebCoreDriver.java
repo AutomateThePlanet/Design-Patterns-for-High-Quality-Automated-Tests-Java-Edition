@@ -15,6 +15,7 @@ package decorators;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WebCoreDriver extends Driver {
-    private org.openqa.selenium.WebDriver webDriver;
+    private WebDriver webDriver;
     private WebDriverWait webDriverWait;
 
     @Override

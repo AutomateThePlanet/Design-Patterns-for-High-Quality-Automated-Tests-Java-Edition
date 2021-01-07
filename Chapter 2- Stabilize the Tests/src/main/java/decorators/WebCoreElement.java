@@ -19,7 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebCoreElement extends Element{
+public class WebCoreElement extends Element {
     private final WebDriver webDriver;
     private final WebElement webElement;
     private final By by;

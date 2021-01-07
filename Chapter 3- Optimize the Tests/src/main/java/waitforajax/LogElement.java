@@ -17,48 +17,48 @@ import org.openqa.selenium.By;
 
 public class LogElement extends ElementDecorator {
 
-    protected LogElement(waitforajax.Element element) {
+    protected LogElement(Element element) {
         super(element);
     }
 
     @Override
     public By getBy() {
-        return Element.getBy();
+        return element.getBy();
     }
 
     @Override
     public String getText() {
-        System.out.printf("Element Text = %s", Element.getText());
-        return Element.getText();
+        System.out.printf("Element Text = %s", element.getText());
+        return element.getText();
     }
 
     @Override
     public Boolean isEnabled() {
-        System.out.printf("Element Enabled = %b", Element.isEnabled());
-        return Element.isEnabled();
+        System.out.printf("Element Enabled = %b", element.isEnabled());
+        return element.isEnabled();
     }
 
     @Override
     public Boolean isDisplayed() {
-        System.out.printf("Element Displayed = %b", Element.isDisplayed());
-        return Element.isDisplayed();
+        System.out.printf("Element Displayed = %b", element.isDisplayed());
+        return element.isDisplayed();
     }
 
     @Override
     public void typeText(String text) throws InterruptedException {
         System.out.printf("Type Text = = %s", text);
-        Element.typeText(text);
+        element.typeText(text);
     }
 
     @Override
     public void click() {
         System.out.print("Element Clicked");
-        Element.click();
+        element.click();
     }
 
     @Override
     public String getAttribute(String attributeName) {
         System.out.print("Element Clicked");
-        return Element.getAttribute(attributeName);
+        return element.getAttribute(attributeName);
     }
 }

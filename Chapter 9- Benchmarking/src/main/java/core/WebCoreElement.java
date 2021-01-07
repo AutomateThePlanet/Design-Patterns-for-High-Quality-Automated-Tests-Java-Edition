@@ -22,18 +22,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class WebCoreElement extends Element {
     private final WebDriver webDriver;
     private final WebElement webElement;
-    private final By _by;
+    private final By by;
 
     public WebCoreElement(WebDriver webDriver, WebElement webElement, By by)
     {
         this.webDriver = webDriver;
         this.webElement = webElement;
-        _by = by;
+        this.by = by;
     }
 
     @Override
     public By getBy() {
-        return _by;
+        return by;
     }
 
     @Override
@@ -60,7 +60,7 @@ public class WebCoreElement extends Element {
 
     @Override
     public void click() {
-        waitToBeClickable(_by);
+        waitToBeClickable(by);
         webElement.click();
     }
 

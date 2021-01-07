@@ -19,119 +19,119 @@ import org.openqa.selenium.By;
 import java.util.List;
 
 public class ElementDecorator extends Element {
-    protected final Element Element;
+    protected final Element element;
 
     protected ElementDecorator(Element element) {
-        Element = element;
+        this.element = element;
     }
 
     @Override
     public By getBy() {
-        return Element.getBy();
+        return element.getBy();
     }
 
     @Override
     public String getText() {
-        return Element.getText();
+        return element.getText();
     }
 
     @Override
     public Boolean isEnabled() {
-        return Element.isEnabled();
+        return element.isEnabled();
     }
 
     @Override
     public Boolean isDisplayed() {
-        return Element.isDisplayed();
+        return element.isDisplayed();
     }
 
     @Override
     public void typeText(String text) throws InterruptedException {
-        Element.typeText(text);
+        element.typeText(text);
     }
 
     @Override
     public void click() {
-        Element.click();
+        element.click();
     }
 
     @Override
     public String getAttribute(String attributeName) {
-        return Element.getAttribute(attributeName);
+        return element.getAttribute(attributeName);
     }
 
     @Override
     public void waitToExists() {
-        Element.waitToExists();
+        element.waitToExists();
     }
 
     @Override
     public core.Element findById(String id) {
-        return Element.findById(id);
+        return element.findById(id);
     }
 
     @Override
     public core.Element findByXPath(String xpath) {
-        return Element.findByXPath(xpath);
+        return element.findByXPath(xpath);
     }
 
     @Override
     public core.Element findByTag(String tag) {
-        return Element.findByTag(tag);
+        return element.findByTag(tag);
     }
 
     @Override
     public core.Element findByClass(String cssClass) {
-        return Element.findByClass(cssClass);
+        return element.findByClass(cssClass);
     }
 
     @Override
     public core.Element findByCss(String css) {
-        return Element.findByCss(css);
+        return element.findByCss(css);
     }
 
     @Override
     public core.Element findByLinkText(String linkText) {
-        return Element.findByLinkText(linkText);
+        return element.findByLinkText(linkText);
     }
 
     @Override
     public List<core.Element> findAllById(String id) {
-        return Element.findAllById(id);
+        return element.findAllById(id);
     }
 
     @Override
     public List<core.Element> findAllByXPath(String xpath) {
-        return Element.findAllByXPath(xpath);
+        return element.findAllByXPath(xpath);
     }
 
     @Override
     public List<core.Element> findAllByTag(String tag) {
-        return Element.findAllByTag(tag);
+        return element.findAllByTag(tag);
     }
 
     @Override
     public List<core.Element> findAllByClass(String cssClass) {
-        return Element.findAllByClass(cssClass);
+        return element.findAllByClass(cssClass);
     }
 
     @Override
     public List<core.Element> findAllByCss(String css) {
-        return Element.findAllByCss(css);
+        return element.findAllByCss(css);
     }
 
     @Override
     public List<core.Element> findAllByLinkText(String linkText) {
-        return Element.findAllByLinkText(linkText);
+        return element.findAllByLinkText(linkText);
     }
 
     @Override
     public List<core.Element> findAll(FindStrategy findStrategy) {
-        return Element.findAll(findStrategy);
+        return element.findAll(findStrategy);
     }
 
     @Override
     public core.Element find(FindStrategy findStrategy) {
-        return Element.find(findStrategy);
+        return element.find(findStrategy);
     }
 }
