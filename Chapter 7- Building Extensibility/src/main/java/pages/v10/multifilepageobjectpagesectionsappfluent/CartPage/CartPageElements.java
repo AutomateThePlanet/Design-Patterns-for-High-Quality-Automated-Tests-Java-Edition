@@ -15,40 +15,39 @@ package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.Element;
 import core.interfaces.ElementFindService;
-import org.openqa.selenium.By;
 
 public class CartPageElements {
-    private final ElementFindService _elementFindService;
+    private final ElementFindService elementFindService;
 
     public CartPageElements(ElementFindService elementFindService) {
-        _elementFindService = elementFindService;
+        this.elementFindService = elementFindService;
     }
 
     public Element couponCodeTextField() {
-        return _elementFindService.findById("coupon_code");
+        return elementFindService.findById("coupon_code");
     }
 
     public Element applyCouponButton() {
-        return _elementFindService.findByCss("[value*='Apply coupon']");
+        return elementFindService.findByCss("[value*='Apply coupon']");
     }
 
     public Element quantityBox() {
-        return _elementFindService.findByCss("[class*='input-text qty text']");
+        return elementFindService.findByCss("[class*='input-text qty text']");
     }
 
     public Element updateCart() {
-        return _elementFindService.findByCss("[value*='Update cart']");
+        return elementFindService.findByCss("[value*='Update cart']");
     }
 
     public Element messageAlert() {
-        return _elementFindService.findByCss("[class*='woocommerce-message']");
+        return elementFindService.findByCss("[class*='woocommerce-message']");
     }
 
     public Element totalSpan() {
-        return _elementFindService.findByXPath("//*[@class='order-total']//span");
+        return elementFindService.findByXPath("//*[@class='order-total']//span");
     }
 
     public Element proceedToCheckout() {
-        return _elementFindService.findByCss("[class*='checkout-button button alt wc-forward']");
+        return elementFindService.findByCss("[class*='checkout-button button alt wc-forward']");
     }
 }

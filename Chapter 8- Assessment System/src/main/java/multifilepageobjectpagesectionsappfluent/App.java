@@ -16,7 +16,7 @@ package multifilepageobjectpagesectionsappfluent;
 import core.*;
 
 public class App implements AutoCloseable {
-    private Boolean _disposed = false;
+    private Boolean disposed = false;
 
     public App(Browser browserType)
     {
@@ -54,13 +54,13 @@ public class App implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        if (_disposed)
+        if (disposed)
         {
             return;
         }
 
         LoggingSingletonDriver.getInstance().quit();
 
-        _disposed = true;
+        disposed = true;
     }
 }

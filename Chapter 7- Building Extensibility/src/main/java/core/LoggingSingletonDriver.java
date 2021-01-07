@@ -13,12 +13,8 @@
 
 package core;
 
-import org.openqa.selenium.By;
-
-import java.util.List;
-
 public class LoggingSingletonDriver extends DriverDecorator {
-    private static LoggingSingletonDriver _instance;
+    private static LoggingSingletonDriver instance;
 
     public LoggingSingletonDriver(core.Driver driver) {
         super(driver);
@@ -26,12 +22,12 @@ public class LoggingSingletonDriver extends DriverDecorator {
 
     public static LoggingSingletonDriver getInstance()
     {
-        if (_instance == null)
+        if (instance == null)
         {
-            _instance = new LoggingSingletonDriver(new WebCoreDriver());
+            instance = new LoggingSingletonDriver(new WebCoreDriver());
         }
 
-        return _instance;
+        return instance;
     }
 
     @Override

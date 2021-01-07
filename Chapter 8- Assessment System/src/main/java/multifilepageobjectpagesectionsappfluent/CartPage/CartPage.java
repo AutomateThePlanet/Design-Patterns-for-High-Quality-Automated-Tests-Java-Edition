@@ -20,7 +20,7 @@ import multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 import org.testng.Assert;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService _browserService = LoggingSingletonDriver.getInstance();
+    private final BrowserService browserService = LoggingSingletonDriver.getInstance();
 
     @Override
     protected String getUrl() {
@@ -34,21 +34,21 @@ public class CartPage extends NavigatableEShopPage {
     public CartPage applyCoupon(String coupon) throws InterruptedException {
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
         return this;
     }
 
     public CartPage increaseProductQuantity(int newQuantity) throws InterruptedException {
         elements().quantityBox().typeText(String.valueOf(newQuantity));
         elements().updateCart().click();
-        _browserService.waitForAjax();
+        browserService.waitForAjax();
         return this;
     }
 
     public CartPage clickProceedToCheckout()
     {
         elements().proceedToCheckout().click();
-        _browserService.waitUntilPageLoadsCompletely();
+        browserService.waitUntilPageLoadsCompletely();
         return this;
     }
 

@@ -22,24 +22,24 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ProductPurchaseTestsWithPageObjects {
-    private static App _app;
+    private static App app;
 
     @BeforeMethod
     public void testInit() {
-        _app = new App(Browser.Chrome);
+        app = new App(Browser.CHROME);
     }
 
     @AfterMethod
     public void testCleanup() throws Exception {
-        _app.close();
+        app.close();
     }
 
     @Test
     public void completePurchaseSuccessfully_WhenNewClient() throws InterruptedException {
-        var mainPage = _app.goTo(MainPage.class);
+        var mainPage = app.goTo(MainPage.class);
 
         mainPage.addRocketToShoppingCart();
-        var cartPage = _app.goTo(CartPage.class);
+        var cartPage = app.goTo(CartPage.class);
         cartPage.applyCoupon("happybirthday")
                 .assertCouponAppliedSuccessfully()
                 .increaseProductQuantity(2)

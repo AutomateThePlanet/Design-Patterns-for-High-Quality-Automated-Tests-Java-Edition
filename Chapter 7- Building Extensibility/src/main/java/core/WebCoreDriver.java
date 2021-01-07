@@ -15,7 +15,6 @@ package core;
 
 import core.locators.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,68 +28,68 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WebCoreDriver extends Driver {
-    private WebDriver _webDriver;
-    private WebDriverWait _webDriverWait;
-    private EventFiringWebDriver _eventFiringWebDriver;
+    private WebDriver webDriver;
+    private WebDriverWait webDriverWait;
+    private EventFiringWebDriver eventFiringWebDriver;
 
     @Override
     public void start(Browser browser) {
         switch (browser)
         {
-            case Chrome:
+            case CHROME:
                 WebDriverManager.chromedriver().setup();
-                _webDriver = new ChromeDriver();
+                webDriver = new ChromeDriver();
                 break;
-            case Firefox:
+            case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                _webDriver = new FirefoxDriver();
+                webDriver = new FirefoxDriver();
                 break;
-            case Edge:
+            case EDGE:
                 //_webDriver = new EdgeDriver();
                 break;
-            case Opera:
+            case OPERA:
                 //_webDriver = new OperaDriver();
                 break;
-            case Safari:
+            case SAFARI:
                 //_webDriver = new SafariDriver();
                 break;
-            case InternetExplorer:
+            case INTERNET_EXPLORER:
                 //_webDriver = new InternetExplorerDriver();
                 break;
             default:
                 throw new IllegalArgumentException(browser.name());
         }
 
-        _webDriverWait = new WebDriverWait(_webDriver, 30);
-        _eventFiringWebDriver = new EventFiringWebDriver(_webDriver);
-        _eventFiringWebDriver.register(new LoggingListener());
+        webDriverWait = new WebDriverWait(webDriver, 30);
+        eventFiringWebDriver = new EventFiringWebDriver(webDriver);
+        eventFiringWebDriver.register(new LoggingListener());
     }
 
     @Override
     public void quit() {
-        _webDriver.quit();
+        webDriver.quit();
     }
 
     @Override
     public void goToUrl(String url) {
-        _webDriver.navigate().to(url);
+        webDriver.navigate().to(url);
     }
 
     @Override
     public String getUrl() {
-        return _webDriver.getCurrentUrl();
+        return webDriver.getCurrentUrl();
     }
 
     @Override
     public void waitForAjax() {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
-        _webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+        webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
     }
 
     @Override
     public void waitUntilPageLoadsCompletely() {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
-        _webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+        webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
     }
 
     @Override
@@ -156,10 +155,10 @@ public class WebCoreDriver extends Driver {
     @Override
     public List<Element> findAll(FindStrategy findStrategy) {
         List<WebElement> nativeWebElements =
-                _webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(findStrategy.convert()));
+                webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(findStrategy.convert()));
         var elements = new ArrayList<Element>();
         for (WebElement nativeWebElement:nativeWebElements) {
-            Element element = new WebCoreElement(_webDriver, nativeWebElement, findStrategy.convert());
+            Element element = new WebCoreElement(webDriver, nativeWebElement, findStrategy.convert());
             Element logElement = new LogElement(element);
             elements.add(logElement);
         }
@@ -170,8 +169,8 @@ public class WebCoreDriver extends Driver {
     @Override
     public Element find(FindStrategy findStrategy) {
         var nativeWebElement =
-                _webDriverWait.until(ExpectedConditions.presenceOfElementLocated(findStrategy.convert()));
-        Element element = new WebCoreElement(_webDriver, nativeWebElement, findStrategy.convert());
+                webDriverWait.until(ExpectedConditions.presenceOfElementLocated(findStrategy.convert()));
+        Element element = new WebCoreElement(webDriver, nativeWebElement, findStrategy.convert());
 
         // If we use log decorator.
         Element logElement = new LogElement(element);

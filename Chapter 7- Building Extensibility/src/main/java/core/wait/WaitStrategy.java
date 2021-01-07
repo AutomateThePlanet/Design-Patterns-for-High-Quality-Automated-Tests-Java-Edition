@@ -22,27 +22,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.function.Function;
 
 public abstract class WaitStrategy {
-    private final int _timeoutIntervalSeconds;
-    private final int _sleepIntervalSeconds;
+    private final int timeoutIntervalSeconds;
+    private final int sleepIntervalSeconds;
 
     public WaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
-        this._timeoutIntervalSeconds = timeoutIntervalSeconds;
-        this._sleepIntervalSeconds = sleepIntervalSeconds;
+        this.timeoutIntervalSeconds = timeoutIntervalSeconds;
+        this.sleepIntervalSeconds = sleepIntervalSeconds;
     }
 
     public int getTimeoutIntervalSeconds() {
-        return _timeoutIntervalSeconds;
+        return timeoutIntervalSeconds;
     }
 
     public int getSleepIntervalSeconds() {
-        return _sleepIntervalSeconds;
+        return sleepIntervalSeconds;
     }
 
     public abstract void waitUntil(SearchContext searchContext, WebDriver driver, By by);
 
     protected void waitUntil(Function<SearchContext, Boolean> waitCondition, WebDriver driver)
     {
-        var webDriverWait = new WebDriverWait(driver, _timeoutIntervalSeconds, _sleepIntervalSeconds);
+        var webDriverWait = new WebDriverWait(driver, timeoutIntervalSeconds, sleepIntervalSeconds);
         webDriverWait.until(waitCondition);
     }
 
