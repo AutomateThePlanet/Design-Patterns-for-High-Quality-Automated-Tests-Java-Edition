@@ -31,65 +31,65 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class WebCoreDriver extends Driver {
-    private WebDriver _webDriver;
-    private WebDriverWait _webDriverWait;
+    private WebDriver webDriver;
+    private WebDriverWait webDriverWait;
 
     @Override
     public void start(Browser browser) throws IOException {
         var webSettings = ConfigurationService.get(WebSettings.class);
         switch (browser)
         {
-            case Chrome:
+            case CHROME:
                 WebDriverManager.chromedriver().setup();
-                _webDriver = new ChromeDriver();
-                _webDriver.manage().timeouts().pageLoadTimeout(webSettings.getChrome().getPageLoadTimeout(), TimeUnit.SECONDS);
-                _webDriver.manage().timeouts().setScriptTimeout(webSettings.getChrome().getScriptTimeout(), TimeUnit.SECONDS);
+                webDriver = new ChromeDriver();
+                webDriver.manage().timeouts().pageLoadTimeout(webSettings.getChrome().getPageLoadTimeout(), TimeUnit.SECONDS);
+                webDriver.manage().timeouts().setScriptTimeout(webSettings.getChrome().getScriptTimeout(), TimeUnit.SECONDS);
                 break;
-            case Firefox:
+            case FIREFOX:
                 WebDriverManager.firefoxdriver().setup();
-                _webDriver = new FirefoxDriver();
-                _webDriver.manage().timeouts().pageLoadTimeout(webSettings.getFirefox().getPageLoadTimeout(), TimeUnit.SECONDS);
-                _webDriver.manage().timeouts().setScriptTimeout(webSettings.getFirefox().getScriptTimeout(), TimeUnit.SECONDS);
+                webDriver = new FirefoxDriver();
+                webDriver.manage().timeouts().pageLoadTimeout(webSettings.getFirefox().getPageLoadTimeout(), TimeUnit.SECONDS);
+                webDriver.manage().timeouts().setScriptTimeout(webSettings.getFirefox().getScriptTimeout(), TimeUnit.SECONDS);
                 break;
-            case Edge:
+            case EDGE:
                 //_webDriver = new EdgeDriver();
                 break;
-            case Opera:
+            case OPERA:
                 //_webDriver = new OperaDriver();
                 break;
-            case Safari:
+            case SAFARI:
                 //_webDriver = new SafariDriver();
                 break;
-            case InternetExplorer:
+            case INTERNET_EXPLORER:
                 //_webDriver = new InternetExplorerDriver();
                 break;
             default:
                 throw new IllegalArgumentException(browser.name());
         }
 
-        _webDriverWait = new WebDriverWait(_webDriver, webSettings.getElementWaitTimeout());
+        webDriverWait = new WebDriverWait(webDriver, webSettings.getElementWaitTimeout());
     }
 
     @Override
     public void quit() {
-        _webDriver.quit();
+        webDriver.quit();
     }
 
     @Override
     public void goToUrl(String url) {
-        _webDriver.navigate().to(url);
+        webDriver.navigate().to(url);
     }
 
     @Override
     public String getUrl() {
-        return _webDriver.getCurrentUrl();
+        return webDriver.getCurrentUrl();
     }
 
     @Override
     public Element findElement(By locator) {
         var nativeWebElement =
-                _webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        Element element = new WebCoreElement(_webDriver, nativeWebElement, locator);
+                webDriverWait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        Element element = new WebCoreElement(webDriver, nativeWebElement, locator);
 
         // If we use log decorator.
         Element logElement = new LogElement(element);
@@ -100,10 +100,10 @@ public class WebCoreDriver extends Driver {
     @Override
     public List<Element> findElements(By locator) {
         List<WebElement> nativeWebElements =
-                _webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+                webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
         var elements = new ArrayList<Element>();
         for (WebElement nativeWebElement:nativeWebElements) {
-            Element element = new WebCoreElement(_webDriver, nativeWebElement, locator);
+            Element element = new WebCoreElement(webDriver, nativeWebElement, locator);
             Element logElement = new LogElement(element);
             elements.add(logElement);
         }
@@ -113,13 +113,13 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public void waitForAjax() {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
-        _webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+        webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
     }
 
     @Override
     public void waitUntilPageLoadsCompletely() {
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor)_webDriver;
-        _webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
+        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
+        webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
     }
 }

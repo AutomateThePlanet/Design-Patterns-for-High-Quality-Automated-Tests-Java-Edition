@@ -21,55 +21,55 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class NewPurchaseFacade extends PurchaseFacade {
-    private final MainPage _mainPage;
-    private final CartPage _cartPage;
-    private final CheckoutPage _checkoutPage;
+    private final MainPage mainPage;
+    private final CartPage cartPage;
+    private final CheckoutPage checkoutPage;
 
     public NewPurchaseFacade(MainPage mainPage, CartPage cartPage, CheckoutPage checkoutPage)
     {
-        _mainPage = mainPage;
-        _cartPage = cartPage;
-        _checkoutPage = checkoutPage;
+        this.mainPage = mainPage;
+        this.cartPage = cartPage;
+        this.checkoutPage = checkoutPage;
     }
 
     @Override
     protected void addItemToShoppingCart(String itemName) throws IOException, URISyntaxException {
-        _mainPage.open();
-        _mainPage.addRocketToShoppingCart(itemName);
+        mainPage.open();
+        mainPage.addRocketToShoppingCart(itemName);
     }
 
     @Override
     protected void applyCoupon(String couponName) throws InterruptedException {
-        _cartPage.applyCoupon(couponName);
+        cartPage.applyCoupon(couponName);
     }
 
     @Override
     protected void assertCouponAppliedSuccessfully() {
-        _cartPage.assertions().assertCouponAppliedSuccessfully();
+        cartPage.assertions().assertCouponAppliedSuccessfully();
     }
 
     @Override
     protected void increaseProductQuantity(int quantity) throws InterruptedException {
-        _cartPage.increaseProductQuantity(quantity);
+        cartPage.increaseProductQuantity(quantity);
     }
 
     @Override
     protected void assertTotalPrice(String expectedPrice) {
-        _cartPage.assertions().assertTotalPrice(expectedPrice);
+        cartPage.assertions().assertTotalPrice(expectedPrice);
     }
 
     @Override
     protected void proceedToCheckout() {
-        _cartPage.clickProceedToCheckout();
+        cartPage.clickProceedToCheckout();
     }
 
     @Override
     protected void fillBillingInfo(PurchaseInfo purchaseInfo) throws InterruptedException {
-        _checkoutPage.fillBillingInfo(purchaseInfo);
+        checkoutPage.fillBillingInfo(purchaseInfo);
     }
 
     @Override
     protected void assertOrderReceived() {
-        _checkoutPage.assertions().assertOrderReceived();
+        checkoutPage.assertions().assertOrderReceived();
     }
 }

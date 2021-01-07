@@ -14,11 +14,11 @@
 package core;
 
 public enum Browser {
-    NotSet,
-    Chrome,
-    Firefox,
-    Edge,
-    Opera,
-    Safari,
-    InternetExplorer
+    NOT_SET,
+    CHROME,
+    FIREFOX,
+    EDGE,
+    OPERA,
+    SAFARI,
+    INTERNET_EXPLORER
 }

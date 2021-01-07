@@ -13,15 +13,11 @@
 
 package core.browserinfrastructure;
 
-import org.testng.ITestResult;
-
-import java.lang.reflect.Method;
-
 public class BaseTestBehaviorObserver implements TestBehaviorObserver{
-    private final TestExecutionSubject _testExecutionSubject;
+    private final TestExecutionSubject testExecutionSubject;
 
     public BaseTestBehaviorObserver(TestExecutionSubject testExecutionSubject) {
-        _testExecutionSubject = testExecutionSubject;
+        this.testExecutionSubject = testExecutionSubject;
         testExecutionSubject.attach(this);
     }
 

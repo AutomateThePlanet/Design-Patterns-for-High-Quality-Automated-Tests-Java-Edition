@@ -14,14 +14,12 @@
 package core.browserinfrastructure;
 
 import core.Driver;
-import core.LoggingDriver;
 import core.WebCoreDriver;
 import org.openjdk.jmh.annotations.*;
-import java.lang.reflect.Method;
 
 @State(Scope.Thread)
 public class BaseBenchmark {
-    private Class<?> _currentClass;
+    private Class<?> currentClass;
 
     @State(Scope.Thread)
     public static class PluginState {
@@ -54,7 +52,7 @@ public class BaseBenchmark {
     }
 
     public void setCurrentClass(Class<?> currentClass) {
-        _currentClass = currentClass;
+        this.currentClass = currentClass;
     }
 
 //    @TearDown(Level.Trial)
@@ -67,16 +65,16 @@ public class BaseBenchmark {
 
     @Setup(Level.Invocation)
     public void setup(PluginState pluginState) throws NoSuchMethodException, ClassNotFoundException {
-        PluginState.getCurrentTestExecutionSubject().preTestInit(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().preTestInit(currentClass);
         init(PluginState.getDriver());
-        PluginState.getCurrentTestExecutionSubject().postTestInit(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().postTestInit(currentClass);
     }
 
     @TearDown(Level.Invocation)
     public void tearDown(PluginState pluginState) {
-        PluginState.getCurrentTestExecutionSubject().preTestCleanup(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().preTestCleanup(currentClass);
         cleanup(PluginState.getDriver());
-        PluginState.getCurrentTestExecutionSubject().postTestCleanup(_currentClass);
+        PluginState.getCurrentTestExecutionSubject().postTestCleanup(currentClass);
     }
 
     public void init(Driver driver)

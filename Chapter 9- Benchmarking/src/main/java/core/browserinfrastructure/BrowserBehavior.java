@@ -14,8 +14,8 @@
 package core.browserinfrastructure;
 
 public enum BrowserBehavior {
-    NotSet,
-    ReuseIfStarted,
-    RestartEveryTime,
-    RestartOnFail
+    NOT_SET,
+    REUSE_IF_STARTED,
+    RESTART_EVERY_TIME,
+    RESTART_ON_FAIL
 }

@@ -25,21 +25,21 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class ProductPurchaseTestsWithPageObjects {
-    private App _app;
+    private App app;
 
     @BeforeMethod
     public void testInit() throws IOException {
-        _app = new App(Browser.Chrome);
+        app = new App(Browser.CHROME);
     }
 
     @AfterMethod
     public void testCleanup() throws Exception {
-        _app.close();
+        app.close();
     }
 
     @Test
     public void testConfig() throws IOException, URISyntaxException {
-        var appap = _app;
+        var appap = app;
         var webSettings = ConfigurationService.get(WebSettings.class);
         var urlSettings = ConfigurationService.get(UrlSettings.class);
         var billingInfoDefaultValues = ConfigurationService.get(BillingInfoDefaultValues.class);
@@ -51,10 +51,10 @@ public class ProductPurchaseTestsWithPageObjects {
 
     @Test
     public void completePurchaseSuccessfully_WhenNewClient() throws InterruptedException {
-        var mainPage = _app.goTo(MainPage.class);
+        var mainPage = app.goTo(MainPage.class);
 
         mainPage.addRocketToShoppingCart();
-        var cartPage = _app.goTo(CartPage.class);
+        var cartPage = app.goTo(CartPage.class);
         cartPage.applyCoupon("happybirthday")
                 .assertCouponAppliedSuccessfully()
                 .increaseProductQuantity(2)

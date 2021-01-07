@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Thread)
 @Warmup(iterations = 0)
 @Measurement(iterations = 10)
-@ExecutionBrowser(browser = Browser.Chrome, browserBehavior = BrowserBehavior.RestartEveryTime)
+@ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RESTART_EVERY_TIME)
 public class BenchmarkRunner extends BaseBenchmark {
     private final String TEST_PAGE = "http://htmlpreview.github.io/?https://github.com/angelovstanton/AutomateThePlanet/blob/master/WebDriver-Series/TestPage.html";
 

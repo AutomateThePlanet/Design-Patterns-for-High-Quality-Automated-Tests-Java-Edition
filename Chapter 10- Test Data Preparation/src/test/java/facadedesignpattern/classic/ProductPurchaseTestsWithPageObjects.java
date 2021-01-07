@@ -27,36 +27,36 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class ProductPurchaseTestsWithPageObjects {
-    private Driver _driver;
-    private static MainPage _mainPage;
-    private static CartPage _cartPage;
-    private static CheckoutPage _checkoutPage;
-    private static PurchaseFacade _purchaseFacade;
+    private Driver driver;
+    private static MainPage mainPage;
+    private static CartPage cartPage;
+    private static CheckoutPage checkoutPage;
+    private static PurchaseFacade purchaseFacade;
 
     @BeforeMethod
     public void testInit() throws IOException {
-        _driver = new LoggingDriver(new WebCoreDriver());
-        _driver.start(Browser.Chrome);
-        _mainPage = new MainPage(_driver);
-        _cartPage = new CartPage(_driver);
-        _checkoutPage = new CheckoutPage(_driver);
-        _purchaseFacade = new PurchaseFacade(_mainPage, _cartPage, _checkoutPage);
+        driver = new LoggingDriver(new WebCoreDriver());
+        driver.start(Browser.CHROME);
+        mainPage = new MainPage(driver);
+        cartPage = new CartPage(driver);
+        checkoutPage = new CheckoutPage(driver);
+        purchaseFacade = new PurchaseFacade(mainPage, cartPage, checkoutPage);
     }
 
     @AfterMethod
     public void testCleanup() throws InterruptedException {
-        _driver.quit();
+        driver.quit();
     }
 
     @Test
     public void purchaseFalcon9WithoutFacade() throws InterruptedException {
-        _mainPage.open();
-        _mainPage.addRocketToShoppingCart("Falcon 9");
-        _cartPage.applyCoupon("happybirthday");
-        _cartPage.assertions().assertCouponAppliedSuccessfully();
-        _cartPage.increaseProductQuantity(2);
-        _cartPage.assertions().assertTotalPrice("114.00€");
-        _cartPage.clickProceedToCheckout();
+        mainPage.open();
+        mainPage.addRocketToShoppingCart("Falcon 9");
+        cartPage.applyCoupon("happybirthday");
+        cartPage.assertions().assertCouponAppliedSuccessfully();
+        cartPage.increaseProductQuantity(2);
+        cartPage.assertions().assertTotalPrice("114.00€");
+        cartPage.clickProceedToCheckout();
 
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
@@ -70,19 +70,19 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        _checkoutPage.fillBillingInfo(purchaseInfo);
-        _checkoutPage.assertions().assertOrderReceived();
+        checkoutPage.fillBillingInfo(purchaseInfo);
+        checkoutPage.assertions().assertOrderReceived();
     }
 
     @Test
     public void purchaseSaturnVWithoutFacade() throws InterruptedException {
-        _mainPage.open();
-        _mainPage.addRocketToShoppingCart("Saturn V");
-        _cartPage.applyCoupon("happybirthday");
-        _cartPage.assertions().assertCouponAppliedSuccessfully();
-        _cartPage.increaseProductQuantity(3);
-        _cartPage.assertions().assertTotalPrice("355.00€");
-        _cartPage.clickProceedToCheckout();
+        mainPage.open();
+        mainPage.addRocketToShoppingCart("Saturn V");
+        cartPage.applyCoupon("happybirthday");
+        cartPage.assertions().assertCouponAppliedSuccessfully();
+        cartPage.increaseProductQuantity(3);
+        cartPage.assertions().assertTotalPrice("355.00€");
+        cartPage.clickProceedToCheckout();
 
         var purchaseInfo = new PurchaseInfo();
         purchaseInfo.setEmail("info@berlinspaceflowers.com");
@@ -96,8 +96,8 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        _checkoutPage.fillBillingInfo(purchaseInfo);
-        _checkoutPage.assertions().assertOrderReceived();
+        checkoutPage.fillBillingInfo(purchaseInfo);
+        checkoutPage.assertions().assertOrderReceived();
     }
 
     @Test
@@ -114,7 +114,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        _purchaseFacade.purchaseItem("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
+        purchaseFacade.purchaseItem("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
     }
 
     @Test
@@ -131,6 +131,6 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        _purchaseFacade.purchaseItem("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
+        purchaseFacade.purchaseItem("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
     }
 }

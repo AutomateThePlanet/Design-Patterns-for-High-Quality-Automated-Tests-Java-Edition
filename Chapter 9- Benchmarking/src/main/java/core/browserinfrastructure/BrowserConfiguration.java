@@ -16,27 +16,27 @@ package core.browserinfrastructure;
 import core.Browser;
 
 public class BrowserConfiguration {
-    private Browser _browser;
-    private BrowserBehavior _browserBehavior;
+    private Browser browser;
+    private BrowserBehavior browserBehavior;
 
     public BrowserConfiguration(Browser browser, BrowserBehavior browserBehavior) {
-        _browser = browser;
-        _browserBehavior = browserBehavior;
+        this.browser = browser;
+        this.browserBehavior = browserBehavior;
     }
 
     public BrowserBehavior getBrowserBehavior() {
-        return _browserBehavior;
+        return browserBehavior;
     }
 
     public void setBrowserBehavior(BrowserBehavior _browserBehavior) {
-        this._browserBehavior = _browserBehavior;
+        this.browserBehavior = _browserBehavior;
     }
 
     public Browser getBrowser() {
-        return _browser;
+        return browser;
     }
 
     public void setBrowser(Browser _browser) {
-        this._browser = _browser;
+        this.browser = _browser;
     }
 }

@@ -27,18 +27,18 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class UsingDataStubsTests {
-    private WebDriver _driver;
-    private BrowserMobProxyServer _proxyServer;
+    private WebDriver driver;
+    private BrowserMobProxyServer proxyServer;
 
     @BeforeMethod
     public void testInit() {
         WebDriverManager.chromedriver().setup();
-        _proxyServer = new BrowserMobProxyServer();
-        _proxyServer.start();
+        proxyServer = new BrowserMobProxyServer();
+        proxyServer.start();
 
-        _proxyServer.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
-        _proxyServer.newHar();
-        String proxyDetails = "127.0.0.1:" + _proxyServer.getPort();
+        proxyServer.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+        proxyServer.newHar();
+        String proxyDetails = "127.0.0.1:" + proxyServer.getPort();
         final Proxy proxyConfig = new Proxy().
                 setHttpProxy(proxyDetails).
                 setSslProxy(proxyDetails);
@@ -46,20 +46,20 @@ public class UsingDataStubsTests {
         final ChromeOptions options = new ChromeOptions();
         options.setProxy(proxyConfig);
         options.setAcceptInsecureCerts(true);
-        _driver = new ChromeDriver(options);
-        _driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterMethod
     public void testCleanup() throws InterruptedException {
-        _driver.quit();
-        _proxyServer.abort();
+        driver.quit();
+        proxyServer.abort();
     }
 
     @Test
     public void requestRedirected_when_usingProxyRedirect() {
-        _proxyServer.rewriteUrl("https://secure.gravatar.com/js/gprofiles.js?ver=2019Junaa", "https://stub.gravatar.com/js/gprofiles.js?ver=2019Junaa");
+        proxyServer.rewriteUrl("https://secure.gravatar.com/js/gprofiles.js?ver=2019Junaa", "https://stub.gravatar.com/js/gprofiles.js?ver=2019Junaa");
 
-        _driver.navigate().to("http://demos.bellatrix.solutions/");
+        driver.navigate().to("http://demos.bellatrix.solutions/");
     }
 }

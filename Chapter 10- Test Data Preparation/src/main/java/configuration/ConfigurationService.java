@@ -13,40 +13,33 @@
 
 package configuration;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.MapperFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.commons.io.IOUtils;
 
-import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class ConfigurationService {
-    private static String _environment;
+    private static String environment;
 
     public static <T> T get(Class<T> configSection) throws IOException {
-        if (_environment == null) {
+        if (environment == null) {
             String environmentOverride = System.getProperty("environment");
             if (environmentOverride == null) {
                 InputStream input = ConfigurationService.class.getResourceAsStream("/application.properties");
                 var p = new Properties();
                 p.load(input);
-                _environment = p.getProperty("environment");
+                environment = p.getProperty("environment");
             }
            else {
-                _environment =environmentOverride;
+                environment =environmentOverride;
             }
         }
 
-        String fileName = String.format("testFrameworkSettings.%s.json", _environment);
+        String fileName = String.format("testFrameworkSettings.%s.json", environment);
         String jsonFileContent = getFileAsString(fileName);
         String sectionName = getSectionName(configSection);
 
