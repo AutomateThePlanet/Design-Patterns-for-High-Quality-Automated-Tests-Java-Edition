@@ -17,7 +17,7 @@ import org.openqa.selenium.By;
 
 public class LogElement extends ElementDecorator {
 
-    protected LogElement(reusebrowser.Element element) {
+    protected LogElement(Element element) {
         super(element);
     }
 

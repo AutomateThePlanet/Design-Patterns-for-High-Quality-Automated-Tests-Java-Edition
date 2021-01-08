@@ -14,6 +14,7 @@
 package pages.v8.multifilepageobjectsectionssingleton;
 
 import core.ElementFindService;
+import pages.v8.multifilepageobjectsectionssingleton.MainPage.MainPage;
 import pages.v8.multifilepageobjectsectionssingleton.Sections.CartInfoSection;
 import pages.v8.multifilepageobjectsectionssingleton.Sections.MainMenuSection;
 import pages.v8.multifilepageobjectsectionssingleton.Sections.SearchSection;

@@ -17,10 +17,10 @@ import org.openqa.selenium.By;
 
 import java.util.List;
 
-public class DriverDecorator extends reusebrowser.Driver {
+public class DriverDecorator extends Driver {
     protected final Driver driver;
 
-    public DriverDecorator(reusebrowser.Driver driver) {
+    public DriverDecorator(Driver driver) {
         this.driver = driver;
     }
 

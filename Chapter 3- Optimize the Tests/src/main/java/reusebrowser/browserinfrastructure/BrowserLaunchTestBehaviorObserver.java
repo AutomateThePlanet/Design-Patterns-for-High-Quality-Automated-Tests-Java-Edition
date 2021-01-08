@@ -33,7 +33,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
     public void preTestInit(ITestResult testResult, Method memberInfo) {
         currentBrowserConfiguration = getBrowserConfiguration(memberInfo);
 
-        Boolean shouldRestartBrowser = ShouldRestartBrowser(currentBrowserConfiguration);
+        Boolean shouldRestartBrowser = shouldRestartBrowser(currentBrowserConfiguration);
 
         if (shouldRestartBrowser)
         {
@@ -58,7 +58,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
         driver.start(currentBrowserConfiguration.getBrowser());
     }
 
-    private Boolean ShouldRestartBrowser(BrowserConfiguration browserConfiguration)
+    private Boolean shouldRestartBrowser(BrowserConfiguration browserConfiguration)
     {
         if (previousBrowserConfiguration == null)
         {

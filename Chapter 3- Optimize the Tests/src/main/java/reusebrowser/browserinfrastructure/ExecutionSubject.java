@@ -18,7 +18,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExecutionSubject implements TestExecutionSubject{
+public class ExecutionSubject implements TestExecutionSubject {
     private final List<TestBehaviorObserver> testBehaviorObservers;
 
     public ExecutionSubject() {

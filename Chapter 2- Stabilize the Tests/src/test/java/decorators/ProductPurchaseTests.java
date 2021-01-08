@@ -182,6 +182,6 @@ public class ProductPurchaseTests {
     }
 
     private String generateUniqueEmail() {
-        return UUID.randomUUID().toString() + "@berlinspaceflowers.com";
+        return String.format("%s@berlinspaceflowers.com", UUID.randomUUID().toString());
     }
 }

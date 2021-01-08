@@ -15,7 +15,7 @@ package reusebrowser;
 
 import org.openqa.selenium.By;
 
-public class ElementDecorator extends reusebrowser.Element {
+public class ElementDecorator extends Element {
     protected final Element element;
 
     protected ElementDecorator(Element element) {
