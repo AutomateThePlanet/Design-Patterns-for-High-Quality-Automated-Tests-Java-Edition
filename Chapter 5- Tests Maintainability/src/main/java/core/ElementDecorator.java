@@ -61,4 +61,9 @@ public class ElementDecorator extends Element {
     public Element findElement(By locator) {
         return element.findElement(locator);
     }
+
+    @Override
+    public void waitToExists() {
+        element.waitToExists();
+    }
 }

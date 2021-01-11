@@ -73,9 +73,15 @@ public class WebCoreElement extends Element {
     public Element findElement(By locator) {
         var nativeWebElement = webElement.findElement(locator);
         Element element = new WebCoreElement(webDriver, nativeWebElement, locator);
-        Element logElement = new LogElement(element);
 
-        return logElement;
+        return new LogElement(element);
+    }
+
+    @Override
+    public void waitToExists()
+    {
+        var webDriverWait = new WebDriverWait(webDriver, 30);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     private void waitToBeClickable(By by)

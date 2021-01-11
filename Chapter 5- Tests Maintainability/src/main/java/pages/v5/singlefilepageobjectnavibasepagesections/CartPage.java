@@ -28,6 +28,11 @@ public class CartPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/cart/";
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        couponCodeTextField().waitToExists();
+    }
+
     private Element couponCodeTextField() {
         return driver.findElement(By.id("coupon_code"));
     }
