@@ -24,8 +24,7 @@ public class WebCoreElement extends Element {
     private final WebElement webElement;
     private final By by;
 
-    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by)
-    {
+    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by) {
         this.webDriver = webDriver;
         this.webElement = webElement;
         this.by = by;
@@ -78,8 +77,7 @@ public class WebCoreElement extends Element {
         return logElement;
     }
 
-    private void waitToBeClickable(By by)
-    {
+    private void waitToBeClickable(By by) {
         var webDriverWait = new WebDriverWait(webDriver, 30);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
     }

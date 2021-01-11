@@ -32,8 +32,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
 
         Boolean shouldRestartBrowser = ShouldRestartBrowser(currentBrowserConfiguration);
 
-        if (shouldRestartBrowser)
-        {
+        if (shouldRestartBrowser) {
             restartBrowser();
         }
 
@@ -49,16 +48,13 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
 //        }
     }
 
-    private void restartBrowser()
-    {
+    private void restartBrowser() {
         driver.quit();
         driver.start(currentBrowserConfiguration.getBrowser());
     }
 
-    private Boolean ShouldRestartBrowser(BrowserConfiguration browserConfiguration)
-    {
-        if (previousBrowserConfiguration == null)
-        {
+    private Boolean ShouldRestartBrowser(BrowserConfiguration browserConfiguration) {
+        if (previousBrowserConfiguration == null) {
             return true;
         }
 
@@ -68,11 +64,9 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
         return shouldRestartBrowser;
     }
 
-    private BrowserConfiguration getBrowserConfiguration(Class<?> currentClass)
-    {
-        var executionBrowserAnnotation = (ExecutionBrowser)currentClass.getDeclaredAnnotation(ExecutionBrowser.class);
-        if (executionBrowserAnnotation == null)
-        {
+    private BrowserConfiguration getBrowserConfiguration(Class<?> currentClass) {
+        var executionBrowserAnnotation = (ExecutionBrowser) currentClass.getDeclaredAnnotation(ExecutionBrowser.class);
+        if (executionBrowserAnnotation == null) {
             return null;
         }
 

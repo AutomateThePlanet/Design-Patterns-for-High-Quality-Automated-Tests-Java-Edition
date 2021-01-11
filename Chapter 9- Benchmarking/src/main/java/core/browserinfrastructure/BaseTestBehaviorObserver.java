@@ -13,7 +13,7 @@
 
 package core.browserinfrastructure;
 
-public class BaseTestBehaviorObserver implements TestBehaviorObserver{
+public class BaseTestBehaviorObserver implements TestBehaviorObserver {
     private final TestExecutionSubject testExecutionSubject;
 
     public BaseTestBehaviorObserver(TestExecutionSubject testExecutionSubject) {

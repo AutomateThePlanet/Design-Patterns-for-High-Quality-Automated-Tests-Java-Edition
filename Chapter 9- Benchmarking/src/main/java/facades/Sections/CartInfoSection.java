@@ -32,13 +32,11 @@ public class CartInfoSection {
         return driver.findElement(By.className("amount"));
     }
 
-    public String getCurrentAmount()
-    {
+    public String getCurrentAmount() {
         return cartAmount().getText();
     }
 
-    public void openCart()
-    {
+    public void openCart() {
         cartIcon().click();
     }
 }

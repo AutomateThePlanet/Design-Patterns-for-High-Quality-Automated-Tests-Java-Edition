@@ -22,8 +22,7 @@ public class CheckoutAssertions {
         this.elements = elements;
     }
 
-    public void assertOrderReceived()
-    {
+    public void assertOrderReceived() {
         Assert.assertEquals(elements.receivedMessage().getText(), "Order received");
     }
 }

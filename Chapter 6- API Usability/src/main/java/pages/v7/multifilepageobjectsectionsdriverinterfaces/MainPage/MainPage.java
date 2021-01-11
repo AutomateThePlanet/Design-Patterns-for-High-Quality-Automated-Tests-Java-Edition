@@ -13,8 +13,6 @@
 
 package pages.v7.multifilepageobjectsectionsdriverinterfaces.MainPage;
 
-import core.BrowserService;
-import core.Driver;
 import core.ElementFindService;
 import core.NavigationService;
 import pages.v7.multifilepageobjectsectionsdriverinterfaces.NavigatableEShopPage;
@@ -37,8 +35,7 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         open();
         elements().addToCartFalcon9().click();
         elements().viewCartButton().click();

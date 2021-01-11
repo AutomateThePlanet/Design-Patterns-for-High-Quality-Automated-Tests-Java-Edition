@@ -26,11 +26,18 @@ public abstract class PurchaseFacade {
     }
 
     protected abstract void addItemToShoppingCart(String itemName);
+
     protected abstract void applyCoupon(String couponName) throws InterruptedException;
+
     protected abstract void assertCouponAppliedSuccessfully();
+
     protected abstract void increaseProductQuantity(int quantity) throws InterruptedException;
+
     protected abstract void assertTotalPrice(String expectedPrice);
+
     protected abstract void proceedToCheckout();
+
     protected abstract void fillBillingInfo(PurchaseInfo purchaseInfo) throws InterruptedException;
+
     protected abstract void assertOrderReceived();
 }

@@ -67,19 +67,16 @@ public class CartPage extends BaseEShopPage {
         driver.waitForAjax();
     }
 
-    public void clickProceedToCheckout()
-    {
+    public void clickProceedToCheckout() {
         proceedToCheckout().click();
         driver.waitUntilPageLoadsCompletely();
     }
 
-    public String getTotal()
-    {
+    public String getTotal() {
         return totalSpan().getText();
     }
 
-    public String getMessageNotification()
-    {
+    public String getMessageNotification() {
         return messageAlert().getText();
     }
 }

@@ -16,7 +16,7 @@ package core.browserinfrastructure;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExecutionSubject implements TestExecutionSubject{
+public class ExecutionSubject implements TestExecutionSubject {
     private final List<TestBehaviorObserver> testBehaviorObservers;
 
     public ExecutionSubject() {
@@ -35,35 +35,35 @@ public class ExecutionSubject implements TestExecutionSubject{
 
     @Override
     public void preTestInit(Class<?> currentClass) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.preTestInit(currentClass);
         }
     }
 
     @Override
     public void postTestInit(Class<?> currentClass) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.postTestInit(currentClass);
         }
     }
 
     @Override
     public void preTestCleanup(Class<?> currentClass) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.preTestCleanup(currentClass);
         }
     }
 
     @Override
     public void postTestCleanup(Class<?> currentClass) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.postTestCleanup(currentClass);
         }
     }
 
     @Override
     public void testInstantiated(Class<?> currentClass) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.testInstantiated(currentClass);
         }
     }

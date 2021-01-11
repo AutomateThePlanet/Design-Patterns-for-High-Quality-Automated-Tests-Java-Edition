@@ -28,8 +28,7 @@ public class BreadcrumbSection {
         return elementFindService.findElement(By.className("woocommerce-breadcrumb"));
     }
 
-    public void openBreadcrumbItem(String itemToOpen)
-    {
+    public void openBreadcrumbItem(String itemToOpen) {
         breadcrumb().findElement(By.linkText(itemToOpen)).click();
     }
 }

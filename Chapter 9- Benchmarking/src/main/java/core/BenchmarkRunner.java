@@ -60,7 +60,7 @@ public class BenchmarkRunner extends BaseBenchmark {
     @Benchmark
     public void benchmarkWebDriverClick(PluginState pluginState) {
         var buttons = PluginState.getDriver().findElements(By.xpath("//input[@value='Submit']"));
-        for (var button:buttons) {
+        for (var button : buttons) {
             button.click();
         }
     }

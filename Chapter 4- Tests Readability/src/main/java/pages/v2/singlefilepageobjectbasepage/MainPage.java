@@ -19,8 +19,7 @@ import org.openqa.selenium.By;
 
 public class MainPage extends BaseEShopPage {
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         super(driver);
     }
 
@@ -37,8 +36,7 @@ public class MainPage extends BaseEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         open();
         addToCartFalcon9().click();
         viewCartButton().click();

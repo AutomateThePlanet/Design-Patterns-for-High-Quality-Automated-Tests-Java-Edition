@@ -108,19 +108,16 @@ public class CartPage {
         driver.waitForAjax();
     }
 
-    public void clickProceedToCheckout()
-    {
+    public void clickProceedToCheckout() {
         proceedToCheckout().click();
         driver.waitUntilPageLoadsCompletely();
     }
 
-    public String getTotal()
-    {
+    public String getTotal() {
         return totalSpan().getText();
     }
 
-    public String getMessageNotification()
-    {
+    public String getMessageNotification() {
         return messageAlert().getText();
     }
 
@@ -129,38 +126,31 @@ public class CartPage {
         searchField().typeText(searchText);
     }
 
-    public void openHomePage()
-    {
+    public void openHomePage() {
         homeLink().click();
     }
 
-    public void openBlogPage()
-    {
+    public void openBlogPage() {
         blogLink().click();
     }
 
-    public void openMyAccountPage()
-    {
+    public void openMyAccountPage() {
         myAccountLink().click();
     }
 
-    public void openPromotionsPage()
-    {
+    public void openPromotionsPage() {
         promotionsLink().click();
     }
 
-    public String getCurrentAmount()
-    {
+    public String getCurrentAmount() {
         return cartAmount().getText();
     }
 
-    public void openCart()
-    {
+    public void openCart() {
         cartIcon().click();
     }
 
-    public void openBreadcrumbItem(String itemToOpen)
-    {
+    public void openBreadcrumbItem(String itemToOpen) {
         breadcrumb().findElement(By.linkText(itemToOpen)).click();
     }
 }

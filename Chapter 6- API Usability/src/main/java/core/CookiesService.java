@@ -13,9 +13,6 @@
 
 package core;
 
-import org.openqa.selenium.Cookie;
-import java.util.List;
-
 public interface CookiesService {
 //    void addCookie(String cookieName, String cookieValue, String path);
 //

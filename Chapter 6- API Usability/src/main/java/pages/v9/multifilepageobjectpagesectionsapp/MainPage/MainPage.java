@@ -19,10 +19,8 @@ import pages.v9.multifilepageobjectpagesectionsapp.SingletonFactory;
 public class MainPage extends NavigatableEShopPage {
     private static MainPage instance;
 
-    public static MainPage getInstance()
-    {
-        if (instance == null)
-        {
+    public static MainPage getInstance() {
+        if (instance == null) {
             instance = new MainPage();
         }
 
@@ -31,12 +29,9 @@ public class MainPage extends NavigatableEShopPage {
 
     public static MainPage getInstanceFactory() {
         MainPage mainPage = null;
-        try
-        {
+        try {
             return SingletonFactory.getInstance(MainPage.class);
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             // not the best practice to return null. But probably we will never end here so it is OK.
             return mainPage;
         }
@@ -55,8 +50,7 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         open();
         elements().addToCartFalcon9().click();
         elements().viewCartButton().click();

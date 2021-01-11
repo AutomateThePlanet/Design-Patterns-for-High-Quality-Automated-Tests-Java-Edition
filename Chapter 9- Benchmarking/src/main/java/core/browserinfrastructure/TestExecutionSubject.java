@@ -13,10 +13,6 @@
 
 package core.browserinfrastructure;
 
-import org.testng.ITestResult;
-
-import java.lang.reflect.Method;
-
 public interface TestExecutionSubject {
     void attach(TestBehaviorObserver observer);
 

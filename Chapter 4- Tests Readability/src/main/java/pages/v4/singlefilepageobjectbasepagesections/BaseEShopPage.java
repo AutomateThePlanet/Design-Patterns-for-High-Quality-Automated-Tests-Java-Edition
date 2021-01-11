@@ -39,8 +39,7 @@ public abstract class BaseEShopPage {
 
     protected abstract String getUrl();
 
-    public void open()
-    {
+    public void open() {
         driver.goToUrl(getUrl());
     }
 }

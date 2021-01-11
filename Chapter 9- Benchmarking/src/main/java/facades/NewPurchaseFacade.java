@@ -22,8 +22,7 @@ public class NewPurchaseFacade extends PurchaseFacade {
     private final CartPage cartPage;
     private final CheckoutPage checkoutPage;
 
-    public NewPurchaseFacade(MainPage mainPage, CartPage cartPage, CheckoutPage checkoutPage)
-    {
+    public NewPurchaseFacade(MainPage mainPage, CartPage cartPage, CheckoutPage checkoutPage) {
         this.mainPage = mainPage;
         this.cartPage = cartPage;
         this.checkoutPage = checkoutPage;

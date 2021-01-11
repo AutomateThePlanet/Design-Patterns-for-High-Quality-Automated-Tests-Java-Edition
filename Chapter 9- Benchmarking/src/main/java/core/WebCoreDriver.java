@@ -32,8 +32,7 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public void start(Browser browser) {
-        switch (browser)
-        {
+        switch (browser) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
@@ -90,7 +89,7 @@ public class WebCoreDriver extends Driver {
         List<WebElement> nativeWebElements =
                 webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
         var elements = new ArrayList<Element>();
-        for (WebElement nativeWebElement:nativeWebElements) {
+        for (WebElement nativeWebElement : nativeWebElements) {
             Element element = new WebCoreElement(webDriver, nativeWebElement, locator);
             Element logElement = new LogElement(element);
             elements.add(logElement);
@@ -102,7 +101,7 @@ public class WebCoreDriver extends Driver {
     @Override
     public void waitForAjax() {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
-        webDriverWait.until(d -> (Boolean)javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
+        webDriverWait.until(d -> (Boolean) javascriptExecutor.executeScript("return window.jQuery != undefined && jQuery.active == 0"));
     }
 
     @Override

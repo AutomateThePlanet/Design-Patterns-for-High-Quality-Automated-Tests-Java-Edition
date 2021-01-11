@@ -77,11 +77,9 @@ public class BaseBenchmark {
         PluginState.getCurrentTestExecutionSubject().postTestCleanup(currentClass);
     }
 
-    public void init(Driver driver)
-    {
+    public void init(Driver driver) {
     }
 
-    public void cleanup(Driver driver)
-    {
+    public void cleanup(Driver driver) {
     }
 }

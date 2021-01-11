@@ -22,12 +22,13 @@ import java.util.Map;
 public class SingletonFactory {
     private static final SingletonFactory INSTANCE = new SingletonFactory();
 
-    private final Map<String,Object> mapHolder = new HashMap<>();
+    private final Map<String, Object> mapHolder = new HashMap<>();
 
-    private SingletonFactory() {}
+    private SingletonFactory() {
+    }
 
     public static <T> T getInstance(Class<T> classOf) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        if(!INSTANCE.mapHolder.containsKey(classOf.getName())){
+        if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
 
             T obj = (T) classOf.getConstructors()[0].newInstance();
             INSTANCE.mapHolder.put(classOf.getName(), obj);

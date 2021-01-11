@@ -32,8 +32,7 @@ public class MainPageElements {
         return elementFindService.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
     }
 
-    public Element getProductBoxByName(String name)
-    {
+    public Element getProductBoxByName(String name) {
         return elementFindService.findElement(By.xpath(String.format("//h2[text()='%s']/parent::a[1]", name)));
     }
 }
