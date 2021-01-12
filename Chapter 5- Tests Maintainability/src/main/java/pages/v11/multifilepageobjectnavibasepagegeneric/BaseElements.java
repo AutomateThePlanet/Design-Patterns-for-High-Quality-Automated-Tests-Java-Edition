@@ -15,7 +15,7 @@ package pages.v11.multifilepageobjectnavibasepagegeneric;
 
 import core.Driver;
 
-public class BaseElements {
+public abstract class BaseElements {
     protected final Driver driver;
 
     public BaseElements(Driver driver) {

@@ -15,7 +15,7 @@ package pages.v11.multifilepageobjectnavibasepagegeneric;
 
 import java.lang.reflect.ParameterizedType;
 
-public class BaseAssertions<ElementsT extends BaseElements> {
+public abstract class BaseAssertions<ElementsT extends BaseElements> {
     protected ElementsT elements() {
         try {
             var elementsClass = (Class<ElementsT>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
