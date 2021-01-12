@@ -19,8 +19,7 @@ import org.openqa.selenium.By;
 
 public class MainPage extends NavigatableEShopPage {
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         super(driver);
     }
 
@@ -42,8 +41,7 @@ public class MainPage extends NavigatableEShopPage {
         addToCartFalcon9().waitToExists();
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         open();
         addToCartFalcon9().click();
         viewCartButton().click();

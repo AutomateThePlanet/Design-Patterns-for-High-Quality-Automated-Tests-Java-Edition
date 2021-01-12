@@ -39,7 +39,7 @@ public class ProductPurchaseWithoutPagesObjectsTests {
         driver.quit();
     }
 
-    @Test(priority=1)
+    @Test(priority = 1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = driver.findElement(By.cssSelector("[data-product_id*='28']"));
@@ -105,7 +105,7 @@ public class ProductPurchaseWithoutPagesObjectsTests {
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -156,8 +156,7 @@ public class ProductPurchaseWithoutPagesObjectsTests {
         purchaseOrderNumber = orderNumber.getText();
     }
 
-    private String GetUserPasswordFromDb(String userName)
-    {
+    private String GetUserPasswordFromDb(String userName) {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 }

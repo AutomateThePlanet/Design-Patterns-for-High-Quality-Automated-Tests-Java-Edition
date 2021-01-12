@@ -52,19 +52,16 @@ public class CartPage extends NavigatableEShopPage {
         driver.waitForAjax();
     }
 
-    public void clickProceedToCheckout()
-    {
+    public void clickProceedToCheckout() {
         elements().proceedToCheckout().click();
         driver.waitUntilPageLoadsCompletely();
     }
 
-    public String getTotal()
-    {
+    public String getTotal() {
         return elements().totalSpan().getText();
     }
 
-    public String getMessageNotification()
-    {
+    public String getMessageNotification() {
         return elements().messageAlert().getText();
     }
 }

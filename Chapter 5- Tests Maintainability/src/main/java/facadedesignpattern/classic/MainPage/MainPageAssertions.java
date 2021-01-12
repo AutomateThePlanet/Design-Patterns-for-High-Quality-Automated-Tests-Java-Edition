@@ -22,8 +22,7 @@ public class MainPageAssertions {
         elements = mainPageElements;
     }
 
-    public void assertProductBoxLink(String name, String expectedLink)
-    {
+    public void assertProductBoxLink(String name, String expectedLink) {
         var actualLink = elements.getProductBoxByName(name).getAttribute("href");
         Assert.assertEquals(actualLink, expectedLink);
     }

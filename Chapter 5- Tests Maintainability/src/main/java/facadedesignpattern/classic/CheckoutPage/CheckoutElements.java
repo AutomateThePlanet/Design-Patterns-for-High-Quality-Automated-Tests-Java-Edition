@@ -20,8 +20,7 @@ import org.openqa.selenium.By;
 public class CheckoutElements {
     private final Driver driver;
 
-    public CheckoutElements(Driver driver)
-    {
+    public CheckoutElements(Driver driver) {
         this.driver = driver;
     }
 

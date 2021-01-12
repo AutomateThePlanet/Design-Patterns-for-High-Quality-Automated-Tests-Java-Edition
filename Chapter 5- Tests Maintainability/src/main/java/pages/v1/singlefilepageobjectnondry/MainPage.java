@@ -21,8 +21,7 @@ public class MainPage {
     private final Driver driver;
     private final String url = "http://demos.bellatrix.solutions/";
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         this.driver = driver;
     }
 
@@ -73,8 +72,7 @@ public class MainPage {
         return driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         driver.goToUrl(url);
         addToCartFalcon9().click();
         viewCartButton().click();
@@ -85,33 +83,27 @@ public class MainPage {
         searchField().typeText(searchText);
     }
 
-    public void openHomePage()
-    {
+    public void openHomePage() {
         homeLink().click();
     }
 
-    public void openBlogPage()
-    {
+    public void openBlogPage() {
         blogLink().click();
     }
 
-    public void openMyAccountPage()
-    {
+    public void openMyAccountPage() {
         myAccountLink().click();
     }
 
-    public void openPromotionsPage()
-    {
+    public void openPromotionsPage() {
         promotionsLink().click();
     }
 
-    public String getCurrentAmount()
-    {
+    public String getCurrentAmount() {
         return cartAmount().getText();
     }
 
-    public void openCart()
-    {
+    public void openCart() {
         cartIcon().click();
     }
 }

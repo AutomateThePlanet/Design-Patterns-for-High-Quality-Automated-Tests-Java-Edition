@@ -18,8 +18,7 @@ import pages.v6.multifilepageobjectnavibasepagesections.NavigatableEShopPage;
 
 public class MainPage extends NavigatableEShopPage {
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         super(driver);
     }
 
@@ -41,8 +40,7 @@ public class MainPage extends NavigatableEShopPage {
         elements().addToCartFalcon9().waitToExists();
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         open();
         elements().addToCartFalcon9().click();
         elements().viewCartButton().click();

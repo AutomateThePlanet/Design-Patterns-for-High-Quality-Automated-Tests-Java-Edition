@@ -24,8 +24,7 @@ public class MainPage {
     private final Driver driver;
     private final String url = "http://demos.bellatrix.solutions/";
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         this.driver = driver;
     }
 
@@ -49,8 +48,7 @@ public class MainPage {
         return new SearchSection(driver);
     }
 
-    public void addRocketToShoppingCart()
-    {
+    public void addRocketToShoppingCart() {
         driver.goToUrl(url);
         addToCartFalcon9().click();
         viewCartButton().click();

@@ -43,7 +43,7 @@ public class ProductPurchaseTestsWithPageObjects {
         driver.quit();
     }
 
-    @Test(priority=1)
+    @Test(priority = 1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         mainPage.addRocketToShoppingCart();
         cartPage.applyCoupon("happybirthday");
@@ -60,7 +60,7 @@ public class ProductPurchaseTestsWithPageObjects {
         Assert.assertEquals(receivedMessage.getText(), "Checkout");
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -111,8 +111,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseOrderNumber = orderNumber.getText();
     }
 
-    private String GetUserPasswordFromDb(String userName)
-    {
+    private String GetUserPasswordFromDb(String userName) {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 }

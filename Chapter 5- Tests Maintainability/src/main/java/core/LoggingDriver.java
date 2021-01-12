@@ -24,7 +24,7 @@ public class LoggingDriver extends DriverDecorator {
 
     @Override
     public void start(Browser browser) {
-        System.out.print(String.format("start browser = %s", browser.name()));
+        System.out.printf("start browser = %s", browser.name());
         driver.start(browser);
     }
 
@@ -36,7 +36,7 @@ public class LoggingDriver extends DriverDecorator {
 
     @Override
     public void goToUrl(String url) {
-        System.out.print(String.format("go to url = %s", url));
+        System.out.printf("go to url = %s", url);
         driver.goToUrl(url);
     }
 

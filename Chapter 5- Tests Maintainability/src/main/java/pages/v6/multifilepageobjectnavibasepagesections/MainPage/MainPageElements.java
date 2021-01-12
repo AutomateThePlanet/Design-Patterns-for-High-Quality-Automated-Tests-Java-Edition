@@ -20,8 +20,7 @@ import org.openqa.selenium.By;
 public class MainPageElements {
     private final Driver driver;
 
-    public MainPageElements(Driver driver)
-    {
+    public MainPageElements(Driver driver) {
         this.driver = driver;
     }
 
@@ -33,8 +32,7 @@ public class MainPageElements {
         return driver.findElement(By.cssSelector("[class*='added_to_cart wc-forward']"));
     }
 
-    public Element getProductBoxByName(String name)
-    {
+    public Element getProductBoxByName(String name) {
         return driver.findElement(By.xpath(String.format("//h2[text()='%s']/parent::a[1]", name)));
     }
 }

@@ -48,23 +48,19 @@ public class MainMenuSection {
         return driver.findElement(By.linkText("Promotions"));
     }
 
-    public void openHomePage()
-    {
+    public void openHomePage() {
         homeLink().click();
     }
 
-    public void openBlogPage()
-    {
+    public void openBlogPage() {
         blogLink().click();
     }
 
-    public void openMyAccountPage()
-    {
+    public void openMyAccountPage() {
         myAccountLink().click();
     }
 
-    public void openPromotionsPage()
-    {
+    public void openPromotionsPage() {
         promotionsLink().click();
     }
 }

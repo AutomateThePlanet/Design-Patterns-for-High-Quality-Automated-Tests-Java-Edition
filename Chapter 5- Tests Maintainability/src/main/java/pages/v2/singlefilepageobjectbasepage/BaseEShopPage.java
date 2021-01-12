@@ -70,48 +70,40 @@ public abstract class BaseEShopPage {
 
     protected abstract String getUrl();
 
-    public void open()
-    {
+    public void open() {
         driver.goToUrl(getUrl());
     }
 
-   // sections methods
+    // sections methods
     public void searchForItem(String searchText) throws InterruptedException {
         searchField().typeText(searchText);
     }
 
-    public void openHomePage()
-    {
+    public void openHomePage() {
         homeLink().click();
     }
 
-    public void openBlogPage()
-    {
+    public void openBlogPage() {
         blogLink().click();
     }
 
-    public void openMyAccountPage()
-    {
+    public void openMyAccountPage() {
         myAccountLink().click();
     }
 
-    public void openPromotionsPage()
-    {
+    public void openPromotionsPage() {
         promotionsLink().click();
     }
 
-    public String getCurrentAmount()
-    {
+    public String getCurrentAmount() {
         return cartAmount().getText();
     }
 
-    public void openCart()
-    {
+    public void openCart() {
         cartIcon().click();
     }
 
-    public void openBreadcrumbItem(String itemToOpen)
-    {
+    public void openBreadcrumbItem(String itemToOpen) {
         breadcrumb().findElement(By.linkText(itemToOpen)).click();
     }
 }

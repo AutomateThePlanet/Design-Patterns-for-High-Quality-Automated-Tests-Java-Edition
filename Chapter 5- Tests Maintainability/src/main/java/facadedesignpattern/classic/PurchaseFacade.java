@@ -22,8 +22,7 @@ public class PurchaseFacade {
     private final CartPage cartPage;
     private final CheckoutPage checkoutPage;
 
-    public PurchaseFacade(MainPage mainPage, CartPage cartPage, CheckoutPage checkoutPage)
-    {
+    public PurchaseFacade(MainPage mainPage, CartPage cartPage, CheckoutPage checkoutPage) {
         this.mainPage = mainPage;
         this.cartPage = cartPage;
         this.checkoutPage = checkoutPage;

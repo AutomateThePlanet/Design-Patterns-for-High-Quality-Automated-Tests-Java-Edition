@@ -19,8 +19,7 @@ import facadedesignpattern.templatemethods.PurchaseInfo;
 
 public class CheckoutPage extends EShopPage {
 
-    public CheckoutPage(Driver driver)
-    {
+    public CheckoutPage(Driver driver) {
         super(driver);
     }
 
@@ -45,13 +44,11 @@ public class CheckoutPage extends EShopPage {
         elements().billingZip().typeText(purchaseInfo.getZip());
         elements().billingPhone().typeText(purchaseInfo.getPhone());
         elements().billingEmail().typeText(purchaseInfo.getEmail());
-        if (purchaseInfo.getShouldCreateAccount())
-        {
+        if (purchaseInfo.getShouldCreateAccount()) {
             elements().createAccountCheckBox().click();
         }
 
-        if (purchaseInfo.getShouldCheckPayment())
-        {
+        if (purchaseInfo.getShouldCheckPayment()) {
             elements().checkPaymentsRadioButton().click();
         }
 

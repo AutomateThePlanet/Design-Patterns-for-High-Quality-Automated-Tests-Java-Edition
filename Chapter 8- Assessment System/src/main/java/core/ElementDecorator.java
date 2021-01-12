@@ -53,6 +53,11 @@ public class ElementDecorator extends Element {
     }
 
     @Override
+    public void waitToExists() {
+        element.waitToExists();
+    }
+
+    @Override
     public String getAttribute(String attributeName) {
         return element.getAttribute(attributeName);
     }

@@ -18,8 +18,7 @@ import facadedesignpattern.templatemethods.NavigatableEShopPage;
 
 public class MainPage extends NavigatableEShopPage {
 
-    public MainPage(Driver driver)
-    {
+    public MainPage(Driver driver) {
         super(driver);
     }
 
@@ -36,8 +35,7 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
-    public void addRocketToShoppingCart(String rocketName)
-    {
+    public void addRocketToShoppingCart(String rocketName) {
         open();
         elements().getProductBoxByName(rocketName).click();
 //        driver.waitForAjax();
