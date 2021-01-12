@@ -35,10 +35,15 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().addToCartFalcon9().waitToExists();
+    }
+
     public void addRocketToShoppingCart(String rocketName) {
         open();
         elements().getProductBoxByName(rocketName).click();
-//        driver.waitForAjax();
+        //  driver.waitForAjax();
         elements().viewCartButton().click();
     }
 }

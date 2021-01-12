@@ -30,6 +30,10 @@ public class CartPage extends NavigatableEShopPage {
     protected String getUrl() throws IOException, URISyntaxException {
         return UrlDeterminer.getShopUrl("cart");
     }
+    @Override
+    protected void waitForPageLoad() {
+        elements().couponCodeTextField().waitToExists();
+    }
 
     public CartPageAssertions assertions() {
         return new CartPageAssertions(elements());

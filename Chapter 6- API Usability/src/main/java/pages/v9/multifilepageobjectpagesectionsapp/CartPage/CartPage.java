@@ -26,6 +26,11 @@ public class CartPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/cart/";
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().couponCodeTextField().waitToExists();
+    }
+
     public CartPageElements elements() {
         return new CartPageElements(elementFindService);
     }

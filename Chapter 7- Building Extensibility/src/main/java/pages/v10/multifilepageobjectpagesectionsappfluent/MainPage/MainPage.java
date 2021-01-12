@@ -38,6 +38,11 @@ public class MainPage extends NavigatableEShopPage {
         return this;
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().addToCartFalcon9().waitToExists();
+    }
+
     private MainPageElements elements() {
         return new MainPageElements(elementFindService);
     }

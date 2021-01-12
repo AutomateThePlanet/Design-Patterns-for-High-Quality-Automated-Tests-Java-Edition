@@ -78,6 +78,13 @@ public class WebCoreElement extends Element {
         return logElement;
     }
 
+    @Override
+    public void waitToExists()
+    {
+        var webDriverWait = new WebDriverWait(webDriver, 30);
+        webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
+    }
+
     private void waitToBeClickable(By by)
     {
         var webDriverWait = new WebDriverWait(webDriver, 30);

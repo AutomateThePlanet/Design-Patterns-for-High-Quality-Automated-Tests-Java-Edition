@@ -31,4 +31,6 @@ public abstract class Element {
     public abstract String getAttribute(String attributeName);
 
     public abstract Element findElement(By locator);
+
+    public abstract void waitToExists();
 }

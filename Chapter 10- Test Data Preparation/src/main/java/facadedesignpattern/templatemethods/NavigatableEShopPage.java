@@ -27,5 +27,8 @@ public abstract class NavigatableEShopPage extends EShopPage {
 
     public void open() throws IOException, URISyntaxException {
         driver.goToUrl(getUrl());
+        waitForPageLoad();
     }
+
+    protected abstract void waitForPageLoad();
 }

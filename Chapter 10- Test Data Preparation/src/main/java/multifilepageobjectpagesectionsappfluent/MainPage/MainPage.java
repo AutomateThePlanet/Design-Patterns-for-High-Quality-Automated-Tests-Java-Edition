@@ -23,6 +23,11 @@ public class MainPage extends NavigatableEShopPage {
         return "http://demos.bellatrix.solutions/";
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().addToCartFalcon9().waitToExists();
+    }
+
     public MainPage addRocketToShoppingCart()
     {
         open();

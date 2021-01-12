@@ -27,5 +27,8 @@ public abstract class NavigatableEShopPage extends EShopPage {
     public void open()
     {
         navigationService.goToUrl(getUrl());
+        waitForPageLoad();
     }
+
+    protected abstract void waitForPageLoad();
 }

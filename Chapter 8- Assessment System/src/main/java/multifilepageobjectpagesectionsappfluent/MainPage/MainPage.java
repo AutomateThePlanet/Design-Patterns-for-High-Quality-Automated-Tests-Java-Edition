@@ -31,6 +31,11 @@ public class MainPage extends NavigatableEShopPage {
         return this;
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().addToCartFalcon9().waitToExists();
+    }
+
     public MainPage assertProductBoxLink(String name, String expectedLink)
     {
         var actualLink = elements().getProductBoxByName(name).getAttribute("href");

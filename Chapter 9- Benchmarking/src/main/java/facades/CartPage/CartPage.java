@@ -39,6 +39,11 @@ public class CartPage extends NavigatableEShopPage {
         return new BreadcrumbSection(driver);
     }
 
+    @Override
+    protected void waitForPageLoad() {
+        elements().couponCodeTextField().waitToExists();
+    }
+
     public void applyCoupon(String coupon) throws InterruptedException {
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();

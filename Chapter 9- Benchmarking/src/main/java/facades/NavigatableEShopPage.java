@@ -22,7 +22,11 @@ public abstract class NavigatableEShopPage extends EShopPage {
 
     protected abstract String getUrl();
 
-    public void open() {
+    public void open()
+    {
         driver.goToUrl(getUrl());
+        waitForPageLoad();
     }
+
+    protected abstract void waitForPageLoad();
 }
