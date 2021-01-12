@@ -13,10 +13,7 @@
 
 package pages.v8.multifilepageobjectsectionssingleton;
 
-import core.Browser;
-import core.DriverDecorator;
-import core.Element;
-import core.WebCoreDriver;
+import core.*;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -24,7 +21,7 @@ import java.util.List;
 public class LoggingSingletonDriver extends DriverDecorator {
     private static LoggingSingletonDriver instance;
 
-    public LoggingSingletonDriver(core.Driver driver) {
+    private LoggingSingletonDriver(Driver driver) {
         super(driver);
     }
 
@@ -38,7 +35,7 @@ public class LoggingSingletonDriver extends DriverDecorator {
 
     @Override
     public void start(Browser browser) {
-        System.out.print(String.format("start browser = %s", browser.name()));
+        System.out.printf("start browser = %s", browser.name());
         driver.start(browser);
     }
 
@@ -50,7 +47,7 @@ public class LoggingSingletonDriver extends DriverDecorator {
 
     @Override
     public void goToUrl(String url) {
-        System.out.print(String.format("go to url = %s", url));
+        System.out.printf("go to url = %s", url);
         driver.goToUrl(url);
     }
 
