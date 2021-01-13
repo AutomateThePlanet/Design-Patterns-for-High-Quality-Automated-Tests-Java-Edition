@@ -11,24 +11,17 @@
  * limitations under the License.
  */
 
-package pages.v8.multifilepageobjectsectionssingleton;
+package pages.v11.multifilepageobjectnavibasepagegeneric;
 
-import core.NavigationService;
+import java.lang.reflect.ParameterizedType;
 
-public abstract class NavigatableEShopPage extends EShopPage {
-    protected final NavigationService navigationService;
-
-    protected NavigatableEShopPage() {
-        this.navigationService = LoggingSingletonDriver.getInstance();
+public class NewInstanceFactory {
+    public static <T> T createByTypeParameter(Class parameterClass, int index) {
+        try {
+            var elementsClass = (Class)((ParameterizedType)parameterClass.getGenericSuperclass()).getActualTypeArguments()[index];
+            return (T)elementsClass.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            return null;
+        }
     }
-
-    protected abstract String getUrl();
-
-    public void open()
-    {
-        navigationService.goToUrl(getUrl());
-        waitForPageLoad();
-    }
-
-    protected abstract void waitForPageLoad();
 }

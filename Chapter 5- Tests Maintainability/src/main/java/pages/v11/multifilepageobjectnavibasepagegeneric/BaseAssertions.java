@@ -13,15 +13,8 @@
 
 package pages.v11.multifilepageobjectnavibasepagegeneric;
 
-import java.lang.reflect.ParameterizedType;
-
 public abstract class BaseAssertions<ElementsT extends BaseElements> {
     protected ElementsT elements() {
-        try {
-            var elementsClass = (Class<ElementsT>)((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-            return elementsClass.getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            return null;
-        }
+        return NewInstanceFactory.<ElementsT>createByTypeParameter(getClass(), 0);
     }
 }

@@ -27,13 +27,24 @@ public class SingletonFactory {
     private SingletonFactory() {
     }
 
-    public static <T> T getInstance(Class<T> classOf) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+    public static <T> T getInstance(Class<T> classOf) {
+        synchronized (SingletonFactory.class)
+        {
+            if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+                T obj = null;
+                try {
+                    obj = (T)classOf.getConstructors()[0].newInstance();
+                } catch (InstantiationException e) {
+                    return obj;
+                } catch (IllegalAccessException e) {
+                    return obj;
+                } catch (InvocationTargetException e) {
+                    return obj;
+                }
+                INSTANCE.mapHolder.put(classOf.getName(), obj);
+            }
 
-            T obj = (T) classOf.getConstructors()[0].newInstance();
-            INSTANCE.mapHolder.put(classOf.getName(), obj);
+            return (T)INSTANCE.mapHolder.get(classOf.getName());
         }
-
-        return (T) INSTANCE.mapHolder.get(classOf.getName());
     }
 }

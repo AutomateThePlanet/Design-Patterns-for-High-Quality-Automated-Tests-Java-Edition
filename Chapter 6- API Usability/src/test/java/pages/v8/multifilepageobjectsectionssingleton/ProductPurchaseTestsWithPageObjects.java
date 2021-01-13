@@ -31,7 +31,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @AfterMethod
-    public void testCleanup() throws InterruptedException {
+    public void testCleanup() {
         LoggingSingletonDriver.getInstance().quit();
     }
 
@@ -43,9 +43,9 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @Test
-    public void saturnVLinkAddsCorrectProduct() throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        MainPage.getInstanceFactory().open();
+    public void saturnVLinkAddsCorrectProduct() {
+        MainPage.getInstance().open();
 
-        MainPage.getInstanceFactory().assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
+        MainPage.getInstance().assertions().assertProductBoxLink("Saturn V", "http://demos.bellatrix.solutions/product/saturn-v/");
     }
 }

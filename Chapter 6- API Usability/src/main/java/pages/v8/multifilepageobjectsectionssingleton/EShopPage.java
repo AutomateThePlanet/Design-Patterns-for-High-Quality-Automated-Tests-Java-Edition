@@ -21,7 +21,7 @@ import pages.v8.multifilepageobjectsectionssingleton.Sections.SearchSection;
 public abstract class EShopPage {
     protected final ElementFindService elementFindService;
 
-    public EShopPage() {
+    protected EShopPage() {
         this.elementFindService = LoggingSingletonDriver.getInstance();
     }
 

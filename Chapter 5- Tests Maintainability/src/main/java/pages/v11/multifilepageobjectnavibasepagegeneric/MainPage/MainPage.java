@@ -17,7 +17,6 @@ import core.Driver;
 import pages.v11.multifilepageobjectnavibasepagegeneric.NavigatableAssertableEShopPage;
 
 public class MainPage extends NavigatableAssertableEShopPage<MainPageElements, MainPageAssertions> {
-
     public MainPage(Driver driver) {
         super(driver);
     }

@@ -19,6 +19,8 @@ import pages.v8.multifilepageobjectsectionssingleton.SingletonFactory;
 public class MainPage extends NavigatableEShopPage {
     private static MainPage instance;
 
+    private MainPage() {
+    }
     public static MainPage getInstance() {
         if (instance == null) {
             instance = new MainPage();
@@ -28,13 +30,7 @@ public class MainPage extends NavigatableEShopPage {
     }
 
     public static MainPage getInstanceFactory() {
-        MainPage mainPage = null;
-        try {
-            return SingletonFactory.getInstance(MainPage.class);
-        } catch (Exception e) {
-            // not the best practice to return null. But probably we will never end here so it is OK.
-            return mainPage;
-        }
+        return SingletonFactory.getInstance(MainPage.class);
     }
 
     public MainPageElements elements() {
