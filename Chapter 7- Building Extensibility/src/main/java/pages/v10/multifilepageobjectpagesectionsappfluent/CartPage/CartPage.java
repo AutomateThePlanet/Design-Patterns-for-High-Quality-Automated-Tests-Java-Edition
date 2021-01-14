@@ -13,14 +13,26 @@
 
 package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
+import core.Driver;
 import core.interfaces.BrowserService;
+import core.interfaces.ElementFindService;
+import core.interfaces.ElementWaitService;
+import core.interfaces.NavigationService;
+import core.wait.Wait;
 import org.testng.Assert;
 import core.LoggingSingletonDriver;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService browserService = LoggingSingletonDriver.getInstance();
+    private final BrowserService browserService;
+    private final ElementWaitService elementWaitService;
+
+    public CartPage(Driver driver) {
+        super(driver, driver);
+        this.browserService = driver;
+        this.elementWaitService = driver;
+    }
 
     @Override
     protected String getUrl() {
@@ -37,6 +49,7 @@ public class CartPage extends NavigatableEShopPage {
     }
 
     public CartPage applyCoupon(String coupon) throws InterruptedException {
+        elementWaitService.wait(elements().couponCodeTextField(), Wait.to().exists());
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();
         browserService.waitForAjax();

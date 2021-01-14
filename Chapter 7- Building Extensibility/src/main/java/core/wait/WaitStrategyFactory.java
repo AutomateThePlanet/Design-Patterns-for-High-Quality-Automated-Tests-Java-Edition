@@ -14,18 +14,27 @@
 package core.wait;
 
 public class WaitStrategyFactory {
-    public ToExistsWaitStrategy exists(int timeoutInterval, int sleepInterval)
-    {
+    public ToExistsWaitStrategy exists() {
+        return new ToExistsWaitStrategy(30, 2);
+    }
+
+    public ToExistsWaitStrategy exists(int timeoutInterval, int sleepInterval) {
         return new ToExistsWaitStrategy(timeoutInterval, sleepInterval);
     }
 
-    public ToBeVisibleWaitStrategy beVisible(int timeoutInterval, int sleepInterval)
-    {
+    public ToBeVisibleWaitStrategy beVisible(int timeoutInterval, int sleepInterval) {
         return new ToBeVisibleWaitStrategy(timeoutInterval, sleepInterval);
     }
 
-    public ToBeClickableWaitStrategy beClickable(int timeoutInterval, int sleepInterval)
-    {
+    public ToBeVisibleWaitStrategy beVisible() {
+        return new ToBeVisibleWaitStrategy(30, 2);
+    }
+
+    public ToBeClickableWaitStrategy beClickable(int timeoutInterval, int sleepInterval) {
         return new ToBeClickableWaitStrategy(timeoutInterval, sleepInterval);
+    }
+
+    public ToBeClickableWaitStrategy beClickable() {
+        return new ToBeClickableWaitStrategy(30, 2);
     }
 }

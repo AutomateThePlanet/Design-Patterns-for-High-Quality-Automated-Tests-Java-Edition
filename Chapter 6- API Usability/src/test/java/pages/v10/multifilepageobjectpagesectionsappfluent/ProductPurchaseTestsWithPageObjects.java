@@ -44,6 +44,5 @@ public class ProductPurchaseTestsWithPageObjects {
                 .increaseProductQuantity(2)
                 .assertTotalPrice("114.00€")
                 .clickProceedToCheckout();
-
     }
 }

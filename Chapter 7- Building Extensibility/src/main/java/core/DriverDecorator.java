@@ -14,6 +14,7 @@
 package core;
 
 import core.locators.FindStrategy;
+import core.wait.WaitStrategy;
 
 import java.util.List;
 
@@ -132,5 +133,10 @@ public class DriverDecorator extends Driver {
     @Override
     public Element find(FindStrategy findStrategy) {
         return driver.find(findStrategy);
+    }
+
+    @Override
+    public void wait(Element element, WaitStrategy waitStrategy) {
+        driver.wait(element, waitStrategy);
     }
 }

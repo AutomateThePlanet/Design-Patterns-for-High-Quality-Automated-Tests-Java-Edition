@@ -14,6 +14,7 @@
 package core;
 
 import core.locators.*;
+import core.wait.WaitStrategy;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -176,5 +177,10 @@ public class WebCoreDriver extends Driver {
         Element logElement = new LogElement(element);
 
         return logElement;
+    }
+
+    @Override
+    public void wait(Element element, WaitStrategy waitStrategy) {
+        waitStrategy.waitUntil(webDriver, webDriver, element.getBy());
     }
 }

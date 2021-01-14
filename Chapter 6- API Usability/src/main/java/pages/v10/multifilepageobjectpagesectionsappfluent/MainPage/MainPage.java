@@ -23,6 +23,10 @@ public class MainPage extends NavigatableEShopPage {
         super(elementFindService, navigationService);
     }
 
+    private MainPageElements elements() {
+        return new MainPageElements(elementFindService);
+    }
+
     @Override
     protected String getUrl() {
         return "http://demos.bellatrix.solutions/";
@@ -44,9 +48,5 @@ public class MainPage extends NavigatableEShopPage {
         var actualLink = elements().getProductBoxByName(name).getAttribute("href");
         Assert.assertEquals(actualLink, expectedLink);
         return this;
-    }
-
-    private MainPageElements elements() {
-        return new MainPageElements(elementFindService);
     }
 }

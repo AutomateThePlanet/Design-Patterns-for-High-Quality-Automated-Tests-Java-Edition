@@ -15,7 +15,7 @@ package core.wait;
 
 import org.openqa.selenium.*;
 
-public class ToBeClickableWaitStrategy extends WaitStrategy{
+public class ToBeClickableWaitStrategy extends WaitStrategy {
     public ToBeClickableWaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
        super(timeoutIntervalSeconds, sleepIntervalSeconds);
     }

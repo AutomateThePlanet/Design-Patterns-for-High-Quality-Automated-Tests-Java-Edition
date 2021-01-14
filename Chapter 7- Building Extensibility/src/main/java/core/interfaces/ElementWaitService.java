@@ -14,7 +14,8 @@
 package core.interfaces;
 
 import core.Element;
+import core.wait.WaitStrategy;
 
 public interface ElementWaitService {
-//    void wait(Element element, WaitStrategy waitStrategy);
+    void wait(Element element, WaitStrategy waitStrategy);
 }

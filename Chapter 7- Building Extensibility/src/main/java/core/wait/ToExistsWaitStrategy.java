@@ -15,7 +15,7 @@ package core.wait;
 
 import org.openqa.selenium.*;
 
-public class ToExistsWaitStrategy extends WaitStrategy{
+public class ToExistsWaitStrategy extends WaitStrategy {
     public ToExistsWaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
        super(timeoutIntervalSeconds, sleepIntervalSeconds);
     }
