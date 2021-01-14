@@ -13,10 +13,15 @@
 
 package pages.v10.multifilepageobjectpagesectionsappfluent.MainPage;
 
+import core.ElementFindService;
+import core.NavigationService;
 import org.testng.Assert;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 
 public class MainPage extends NavigatableEShopPage {
+    public MainPage(ElementFindService elementFindService, NavigationService navigationService) {
+        super(elementFindService, navigationService);
+    }
 
     @Override
     protected String getUrl() {

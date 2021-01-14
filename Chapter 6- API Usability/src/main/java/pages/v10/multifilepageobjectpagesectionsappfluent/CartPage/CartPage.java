@@ -14,13 +14,24 @@
 package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.BrowserService;
+import core.ElementFindService;
+import core.NavigationService;
 import org.testng.Assert;
 import pages.v10.multifilepageobjectpagesectionsappfluent.LoggingSingletonDriver;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService browserservice = LoggingSingletonDriver.getInstance();
+    private final BrowserService browserService;
+
+    public CartPage(ElementFindService elementFindService, NavigationService navigationService, BrowserService browserService) {
+        super(elementFindService, navigationService);
+        this.browserService = browserService;
+    }
+
+    private CartPageElements elements() {
+        return new CartPageElements(elementFindService);
+    }
 
     @Override
     protected String getUrl() {
@@ -39,20 +50,20 @@ public class CartPage extends NavigatableEShopPage {
     public CartPage applyCoupon(String coupon) throws InterruptedException {
         elements().couponCodeTextField().typeText(coupon);
         elements().applyCouponButton().click();
-        browserservice.waitForAjax();
+        browserService.waitForAjax();
         return this;
     }
 
     public CartPage increaseProductQuantity(int newQuantity) throws InterruptedException {
         elements().quantityBox().typeText(String.valueOf(newQuantity));
         elements().updateCart().click();
-        browserservice.waitForAjax();
+        browserService.waitForAjax();
         return this;
     }
 
     public CartPage clickProceedToCheckout() {
         elements().proceedToCheckout().click();
-        browserservice.waitUntilPageLoadsCompletely();
+        browserService.waitUntilPageLoadsCompletely();
         return this;
     }
 
@@ -64,7 +75,6 @@ public class CartPage extends NavigatableEShopPage {
         return elements().messageAlert().getText();
     }
 
-
     public CartPage assertCouponAppliedSuccessfully() {
         Assert.assertEquals(getMessageNotification(), "Coupon code applied successfully.");
         return this;
@@ -73,9 +83,5 @@ public class CartPage extends NavigatableEShopPage {
     public CartPage assertTotalPrice(String expectedPrice) {
         Assert.assertEquals(elements().totalSpan().getText(), expectedPrice);
         return this;
-    }
-
-    private CartPageElements elements() {
-        return new CartPageElements(elementFindService);
     }
 }

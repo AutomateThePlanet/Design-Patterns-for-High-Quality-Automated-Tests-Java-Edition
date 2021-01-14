@@ -50,7 +50,7 @@ public class App implements AutoCloseable {
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         if (disposed) {
             return;
         }

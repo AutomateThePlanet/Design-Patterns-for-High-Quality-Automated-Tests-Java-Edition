@@ -13,13 +13,14 @@
 
 package pages.v9.multifilepageobjectpagesectionsapp;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
 // Based on http://neutrofoton.github.io/blog/2013/08/29/generic-singleton-pattern-in-java/
 // Can be used inside App design pattern.
 public class SingletonFactory {
-    private static final SingletonFactory SINGLETON_FACTORY = new SingletonFactory();
+    private static final SingletonFactory INSTANCE = new SingletonFactory();
 
     private final Map<String, Object> mapHolder = new HashMap<>();
 
@@ -27,17 +28,41 @@ public class SingletonFactory {
     }
 
     public static <T> T getInstance(Class<T> classOf) {
-        try {
-            if (!SINGLETON_FACTORY.mapHolder.containsKey(classOf.getName())) {
+        if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+            T obj = null;
+            try {
+                obj = (T)classOf.getConstructors()[0].newInstance();
+            } catch (InstantiationException e) {
+                return obj;
+            } catch (IllegalAccessException e) {
+                return obj;
+            } catch (InvocationTargetException e) {
+                return obj;
+            }
+            INSTANCE.mapHolder.put(classOf.getName(), obj);
+        }
 
-                T obj = (T) classOf.getConstructors()[0].newInstance();
-                SINGLETON_FACTORY.mapHolder.put(classOf.getName(), obj);
+        return (T)INSTANCE.mapHolder.get(classOf.getName());
+    }
+
+    public static <T> T getSynchronizedInstance(Class<T> classOf) {
+        synchronized (pages.v8.multifilepageobjectsectionssingleton.SingletonFactory.class)
+        {
+            if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+                T obj = null;
+                try {
+                    obj = (T)classOf.getConstructors()[0].newInstance();
+                } catch (InstantiationException e) {
+                    return obj;
+                } catch (IllegalAccessException e) {
+                    return obj;
+                } catch (InvocationTargetException e) {
+                    return obj;
+                }
+                INSTANCE.mapHolder.put(classOf.getName(), obj);
             }
 
-            return (T) SINGLETON_FACTORY.mapHolder.get(classOf.getName());
-        } catch (Exception e) {
-            // not the best practice to return null. But probably we will never end here so it is OK.
-            return null;
+            return (T)INSTANCE.mapHolder.get(classOf.getName());
         }
     }
 }
