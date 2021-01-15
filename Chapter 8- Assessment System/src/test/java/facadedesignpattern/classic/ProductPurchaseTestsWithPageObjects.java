@@ -20,9 +20,7 @@ import core.WebCoreDriver;
 import facadedesignpattern.classic.CartPage.CartPage;
 import facadedesignpattern.classic.CheckoutPage.CheckoutPage;
 import facadedesignpattern.classic.MainPage.MainPage;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class ProductPurchaseTestsWithPageObjects {
     private Driver driver;
@@ -31,8 +29,8 @@ public class ProductPurchaseTestsWithPageObjects {
     private static CheckoutPage checkoutPage;
     private static PurchaseFacade purchaseFacade;
 
-    @BeforeMethod
-    public void testInit() {
+    @BeforeClass
+    public void beforeClass() {
         driver = new LoggingDriver(new WebCoreDriver());
         driver.start(Browser.CHROME);
         mainPage = new MainPage(driver);
@@ -41,8 +39,8 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseFacade = new PurchaseFacade(mainPage, cartPage, checkoutPage);
     }
 
-    @AfterMethod
-    public void testCleanup() throws InterruptedException {
+    @AfterClass
+    public void afterClass() throws InterruptedException {
         driver.quit();
     }
 

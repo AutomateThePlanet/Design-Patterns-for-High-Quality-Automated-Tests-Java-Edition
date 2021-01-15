@@ -14,6 +14,7 @@
 package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.BrowserService;
+import core.Driver;
 import core.ElementFindService;
 import core.NavigationService;
 import org.testng.Assert;
@@ -24,9 +25,9 @@ import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSec
 public class CartPage extends NavigatableEShopPage {
     private final BrowserService browserService;
 
-    public CartPage(ElementFindService elementFindService, NavigationService navigationService, BrowserService browserService) {
-        super(elementFindService, navigationService);
-        this.browserService = browserService;
+    public CartPage(Driver driver) {
+        super(driver, driver);
+        this.browserService = driver;
     }
 
     private CartPageElements elements() {

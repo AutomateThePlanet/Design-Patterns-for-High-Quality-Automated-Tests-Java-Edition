@@ -14,12 +14,18 @@
 package pages.v9.multifilepageobjectpagesectionsapp.CartPage;
 
 import core.BrowserService;
+import core.Driver;
 import pages.v9.multifilepageobjectpagesectionsapp.LoggingSingletonDriver;
 import pages.v9.multifilepageobjectpagesectionsapp.NavigatableEShopPage;
 import pages.v9.multifilepageobjectpagesectionsapp.Sections.BreadcrumbSection;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService browserService = LoggingSingletonDriver.getInstance();
+    private final BrowserService browserService;
+
+    public CartPage(Driver driver) {
+        super(driver, driver);
+        this.browserService = driver;
+    }
 
     @Override
     protected String getUrl() {

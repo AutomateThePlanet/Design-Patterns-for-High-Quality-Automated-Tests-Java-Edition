@@ -13,15 +13,21 @@
 
 package pages.v9.multifilepageobjectpagesectionsapp.MainPage;
 
+import core.Driver;
+import pages.v9.multifilepageobjectpagesectionsapp.LoggingSingletonDriver;
 import pages.v9.multifilepageobjectpagesectionsapp.NavigatableEShopPage;
 import pages.v9.multifilepageobjectpagesectionsapp.SingletonFactory;
 
 public class MainPage extends NavigatableEShopPage {
     private static MainPage instance;
 
+    public MainPage(Driver driver) {
+        super(driver, driver);
+    }
+
     public static MainPage getInstance() {
         if (instance == null) {
-            instance = new MainPage();
+            instance = new MainPage(LoggingSingletonDriver.getInstance());
         }
 
         return instance;

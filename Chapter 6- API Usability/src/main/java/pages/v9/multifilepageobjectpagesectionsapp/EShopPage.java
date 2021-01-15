@@ -21,8 +21,8 @@ import pages.v9.multifilepageobjectpagesectionsapp.Sections.SearchSection;
 public abstract class EShopPage {
     protected final ElementFindService elementFindService;
 
-    public EShopPage() {
-        this.elementFindService = LoggingSingletonDriver.getInstance();
+    public EShopPage(ElementFindService elementFindService) {
+        this.elementFindService = elementFindService;
     }
 
     public MainMenuSection mainMenuSection() {

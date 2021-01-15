@@ -28,6 +28,10 @@ public class CartPage extends NavigatableEShopPage {
         this.browserService = driver;
     }
 
+    private CartPageElements elements() {
+        return new CartPageElements(elementFindService);
+    }
+
     @Override
     protected String getUrl() {
         return "http://demos.bellatrix.solutions/cart/";
@@ -84,9 +88,5 @@ public class CartPage extends NavigatableEShopPage {
     {
         Assert.assertEquals(elements().totalSpan().getText(), expectedPrice);
         return this;
-    }
-
-    private CartPageElements elements() {
-        return new CartPageElements(elementFindService);
     }
 }
