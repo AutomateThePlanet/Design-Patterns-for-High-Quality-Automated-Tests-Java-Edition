@@ -14,13 +14,19 @@
 package multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.BrowserService;
+import core.Driver;
 import multifilepageobjectpagesectionsappfluent.LoggingSingletonDriver;
 import multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 import org.testng.Assert;
 
 public class CartPage extends NavigatableEShopPage {
-    private final BrowserService browserService = LoggingSingletonDriver.getInstance();
+    private final BrowserService browserService;
+
+    public CartPage(Driver driver) {
+        super(driver, driver);
+        this.browserService = driver;
+    }
 
     @Override
     protected String getUrl() {

@@ -137,12 +137,10 @@ public class LoggingListener implements WebDriverEventListener {
 
     @Override
     public <X> void beforeGetScreenshotAs(OutputType<X> target) {
-
     }
 
     @Override
     public <X> void afterGetScreenshotAs(OutputType<X> target, X screenshot) {
-
     }
 
     @Override

@@ -30,7 +30,7 @@ public class ProductPurchaseTestsWithPageObjects {
     }
 
     @AfterMethod
-    public void testCleanup() throws Exception {
+    public void testCleanup() {
         app.close();
     }
 

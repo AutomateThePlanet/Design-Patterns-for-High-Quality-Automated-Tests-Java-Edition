@@ -26,11 +26,11 @@ public class SingletonFactory {
     private SingletonFactory() {
     }
 
-    public static <T> T getInstance(Class<T> classOf) {
+    public static <T> T getInstance(Class<T> classOf, Object ... initargs) {
         try {
             if (!SINGLETON_FACTORY.mapHolder.containsKey(classOf.getName())) {
 
-                T obj = (T) classOf.getConstructors()[0].newInstance();
+                T obj = (T) classOf.getConstructors()[0].newInstance(initargs);
                 SINGLETON_FACTORY.mapHolder.put(classOf.getName(), obj);
             }
 

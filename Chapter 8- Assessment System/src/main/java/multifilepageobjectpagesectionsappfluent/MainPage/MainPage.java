@@ -13,10 +13,16 @@
 
 package multifilepageobjectpagesectionsappfluent.MainPage;
 
+import core.Driver;
+import core.ElementFindService;
+import core.NavigationService;
 import multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import org.testng.Assert;
 
 public class MainPage extends NavigatableEShopPage {
+    public MainPage(Driver driver) {
+        super(driver, driver);
+    }
 
     @Override
     protected String getUrl() {

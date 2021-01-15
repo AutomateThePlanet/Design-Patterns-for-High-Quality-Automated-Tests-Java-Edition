@@ -13,13 +13,15 @@
 
 package multifilepageobjectpagesectionsappfluent;
 
+import core.ElementFindService;
 import core.NavigationService;
 
 public abstract class NavigatableEShopPage extends EShopPage {
     protected final NavigationService navigationService;
 
-    public NavigatableEShopPage() {
-        this.navigationService = LoggingSingletonDriver.getInstance();
+    public NavigatableEShopPage(ElementFindService elementFindService, NavigationService navigationService) {
+        super(elementFindService);
+        this.navigationService = navigationService;
     }
 
     protected abstract String getUrl();

@@ -41,7 +41,7 @@ public class App implements AutoCloseable {
 
     public <TPage extends NavigatableEShopPage> TPage goTo(Class<TPage> pageOf)
     {
-        var page = SingletonFactory.getInstance(pageOf);
+        var page = SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
         page.open();
 
         return page;
@@ -49,11 +49,11 @@ public class App implements AutoCloseable {
 
     public <TPage extends EShopPage> TPage create(Class<TPage> pageOf)
     {
-        return SingletonFactory.getInstance(pageOf);
+        return SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         if (disposed)
         {
             return;

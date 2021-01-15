@@ -13,14 +13,15 @@
 
 package pages.v10.multifilepageobjectpagesectionsappfluent.MainPage;
 
+import core.Driver;
 import core.interfaces.ElementFindService;
 import core.interfaces.NavigationService;
 import org.testng.Assert;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 
 public class MainPage extends NavigatableEShopPage {
-    public MainPage(ElementFindService elementFindService, NavigationService navigationService) {
-        super(elementFindService, navigationService);
+    public MainPage(Driver driver) {
+        super(driver, driver);
     }
 
     @Override

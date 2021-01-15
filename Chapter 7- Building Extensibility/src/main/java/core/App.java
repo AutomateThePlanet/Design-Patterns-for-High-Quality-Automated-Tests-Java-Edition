@@ -44,21 +44,21 @@ public class App implements AutoCloseable {
         return SingletonFactory.getInstance(DialogService.class);
     }
 
-    public <PageT extends NavigatableEShopPage> PageT goTo(Class<PageT> pageOf)
+    public <TPage extends NavigatableEShopPage> TPage goTo(Class<TPage> pageOf)
     {
-        var page = SingletonFactory.getInstance(pageOf);
+        var page = SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
         page.open();
 
         return page;
     }
 
-    public <PageT extends EShopPage> PageT create(Class<PageT> pageOf)
+    public <TPage extends EShopPage> TPage create(Class<TPage> pageOf)
     {
-        return SingletonFactory.getInstance(pageOf);
+        return SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
     }
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         if (disposed)
         {
             return;
