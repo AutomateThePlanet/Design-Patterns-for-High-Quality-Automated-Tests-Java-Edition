@@ -13,6 +13,7 @@
 
 package multifilepageobjectpagesectionsappfluent;
 
+import core.Driver;
 import core.ElementFindService;
 import multifilepageobjectpagesectionsappfluent.Sections.CartInfoSection;
 import multifilepageobjectpagesectionsappfluent.Sections.MainMenuSection;
@@ -21,9 +22,10 @@ import multifilepageobjectpagesectionsappfluent.Sections.SearchSection;
 public abstract class EShopPage {
     protected final ElementFindService elementFindService;
 
-    public EShopPage() {
-        this.elementFindService = LoggingSingletonDriver.getInstance();
+    public EShopPage(Driver driver) {
+        this.elementFindService = driver;
     }
+
 
     public MainMenuSection mainMenuSection() {
         return new MainMenuSection(elementFindService);

@@ -13,14 +13,24 @@
 
 package multifilepageobjectpagesectionsappfluent.MainPage;
 
+import configuration.ConfigurationService;
+import configuration.WebSettings;
+import core.Driver;
 import multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import org.testng.Assert;
 
 public class MainPage extends NavigatableEShopPage {
+    public MainPage(Driver driver) {
+        super(driver);
+    }
+
+    private MainPageElements elements() {
+        return new MainPageElements(elementFindService);
+    }
 
     @Override
     protected String getUrl() {
-        return "http://demos.bellatrix.solutions/";
+        return ConfigurationService.get(WebSettings.class).getBaseUrl();
     }
 
     @Override
@@ -41,9 +51,5 @@ public class MainPage extends NavigatableEShopPage {
         var actualLink = elements().getProductBoxByName(name).getAttribute("href");
         Assert.assertEquals(actualLink, expectedLink);
         return this;
-    }
-
-    private MainPageElements elements() {
-        return new MainPageElements(elementFindService);
     }
 }
