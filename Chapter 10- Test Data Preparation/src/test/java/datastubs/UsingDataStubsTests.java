@@ -51,7 +51,7 @@ public class UsingDataStubsTests {
     }
 
     @AfterMethod
-    public void testCleanup() throws InterruptedException {
+    public void testCleanup() {
         driver.quit();
         proxyServer.abort();
     }
