@@ -32,7 +32,7 @@ public class PurchaseInfo {
     private Boolean shouldCreateAccount = false;
     private Boolean shouldCheckPayment = false;
 
-    public PurchaseInfo() throws IOException {
+    public PurchaseInfo() {
         var billingInfoDefaultValues = ConfigurationService.get(BillingInfoDefaultValues.class);
         this.firstName = billingInfoDefaultValues.getFirstName();
         this.lastName = billingInfoDefaultValues.getLastName();
