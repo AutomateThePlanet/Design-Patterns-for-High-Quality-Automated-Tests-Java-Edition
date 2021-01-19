@@ -14,6 +14,7 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -62,5 +63,10 @@ public class DriverDecorator extends Driver {
     @Override
     public void executeScript(String script, Object... args) {
         driver.executeScript(script, args);
+    }
+
+    @Override
+    public WebDriverWait getBrowserWait() {
+        return driver.getBrowserWait();
     }
 }

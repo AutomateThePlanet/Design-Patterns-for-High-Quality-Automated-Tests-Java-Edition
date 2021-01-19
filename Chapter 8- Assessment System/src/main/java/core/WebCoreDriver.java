@@ -113,4 +113,9 @@ public class WebCoreDriver extends Driver {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
         webDriverWait.until(d -> javascriptExecutor.executeScript("return document.readyState").toString().equals("complete"));
     }
+
+    @Override
+    public WebDriverWait getBrowserWait() {
+        return webDriverWait;
+    }
 }

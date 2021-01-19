@@ -16,6 +16,7 @@ package facadedesignpattern.classic.CheckoutPage;
 import core.Driver;
 import facadedesignpattern.classic.EShopPage;
 import facadedesignpattern.classic.PurchaseInfo;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutPage extends EShopPage {
 
@@ -45,17 +46,23 @@ public class CheckoutPage extends EShopPage {
         elements().billingZip().typeText(purchaseInfo.getZip());
         elements().billingPhone().typeText(purchaseInfo.getPhone());
         elements().billingEmail().typeText(purchaseInfo.getEmail());
-        if (purchaseInfo.getShouldCreateAccount())
-        {
+        if (purchaseInfo.getShouldCreateAccount()) {
+            waitForBlockUiOverlayNotDisplayed();
             elements().createAccountCheckBox().click();
         }
 
-        if (purchaseInfo.getShouldCheckPayment())
-        {
+        if (purchaseInfo.getShouldCheckPayment()) {
+            waitForBlockUiOverlayNotDisplayed();
             elements().checkPaymentsRadioButton().click();
         }
 
+        driver.waitForAjax();
+        waitForBlockUiOverlayNotDisplayed();
         elements().placeOrderButton().click();
         driver.waitForAjax();
+    }
+
+    private void waitForBlockUiOverlayNotDisplayed() {
+        driver.getBrowserWait().until(ExpectedConditions.invisibilityOfElementLocated(elements().blockUiOverlay().getBy()));
     }
 }

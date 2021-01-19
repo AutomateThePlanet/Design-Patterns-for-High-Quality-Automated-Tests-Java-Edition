@@ -14,6 +14,7 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
 import java.util.List;
@@ -63,5 +64,10 @@ public class DriverDecorator extends Driver {
     @Override
     public void waitUntilPageLoadsCompletely() {
         driver.waitUntilPageLoadsCompletely();
+    }
+
+    @Override
+    public WebDriverWait getBrowserWait() {
+        return driver.getBrowserWait();
     }
 }

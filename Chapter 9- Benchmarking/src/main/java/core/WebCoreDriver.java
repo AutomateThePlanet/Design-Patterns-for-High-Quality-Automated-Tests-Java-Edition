@@ -115,4 +115,9 @@ public class WebCoreDriver extends Driver {
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) webDriver;
         javascriptExecutor.executeScript(script, args);
     }
+
+    @Override
+    public WebDriverWait getBrowserWait() {
+        return webDriverWait;
+    }
 }

@@ -69,6 +69,10 @@ public class CheckoutElements {
         return driver.findElement(By.id("billing_email"));
     }
 
+    public By blockUiOverlayLocator() {
+        return By.xpath("//div[@class='blockUI blockOverlay']");
+    }
+
     public Element createAccountCheckBox() {
         return driver.findElement(By.id("createaccount"));
     }

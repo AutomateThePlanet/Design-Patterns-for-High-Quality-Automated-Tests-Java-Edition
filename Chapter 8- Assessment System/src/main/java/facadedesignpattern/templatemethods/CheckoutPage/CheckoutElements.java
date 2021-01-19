@@ -73,6 +73,10 @@ public class CheckoutElements {
         return driver.findElement(By.id("createaccount"));
     }
 
+    public By blockUiOverlayLocator() {
+        return By.xpath("//div[@class='blockUI blockOverlay']");
+    }
+
     public Element checkPaymentsRadioButton() {
         return driver.findElement(By.cssSelector("[for*='payment_method_cheque']"));
     }

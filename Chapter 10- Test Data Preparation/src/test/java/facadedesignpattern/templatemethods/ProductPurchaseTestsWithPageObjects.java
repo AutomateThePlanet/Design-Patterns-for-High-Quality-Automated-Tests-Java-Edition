@@ -22,6 +22,7 @@ import facadedesignpattern.templatemethods.CheckoutPage.CheckoutPage;
 import facadedesignpattern.templatemethods.MainPage.MainPage;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -104,34 +105,34 @@ public class ProductPurchaseTestsWithPageObjects {
     @Test
     public void purchaseFalcon9WithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
-        purchaseInfo.setEmail("info@berlinspaceflowers.com");
-        purchaseInfo.setFirstName("Anton");
-        purchaseInfo.setLastName("Angelov");
-        purchaseInfo.setCompany("Space Flowers");
-        purchaseInfo.setCountry("Germany");
-        purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
-        purchaseInfo.setCity("Berlin");
-        purchaseInfo.setZip("10115");
-        purchaseInfo.setPhone("+00498888999281");
-
         purchaseFacade.purchaseItem("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
     }
 
     @Test
     public void purchaseSaturnVWithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
-        purchaseInfo.setEmail("info@berlinspaceflowers.com");
-        purchaseInfo.setFirstName("Anton");
-        purchaseInfo.setLastName("Angelov");
-        purchaseInfo.setCompany("Space Flowers");
-        purchaseInfo.setCountry("Germany");
-        purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
-        purchaseInfo.setCity("Berlin");
-        purchaseInfo.setZip("10115");
-        purchaseInfo.setPhone("+00498888999281");
-
         purchaseFacade.purchaseItem("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
+    }
+
+    @Test(dataProvider = "getPurchaseInfoData")
+    public void purchaseSaturnDataDrivenFacade(String product, String coupon, int quantity, String expectedPrice) throws InterruptedException, IOException, URISyntaxException {
+        var purchaseInfo = new PurchaseInfo();
+        purchaseFacade.purchaseItem(product, coupon, quantity, expectedPrice, purchaseInfo);
+    }
+
+    @DataProvider
+    public Object[][] getPurchaseInfoData(){
+        Object[][] data = new Object[2][4];
+        data[0][0] = "Falcon 9";
+        data[0][1] = "happybirthday";
+        data[0][2] = 2;
+        data[0][3] = "114.00€";
+
+        data[1][0] = "Saturn V";
+        data[1][1] = "happybirthday";
+        data[1][2] = 3;
+        data[1][3] = "355.00€";
+
+        return data;
     }
 }

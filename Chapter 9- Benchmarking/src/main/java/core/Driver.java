@@ -14,6 +14,7 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -33,4 +34,6 @@ public abstract class Driver {
     public abstract void waitUntilPageLoadsCompletely();
 
     public abstract void executeScript(String script, Object... args);
+
+    public abstract WebDriverWait getBrowserWait();
 }

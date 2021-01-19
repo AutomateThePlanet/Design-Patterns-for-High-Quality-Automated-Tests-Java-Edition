@@ -16,6 +16,7 @@ package facades.CheckoutPage;
 import core.Driver;
 import facades.EShopPage;
 import facades.PurchaseInfo;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CheckoutPage extends EShopPage {
 
@@ -45,14 +46,22 @@ public class CheckoutPage extends EShopPage {
         elements().billingPhone().typeText(purchaseInfo.getPhone());
         elements().billingEmail().typeText(purchaseInfo.getEmail());
         if (purchaseInfo.getShouldCreateAccount()) {
+            waitForBlockUiOverlayNotDisplayed();
             elements().createAccountCheckBox().click();
         }
 
         if (purchaseInfo.getShouldCheckPayment()) {
+            waitForBlockUiOverlayNotDisplayed();
             elements().checkPaymentsRadioButton().click();
         }
 
+        driver.waitForAjax();
+        waitForBlockUiOverlayNotDisplayed();
         elements().placeOrderButton().click();
         driver.waitForAjax();
+    }
+
+    private void waitForBlockUiOverlayNotDisplayed() {
+        driver.getBrowserWait().until(ExpectedConditions.invisibilityOfElementLocated(elements().blockUiOverlayLocator()));
     }
 }
