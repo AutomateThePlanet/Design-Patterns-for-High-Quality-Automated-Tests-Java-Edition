@@ -29,7 +29,7 @@ public class BaseBenchmark {
         @Setup(Level.Trial)
         public void doSetup() {
             _currentTestExecutionSubject = new ExecutionSubject();
-//                _driver = new LoggingDriver(new WebCoreDriver());
+            //_driver = new LoggingDriver(new WebCoreDriver());
             _driver = new WebCoreDriver();
             new BrowserLaunchTestBehaviorObserver(_currentTestExecutionSubject, _driver);
         }
@@ -54,14 +54,6 @@ public class BaseBenchmark {
     public void setCurrentClass(Class<?> currentClass) {
         this.currentClass = currentClass;
     }
-
-//    @TearDown(Level.Trial)
-//    public void afterSuite(PluginState pluginState) {
-//        if (getDriver() != null) {
-//            System.out.println("Do TearDown");
-//            getDriver().quit();
-//        }
-//    }
 
     @Setup(Level.Invocation)
     public void setup(PluginState pluginState) throws NoSuchMethodException, ClassNotFoundException {
