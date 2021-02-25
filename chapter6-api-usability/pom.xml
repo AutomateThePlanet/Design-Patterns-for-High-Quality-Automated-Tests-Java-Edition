@@ -22,7 +22,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter7-extensibility</artifactId>
+    <artifactId>chapter6-api-usability</artifactId>
 
 
 </project>

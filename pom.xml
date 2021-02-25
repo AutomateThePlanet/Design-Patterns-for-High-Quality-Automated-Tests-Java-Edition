@@ -22,15 +22,16 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>Chapter 2- Stabilize the Tests</module>
-        <module>Chapter 3- Optimize the Tests</module>
-        <module>Chapter 4- Tests Readability</module>
-        <module>Chapter 5- Tests Maintainability</module>
-        <module>Chapter 6- API Usability</module>
-        <module>Chapter 7- Building Extensibility</module>
-        <module>Chapter 8- Assessment System</module>
-        <module>Chapter 10- Test Data Preparation</module>
-        <module>Chapter 9- Benchmarking</module>
+        <module>chapter1-defining-high-quality-attributes</module>
+        <module>chapter2-stabilize-the-tests</module>
+        <module>chapter3-optimize-the-tests</module>
+        <module>chapter4-tests-readability</module>
+        <module>chapter5-tests-maintainability</module>
+        <module>chapter6-api-usability</module>
+        <module>chapter7-extensibility</module>
+        <module>chapter8-assessment-system</module>
+        <module>chapter9-benchmarking</module>
+        <module>chapter10-test-data-preparation</module>
     </modules>
 
     <properties>

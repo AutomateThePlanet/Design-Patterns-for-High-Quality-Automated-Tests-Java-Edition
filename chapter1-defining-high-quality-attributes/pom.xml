@@ -22,7 +22,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter2-stabilize-the-tests</artifactId>
+    <artifactId>chapter1-defining-high-quality-attributes</artifactId>
 
     <properties>
         <maven.compiler.source>1.11</maven.compiler.source>

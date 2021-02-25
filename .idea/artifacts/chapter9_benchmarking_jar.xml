@@ -4,7 +4,7 @@
     <root id="root">
       <element id="archive" name="Chapter 9- Benchmarking.jar">
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/Chapter 9- Benchmarking/src/main/resources/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/chapter9-benchmarking/src/main/resources/META-INF/MANIFEST.MF" />
         </element>
         <element id="module-output" name="Chapter 9- Benchmarking" />
       </element>
