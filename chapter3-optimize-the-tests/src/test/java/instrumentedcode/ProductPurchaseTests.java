@@ -16,7 +16,9 @@ package instrumentedcode;
 import com.google.common.base.Stopwatch;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
@@ -47,11 +49,11 @@ public class ProductPurchaseTests {
     @AfterMethod
     public void testCleanup() {
         driver.quit();
-        System.out.printf("afterClass: %d", stopwatch.elapsed(TimeUnit.SECONDS));
+        System.out.printf("afterTest: %d", stopwatch.elapsed(TimeUnit.SECONDS));
         stopwatch.stop();
     }
 
-    @Test(priority=1)
+    @Test(priority = 1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         System.out.printf("start completePurchaseSuccessfully_whenNewClient: %d", stopwatch.elapsed(TimeUnit.SECONDS));
         driver.goToUrl("http://demos.bellatrix.solutions/");
@@ -95,7 +97,7 @@ public class ProductPurchaseTests {
         var billingAddress1 = driver.findElement(By.id("billing_address_1"));
         billingAddress1.typeText("1 Willi Brandt Avenue Tiergarten");
         var billingAddress2 = driver.findElement(By.id("billing_address_2"));
-        billingAddress2.typeText("Lьtzowplatz 17");
+        billingAddress2.typeText("Lotzowplatz 17");
         var billingCity = driver.findElement(By.id("billing_city"));
         billingCity.typeText("Berlin");
         var billingZip = driver.findElement(By.id("billing_postcode"));
@@ -118,7 +120,7 @@ public class ProductPurchaseTests {
         System.out.printf("end completePurchaseSuccessfully_whenNewClient: %d", stopwatch.elapsed(TimeUnit.SECONDS));
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         System.out.printf("start completePurchaseSuccessfully_whenExistingClient: %d", stopwatch.elapsed(TimeUnit.SECONDS));
 
@@ -166,13 +168,13 @@ public class ProductPurchaseTests {
         var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']//li[1]/strong"));
         purchaseOrderNumber = orderNumber.getText();
 
         System.out.printf("end completePurchaseSuccessfully_whenExistingClient: %d", stopwatch.elapsed(TimeUnit.SECONDS));
     }
 
-    @Test(priority=3)
+    @Test(priority = 3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         System.out.printf("start correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection: %d", stopwatch.elapsed(TimeUnit.SECONDS));
         driver.goToUrl("http://demos.bellatrix.solutions/");
@@ -200,8 +202,7 @@ public class ProductPurchaseTests {
         System.out.printf("end correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection: %d", stopwatch.elapsed(TimeUnit.SECONDS));
     }
 
-    private String GetUserPasswordFromDb(String userName)
-    {
+    private String GetUserPasswordFromDb(String userName) {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 }

@@ -19,13 +19,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebCoreElement extends Element{
+public class WebCoreElement extends Element {
     private final WebDriver webDriver;
     private final WebElement webElement;
     private final By _by;
 
-    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by)
-    {
+    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by) {
         this.webDriver = webDriver;
         this.webElement = webElement;
         _by = by;
@@ -69,8 +68,7 @@ public class WebCoreElement extends Element{
         return webElement.getAttribute(attributeName);
     }
 
-    private void waitToBeClickable(By by)
-    {
+    private void waitToBeClickable(By by) {
         var webDriverWait = new WebDriverWait(webDriver, 30);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
     }

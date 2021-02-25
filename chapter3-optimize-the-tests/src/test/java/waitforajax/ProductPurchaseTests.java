@@ -15,7 +15,9 @@ package waitforajax;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 /*
  * The order of test execution is important. The tests should be executed in the following order:
@@ -42,7 +44,7 @@ public class ProductPurchaseTests {
         driver.quit();
     }
 
-    @Test(priority=1)
+    @Test(priority = 1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = driver.findElement(By.cssSelector("[data-product_id*='28']"));
@@ -87,7 +89,7 @@ public class ProductPurchaseTests {
         var billingAddress1 = driver.findElement(By.id("billing_address_1"));
         billingAddress1.typeText("1 Willi Brandt Avenue Tiergarten");
         var billingAddress2 = driver.findElement(By.id("billing_address_2"));
-        billingAddress2.typeText("Lьtzowplatz 17");
+        billingAddress2.typeText("Lotzowplatz 17");
         var billingCity = driver.findElement(By.id("billing_city"));
         billingCity.typeText("Berlin");
         var billingZip = driver.findElement(By.id("billing_postcode"));
@@ -108,7 +110,7 @@ public class ProductPurchaseTests {
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -155,11 +157,11 @@ public class ProductPurchaseTests {
         var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']//li[1]/strong"));
         purchaseOrderNumber = orderNumber.getText();
     }
 
-    @Test(priority=3)
+    @Test(priority = 3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         driver.goToUrl("http://demos.bellatrix.solutions/");
 
@@ -184,8 +186,7 @@ public class ProductPurchaseTests {
         Assert.assertEquals(expectedMessage, orderName.getText());
     }
 
-    private String GetUserPasswordFromDb(String userName)
-    {
+    private String GetUserPasswordFromDb(String userName) {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 }

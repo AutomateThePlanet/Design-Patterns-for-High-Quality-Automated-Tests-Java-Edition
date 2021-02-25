@@ -14,14 +14,16 @@
 package reusebrowser.browserinfrastructure;
 
 import reusebrowser.Browser;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target( { ElementType.TYPE, ElementType.METHOD } )
+@Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExecutionBrowser {
     Browser browser() default Browser.CHROME;
+
     BrowserBehavior browserBehavior() default BrowserBehavior.RESTART_EVERY_TIME;
 }

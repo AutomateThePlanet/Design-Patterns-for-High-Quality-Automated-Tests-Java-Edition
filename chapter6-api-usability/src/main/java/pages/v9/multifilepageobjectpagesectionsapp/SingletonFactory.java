@@ -13,7 +13,6 @@
 
 package pages.v9.multifilepageobjectpagesectionsapp;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +26,7 @@ public class SingletonFactory {
     private SingletonFactory() {
     }
 
-    public static <T> T getInstance(Class<T> classOf, Object ... initargs) {
+    public static <T> T getInstance(Class<T> classOf, Object... initargs) {
         try {
             if (!SINGLETON_FACTORY.mapHolder.containsKey(classOf.getName())) {
 

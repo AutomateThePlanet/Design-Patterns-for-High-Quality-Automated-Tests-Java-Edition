@@ -31,13 +31,11 @@ public class CartInfoSection {
         return elementFindService.findByClass("amount");
     }
 
-    public String getCurrentAmount()
-    {
+    public String getCurrentAmount() {
         return cartAmount().getText();
     }
 
-    public void openCart()
-    {
+    public void openCart() {
         cartIcon().click();
     }
 }

@@ -14,7 +14,9 @@
 package reusebrowser.browserinfrastructure;
 
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import reusebrowser.Driver;
 import reusebrowser.LoggingDriver;
 import reusebrowser.WebCoreDriver;
@@ -72,11 +74,9 @@ public class BaseTest {
         CURRENT_TEST_EXECUTION_SUBJECT.postTestCleanup(getTestResult(), methodInfo);
     }
 
-    protected void testInit()
-    {
+    protected void testInit() {
     }
 
-    protected void testCleanup()
-    {
+    protected void testCleanup() {
     }
 }

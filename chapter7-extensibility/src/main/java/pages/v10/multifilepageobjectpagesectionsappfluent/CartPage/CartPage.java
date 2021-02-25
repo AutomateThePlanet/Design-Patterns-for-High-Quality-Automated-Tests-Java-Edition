@@ -15,12 +15,9 @@ package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.Driver;
 import core.interfaces.BrowserService;
-import core.interfaces.ElementFindService;
 import core.interfaces.ElementWaitService;
-import core.interfaces.NavigationService;
 import core.wait.Wait;
 import org.testng.Assert;
-import core.LoggingSingletonDriver;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 
@@ -63,32 +60,27 @@ public class CartPage extends NavigatableEShopPage {
         return this;
     }
 
-    public CartPage clickProceedToCheckout()
-    {
+    public CartPage clickProceedToCheckout() {
         elements().proceedToCheckout().click();
         browserService.waitUntilPageLoadsCompletely();
         return this;
     }
 
-    public String getTotal()
-    {
+    public String getTotal() {
         return elements().totalSpan().getText();
     }
 
-    public String getMessageNotification()
-    {
+    public String getMessageNotification() {
         return elements().messageAlert().getText();
     }
 
 
-    public CartPage assertCouponAppliedSuccessfully()
-    {
+    public CartPage assertCouponAppliedSuccessfully() {
         Assert.assertEquals(getMessageNotification(), "Coupon code applied successfully.");
         return this;
     }
 
-    public CartPage assertTotalPrice(String expectedPrice)
-    {
+    public CartPage assertTotalPrice(String expectedPrice) {
         Assert.assertEquals(elements().totalSpan().getText(), expectedPrice);
         return this;
     }

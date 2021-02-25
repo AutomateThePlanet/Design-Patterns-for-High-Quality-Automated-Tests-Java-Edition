@@ -16,8 +16,7 @@ package core.locators;
 import org.openqa.selenium.By;
 
 public class XPathFindStrategy extends FindStrategy {
-    public XPathFindStrategy(String value)
-    {
+    public XPathFindStrategy(String value) {
         super(value);
     }
 

@@ -31,7 +31,7 @@ public class SingletonFactory {
         if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
             T obj = null;
             try {
-                obj = (T)classOf.getConstructors()[0].newInstance();
+                obj = (T) classOf.getConstructors()[0].newInstance();
             } catch (InstantiationException e) {
                 return obj;
             } catch (IllegalAccessException e) {
@@ -42,16 +42,15 @@ public class SingletonFactory {
             INSTANCE.mapHolder.put(classOf.getName(), obj);
         }
 
-        return (T)INSTANCE.mapHolder.get(classOf.getName());
+        return (T) INSTANCE.mapHolder.get(classOf.getName());
     }
 
     public static <T> T getSynchronizedInstance(Class<T> classOf) {
-        synchronized (SingletonFactory.class)
-        {
+        synchronized (SingletonFactory.class) {
             if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
                 T obj = null;
                 try {
-                    obj = (T)classOf.getConstructors()[0].newInstance();
+                    obj = (T) classOf.getConstructors()[0].newInstance();
                 } catch (InstantiationException e) {
                     return obj;
                 } catch (IllegalAccessException e) {
@@ -62,7 +61,7 @@ public class SingletonFactory {
                 INSTANCE.mapHolder.put(classOf.getName(), obj);
             }
 
-            return (T)INSTANCE.mapHolder.get(classOf.getName());
+            return (T) INSTANCE.mapHolder.get(classOf.getName());
         }
     }
 }

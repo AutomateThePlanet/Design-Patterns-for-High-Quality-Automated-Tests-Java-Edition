@@ -24,8 +24,7 @@ public class WebCoreElement extends Element {
     private final WebElement webElement;
     private final By by;
 
-    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by)
-    {
+    public WebCoreElement(WebDriver webDriver, WebElement webElement, By by) {
         this.webDriver = webDriver;
         this.webElement = webElement;
         this.by = by;
@@ -79,14 +78,12 @@ public class WebCoreElement extends Element {
     }
 
     @Override
-    public void waitToExists()
-    {
+    public void waitToExists() {
         var webDriverWait = new WebDriverWait(webDriver, 30);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    private void waitToBeClickable(By by)
-    {
+    private void waitToBeClickable(By by) {
         var webDriverWait = new WebDriverWait(webDriver, 30);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
     }

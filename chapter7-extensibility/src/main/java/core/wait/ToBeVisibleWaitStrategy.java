@@ -15,9 +15,9 @@ package core.wait;
 
 import org.openqa.selenium.*;
 
-public class ToBeVisibleWaitStrategy extends WaitStrategy{
+public class ToBeVisibleWaitStrategy extends WaitStrategy {
     public ToBeVisibleWaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
-       super(timeoutIntervalSeconds, sleepIntervalSeconds);
+        super(timeoutIntervalSeconds, sleepIntervalSeconds);
     }
 
     @Override
@@ -25,19 +25,13 @@ public class ToBeVisibleWaitStrategy extends WaitStrategy{
         waitUntil((x) -> elementIsVisible(searchContext, by), driver);
     }
 
-    private Boolean elementIsVisible(SearchContext searchContext, By by)
-    {
+    private Boolean elementIsVisible(SearchContext searchContext, By by) {
         var element = findElement(searchContext, by);
-        try
-        {
+        try {
             return element != null && element.isDisplayed();
-        }
-        catch (StaleElementReferenceException e)
-        {
+        } catch (StaleElementReferenceException e) {
             return false;
-        }
-        catch (NoSuchElementException e)
-        {
+        } catch (NoSuchElementException e) {
             return false;
         }
     }

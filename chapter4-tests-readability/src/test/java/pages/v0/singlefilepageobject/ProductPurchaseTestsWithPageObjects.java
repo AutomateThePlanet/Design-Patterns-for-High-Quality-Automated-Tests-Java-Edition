@@ -107,7 +107,7 @@ public class ProductPurchaseTestsWithPageObjects {
         var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']//li[1]/strong"));
         purchaseOrderNumber = orderNumber.getText();
     }
 

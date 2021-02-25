@@ -19,8 +19,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.v8.multifilepageobjectsectionssingleton.MainPage.MainPage;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class ProductPurchaseTestsWithPageObjects {
 
     @BeforeMethod

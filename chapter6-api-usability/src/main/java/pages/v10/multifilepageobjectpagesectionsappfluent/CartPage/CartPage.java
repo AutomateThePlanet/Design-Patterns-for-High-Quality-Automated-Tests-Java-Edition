@@ -15,10 +15,7 @@ package pages.v10.multifilepageobjectpagesectionsappfluent.CartPage;
 
 import core.BrowserService;
 import core.Driver;
-import core.ElementFindService;
-import core.NavigationService;
 import org.testng.Assert;
-import pages.v10.multifilepageobjectpagesectionsappfluent.LoggingSingletonDriver;
 import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.BreadcrumbSection;
 

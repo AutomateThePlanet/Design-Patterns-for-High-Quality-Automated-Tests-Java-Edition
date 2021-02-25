@@ -1,4 +1,5 @@
 root = true
+
 [*]
 # charset = utf-8
 # end_of_line = crlf
@@ -104,7 +105,7 @@ ij_java_for_statement_wrap = off
 ij_java_generate_final_locals = false
 ij_java_generate_final_parameters = false
 ij_java_if_brace_force = never
-ij_java_imports_layout = *,|,javax.**,java.**,|,$*
+ij_java_imports_layout = *, |, javax.**, java.**, |, $*
 ij_java_indent_case_from_switch = true
 ij_java_insert_inner_class_imports = false
 ij_java_insert_override_annotation = true
@@ -136,7 +137,7 @@ ij_java_method_parameters_wrap = off
 ij_java_modifier_list_wrap = false
 ij_java_names_count_to_use_import_on_demand = 3
 ij_java_new_line_after_lparen_in_record_header = false
-ij_java_packages_to_use_import_on_demand = java.awt.*,javax.swing.*
+ij_java_packages_to_use_import_on_demand = java.awt.*, javax.swing.*
 ij_java_parameter_annotation_wrap = off
 ij_java_parentheses_expression_new_line_after_left_paren = false
 ij_java_parentheses_expression_right_paren_on_new_line = false
@@ -245,6 +246,7 @@ ij_java_while_on_new_line = false
 ij_java_wrap_comments = false
 ij_java_wrap_first_method_in_call_chain = false
 ij_java_wrap_long_lines = false
+
 [.editorconfig]
 # ij_editorconfig_align_group_field_declarations = false
 # ij_editorconfig_space_after_colon = false
@@ -252,7 +254,7 @@ ij_java_wrap_long_lines = false
 # ij_editorconfig_space_before_colon = false
 # ij_editorconfig_space_before_comma = false
 # ij_editorconfig_spaces_around_assignment_operators = true
-[{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.jspx,*.pom,*.rng,*.tagx,*.tld,*.wsdl,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
+[{*.ant, *.fxml, *.jhm, *.jnlp, *.jrxml, *.jspx, *.pom, *.rng, *.tagx, *.tld, *.wsdl, *.xml, *.xsd, *.xsl, *.xslt, *.xul}]
 # ij_xml_align_attributes = true
 # ij_xml_align_text = false
 # ij_xml_attribute_wrap = normal
@@ -270,7 +272,7 @@ ij_java_wrap_long_lines = false
 # ij_xml_space_inside_empty_tag = false
 # ij_xml_text_wrap = normal
 # ij_xml_use_custom_settings = false
-[{*.har,*.json}]
+[{*.har, *.json}]
 # indent_size = 2
 # ij_json_keep_blank_lines_in_code = 0
 # ij_json_keep_indents_on_empty_lines = false

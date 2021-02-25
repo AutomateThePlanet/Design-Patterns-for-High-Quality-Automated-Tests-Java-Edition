@@ -15,7 +15,6 @@ package pages.v9.multifilepageobjectpagesectionsapp.CartPage;
 
 import core.BrowserService;
 import core.Driver;
-import pages.v9.multifilepageobjectpagesectionsapp.LoggingSingletonDriver;
 import pages.v9.multifilepageobjectpagesectionsapp.NavigatableEShopPage;
 import pages.v9.multifilepageobjectpagesectionsapp.Sections.BreadcrumbSection;
 

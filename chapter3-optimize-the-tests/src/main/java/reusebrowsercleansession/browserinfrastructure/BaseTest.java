@@ -74,11 +74,9 @@ public class BaseTest {
         CURRENT_TEST_EXECUTION_SUBJECT.postTestCleanup(getTestResult(), methodInfo);
     }
 
-    protected void testInit()
-    {
+    protected void testInit() {
     }
 
-    protected void testCleanup()
-    {
+    protected void testCleanup() {
     }
 }

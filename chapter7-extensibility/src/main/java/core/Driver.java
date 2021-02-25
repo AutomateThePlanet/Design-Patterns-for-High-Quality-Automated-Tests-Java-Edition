@@ -14,10 +14,6 @@
 package core;
 
 import core.interfaces.*;
-import core.locators.FindStrategy;
-import org.openqa.selenium.By;
-
-import java.util.List;
 
 public abstract class Driver implements NavigationService, BrowserService, CookiesService, ElementFindService, DialogService, ElementWaitService {
 }

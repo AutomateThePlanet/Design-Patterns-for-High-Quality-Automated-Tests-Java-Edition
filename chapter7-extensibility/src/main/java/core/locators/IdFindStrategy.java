@@ -16,8 +16,7 @@ package core.locators;
 import org.openqa.selenium.By;
 
 public class IdFindStrategy extends FindStrategy {
-    public IdFindStrategy(String value)
-    {
+    public IdFindStrategy(String value) {
         super(value);
     }
 

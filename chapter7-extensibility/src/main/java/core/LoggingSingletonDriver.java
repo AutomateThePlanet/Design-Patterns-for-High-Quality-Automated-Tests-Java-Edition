@@ -20,10 +20,8 @@ public class LoggingSingletonDriver extends DriverDecorator {
         super(driver);
     }
 
-    public static LoggingSingletonDriver getInstance()
-    {
-        if (instance == null)
-        {
+    public static LoggingSingletonDriver getInstance() {
+        if (instance == null) {
             instance = new LoggingSingletonDriver(new WebCoreDriver());
         }
 

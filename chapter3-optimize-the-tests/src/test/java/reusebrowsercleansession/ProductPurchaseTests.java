@@ -35,7 +35,7 @@ public class ProductPurchaseTests extends BaseTest {
     private static String purchaseEmail;
     private static String purchaseOrderNumber;
 
-    @Test(priority=1)
+    @Test(priority = 1)
     public void completePurchaseSuccessfully_whenNewClient() throws InterruptedException {
         getDriver().goToUrl("http://demos.bellatrix.solutions/");
         var addToCartFalcon9 = getDriver().findElement(By.cssSelector("[data-product_id*='28']"));
@@ -80,7 +80,7 @@ public class ProductPurchaseTests extends BaseTest {
         var billingAddress1 = getDriver().findElement(By.id("billing_address_1"));
         billingAddress1.typeText("1 Willi Brandt Avenue Tiergarten");
         var billingAddress2 = getDriver().findElement(By.id("billing_address_2"));
-        billingAddress2.typeText("Lьtzowplatz 17");
+        billingAddress2.typeText("Lotzowplatz 17");
         var billingCity = getDriver().findElement(By.id("billing_city"));
         billingCity.typeText("Berlin");
         var billingZip = getDriver().findElement(By.id("billing_postcode"));
@@ -101,7 +101,7 @@ public class ProductPurchaseTests extends BaseTest {
         Assert.assertEquals(receivedMessage.getText(), "Order received");
     }
 
-    @Test(priority=2)
+    @Test(priority = 2)
     public void completePurchaseSuccessfully_whenExistingClient() throws InterruptedException {
         getDriver().goToUrl("http://demos.bellatrix.solutions/");
 
@@ -148,11 +148,11 @@ public class ProductPurchaseTests extends BaseTest {
         var receivedMessage = getDriver().findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = getDriver().findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        var orderNumber = getDriver().findElement(By.xpath("//*[@id='post-7']//li[1]/strong"));
         purchaseOrderNumber = orderNumber.getText();
     }
 
-    @Test(priority=3)
+    @Test(priority = 3)
     public void correctOrderDataDisplayed_whenNavigateToMyAccountOrderSection() throws InterruptedException {
         getDriver().goToUrl("http://demos.bellatrix.solutions/");
 
@@ -177,8 +177,7 @@ public class ProductPurchaseTests extends BaseTest {
         Assert.assertEquals(expectedMessage, orderName.getText());
     }
 
-    private String GetUserPasswordFromDb(String userName)
-    {
+    private String GetUserPasswordFromDb(String userName) {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 }

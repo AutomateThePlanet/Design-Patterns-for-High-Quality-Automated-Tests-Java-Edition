@@ -18,13 +18,11 @@ import org.openqa.selenium.By;
 public abstract class FindStrategy {
     private final String value;
 
-    protected FindStrategy(String value)
-    {
+    protected FindStrategy(String value) {
         this.value = value;
     }
 
-    public String getValue()
-    {
+    public String getValue() {
         return value;
     }
 

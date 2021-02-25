@@ -13,7 +13,6 @@
 
 package pages.v10.multifilepageobjectpagesectionsappfluent;
 
-import core.LoggingSingletonDriver;
 import core.interfaces.ElementFindService;
 import core.interfaces.NavigationService;
 
@@ -27,8 +26,7 @@ public abstract class NavigatableEShopPage extends EShopPage {
 
     protected abstract String getUrl();
 
-    public void open()
-    {
+    public void open() {
         navigationService.goToUrl(getUrl());
         waitForPageLoad();
     }

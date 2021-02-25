@@ -14,7 +14,9 @@
 package pages.v9.multifilepageobjectpagesectionsapp;
 
 import core.Browser;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 import pages.v9.multifilepageobjectpagesectionsapp.MainPage.MainPage;
 
 public class ProductPurchaseTestsWithPageObjects {

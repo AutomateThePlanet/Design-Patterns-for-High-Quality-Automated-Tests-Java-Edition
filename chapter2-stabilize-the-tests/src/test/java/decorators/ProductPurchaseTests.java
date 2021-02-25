@@ -87,7 +87,7 @@ public class ProductPurchaseTests {
         var billingAddress1 = driver.findElement(By.id("billing_address_1"));
         billingAddress1.typeText("1 Willi Brandt Avenue Tiergarten");
         var billingAddress2 = driver.findElement(By.id("billing_address_2"));
-        billingAddress2.typeText("Lьtzowplatz 17");
+        billingAddress2.typeText("Lotzowplatz 17");
         var billingCity = driver.findElement(By.id("billing_city"));
         billingCity.typeText("Berlin");
         var billingZip = driver.findElement(By.id("billing_postcode"));
@@ -154,7 +154,7 @@ public class ProductPurchaseTests {
         var receivedMessage = driver.findElement(By.xpath("//h1[text() = 'Order received']"));
         Assert.assertEquals(receivedMessage.getText(), "Order received");
 
-        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']/div/div/div/ul/li[1]/strong"));
+        var orderNumber = driver.findElement(By.xpath("//*[@id='post-7']//li[1]/strong"));
         purchaseOrderNumber = orderNumber.getText();
     }
 

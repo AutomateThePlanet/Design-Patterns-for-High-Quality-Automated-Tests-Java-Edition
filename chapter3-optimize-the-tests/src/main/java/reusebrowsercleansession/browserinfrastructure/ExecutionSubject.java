@@ -38,35 +38,35 @@ public class ExecutionSubject implements TestExecutionSubject {
 
     @Override
     public void preTestInit(ITestResult result, Method memberInfo) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.preTestInit(result, memberInfo);
         }
     }
 
     @Override
     public void postTestInit(ITestResult result, Method memberInfo) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.postTestInit(result, memberInfo);
         }
     }
 
     @Override
     public void preTestCleanup(ITestResult result, Method memberInfo) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.preTestCleanup(result, memberInfo);
         }
     }
 
     @Override
     public void postTestCleanup(ITestResult result, Method memberInfo) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.postTestCleanup(result, memberInfo);
         }
     }
 
     @Override
     public void testInstantiated(Method memberInfo) {
-        for (var currentObserver: testBehaviorObservers) {
+        for (var currentObserver : testBehaviorObservers) {
             currentObserver.testInstantiated(memberInfo);
         }
     }

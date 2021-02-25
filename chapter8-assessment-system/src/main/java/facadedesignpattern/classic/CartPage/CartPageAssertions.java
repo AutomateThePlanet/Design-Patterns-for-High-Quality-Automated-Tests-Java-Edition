@@ -22,13 +22,11 @@ public class CartPageAssertions {
         this.elements = elements;
     }
 
-    public void assertCouponAppliedSuccessfully()
-    {
+    public void assertCouponAppliedSuccessfully() {
         Assert.assertEquals(elements.messageAlert().getText(), "Coupon code applied successfully.");
     }
 
-    public void assertTotalPrice(String expectedPrice)
-    {
+    public void assertTotalPrice(String expectedPrice) {
         Assert.assertEquals(elements.totalSpan().getText(), expectedPrice);
     }
 }

@@ -31,8 +31,7 @@ public class MainPageElements {
         return elementFindService.findByCss("[class*='added_to_cart wc-forward']");
     }
 
-    public Element getProductBoxByName(String name)
-    {
+    public Element getProductBoxByName(String name) {
         return elementFindService.findByXPath(String.format("//h2[text()='%s']/parent::a[1]", name));
     }
 }

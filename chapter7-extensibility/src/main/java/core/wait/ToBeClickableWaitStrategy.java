@@ -17,7 +17,7 @@ import org.openqa.selenium.*;
 
 public class ToBeClickableWaitStrategy extends WaitStrategy {
     public ToBeClickableWaitStrategy(int timeoutIntervalSeconds, int sleepIntervalSeconds) {
-       super(timeoutIntervalSeconds, sleepIntervalSeconds);
+        super(timeoutIntervalSeconds, sleepIntervalSeconds);
     }
 
     @Override
@@ -25,19 +25,13 @@ public class ToBeClickableWaitStrategy extends WaitStrategy {
         waitUntil((x) -> elementIsClickable(searchContext, by), driver);
     }
 
-    private Boolean elementIsClickable(SearchContext searchContext, By by)
-    {
+    private Boolean elementIsClickable(SearchContext searchContext, By by) {
         var element = findElement(searchContext, by);
-        try
-        {
+        try {
             return element != null && element.isEnabled();
-        }
-        catch (StaleElementReferenceException e)
-        {
+        } catch (StaleElementReferenceException e) {
             return false;
-        }
-        catch (NoSuchElementException e)
-        {
+        } catch (NoSuchElementException e) {
             return false;
         }
     }

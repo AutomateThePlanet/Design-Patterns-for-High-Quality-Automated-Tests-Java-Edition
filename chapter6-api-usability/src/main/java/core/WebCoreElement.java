@@ -78,8 +78,7 @@ public class WebCoreElement extends Element {
     }
 
     @Override
-    public void waitToExists()
-    {
+    public void waitToExists() {
         var webDriverWait = new WebDriverWait(webDriver, 30);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
     }

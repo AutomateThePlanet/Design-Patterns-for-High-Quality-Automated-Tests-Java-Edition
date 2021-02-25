@@ -16,19 +16,14 @@ package core;
 import core.browserinfrastructure.BaseBenchmark;
 import core.browserinfrastructure.BrowserBehavior;
 import core.browserinfrastructure.ExecutionBrowser;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.profile.GCProfiler;
 import org.openjdk.jmh.profile.StackProfiler;
-import org.openjdk.jmh.profile.WinPerfAsmProfiler;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
@@ -46,7 +41,7 @@ public class BenchmarkRunner extends BaseBenchmark {
                 .include(BenchmarkRunner.class.getSimpleName())
                 //.addProfiler(WinPerfAsmProfiler.class)
                 .addProfiler(StackProfiler.class)
-                 .addProfiler(GCProfiler.class)
+                .addProfiler(GCProfiler.class)
                 .forks(1)
                 .build();
 
@@ -75,7 +70,7 @@ public class BenchmarkRunner extends BaseBenchmark {
     @Benchmark
     public void benchmarkJavaScriptClick(PluginState pluginState) {
         var buttons = pluginState.getDriver().findElements(By.xpath("//input[@value='Submit']"));
-        for (var button:buttons) {
+        for (var button : buttons) {
             pluginState.getDriver().executeScript("arguments[0].click();", button);
         }
     }

@@ -21,6 +21,7 @@ public class MainPage extends NavigatableEShopPage {
 
     private MainPage() {
     }
+
     public static MainPage getInstance() {
         if (instance == null) {
             instance = new MainPage();

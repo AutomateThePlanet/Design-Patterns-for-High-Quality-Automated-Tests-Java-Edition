@@ -61,7 +61,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setCompany("Space Flowers");
         purchaseInfo.setCountry("Germany");
         purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
+        purchaseInfo.setAddress2("Lotzowplatz 17");
         purchaseInfo.setCity("Berlin");
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
@@ -87,7 +87,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setCompany("Space Flowers");
         purchaseInfo.setCountry("Germany");
         purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
+        purchaseInfo.setAddress2("Lotzowplatz 17");
         purchaseInfo.setCity("Berlin");
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
@@ -105,7 +105,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setCompany("Space Flowers");
         purchaseInfo.setCountry("Germany");
         purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
+        purchaseInfo.setAddress2("Lotzowplatz 17");
         purchaseInfo.setCity("Berlin");
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
@@ -122,7 +122,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setCompany("Space Flowers");
         purchaseInfo.setCountry("Germany");
         purchaseInfo.setAddress1("1 Willi Brandt Avenue Tiergarten");
-        purchaseInfo.setAddress2("Lьtzowplatz 17");
+        purchaseInfo.setAddress2("Lotzowplatz 17");
         purchaseInfo.setCity("Berlin");
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");

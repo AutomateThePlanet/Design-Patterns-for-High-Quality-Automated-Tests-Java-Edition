@@ -35,8 +35,7 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
 
         Boolean shouldRestartBrowser = shouldRestartBrowser(currentBrowserConfiguration);
 
-        if (shouldRestartBrowser)
-        {
+        if (shouldRestartBrowser) {
             restartBrowser();
         }
 
@@ -46,22 +45,18 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
     @Override
     public void postTestCleanup(ITestResult testResult, Method memberInfo) {
         if (currentBrowserConfiguration.getBrowserBehavior() ==
-                BrowserBehavior.RESTART_ON_FAIL && testResult.getStatus() == ITestResult.FAILURE)
-        {
+                BrowserBehavior.RESTART_ON_FAIL && testResult.getStatus() == ITestResult.FAILURE) {
             restartBrowser();
         }
     }
 
-    private void restartBrowser()
-    {
+    private void restartBrowser() {
         driver.quit();
         driver.start(currentBrowserConfiguration.getBrowser());
     }
 
-    private Boolean shouldRestartBrowser(BrowserConfiguration browserConfiguration)
-    {
-        if (previousBrowserConfiguration == null)
-        {
+    private Boolean shouldRestartBrowser(BrowserConfiguration browserConfiguration) {
+        if (previousBrowserConfiguration == null) {
             return true;
         }
 
@@ -71,39 +66,31 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
         return shouldRestartBrowser;
     }
 
-    private BrowserConfiguration getBrowserConfiguration(Method memberInfo)
-    {
+    private BrowserConfiguration getBrowserConfiguration(Method memberInfo) {
         BrowserConfiguration result = null;
         var classBrowserType = getExecutionBrowserClassLevel(memberInfo.getDeclaringClass());
         var methodBrowserType = getExecutionBrowserMethodLevel(memberInfo);
-        if (methodBrowserType != null)
-        {
+        if (methodBrowserType != null) {
             result = methodBrowserType;
-        }
-        else if (classBrowserType != null)
-        {
+        } else if (classBrowserType != null) {
             result = classBrowserType;
         }
 
         return result;
     }
 
-    private BrowserConfiguration getExecutionBrowserMethodLevel(Method memberInfo)
-    {
-        var executionBrowserAnnotation = (ExecutionBrowser)memberInfo.getDeclaredAnnotation(ExecutionBrowser.class);
-        if (executionBrowserAnnotation == null)
-        {
+    private BrowserConfiguration getExecutionBrowserMethodLevel(Method memberInfo) {
+        var executionBrowserAnnotation = (ExecutionBrowser) memberInfo.getDeclaredAnnotation(ExecutionBrowser.class);
+        if (executionBrowserAnnotation == null) {
             return null;
         }
 
         return new BrowserConfiguration(executionBrowserAnnotation.browser(), executionBrowserAnnotation.browserBehavior());
     }
 
-    private BrowserConfiguration getExecutionBrowserClassLevel(Class<?> type)
-    {
-        var executionBrowserAnnotation = (ExecutionBrowser)type.getDeclaredAnnotation(ExecutionBrowser.class);
-        if (executionBrowserAnnotation == null)
-        {
+    private BrowserConfiguration getExecutionBrowserClassLevel(Class<?> type) {
+        var executionBrowserAnnotation = (ExecutionBrowser) type.getDeclaredAnnotation(ExecutionBrowser.class);
+        if (executionBrowserAnnotation == null) {
             return null;
         }
 

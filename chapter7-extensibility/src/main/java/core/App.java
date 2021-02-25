@@ -23,8 +23,7 @@ import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
 public class App implements AutoCloseable {
     private Boolean disposed = false;
 
-    public App(Browser browserType)
-    {
+    public App(Browser browserType) {
         LoggingSingletonDriver.getInstance().start(browserType);
     }
 
@@ -44,23 +43,20 @@ public class App implements AutoCloseable {
         return SingletonFactory.getInstance(DialogService.class);
     }
 
-    public <TPage extends NavigatableEShopPage> TPage goTo(Class<TPage> pageOf)
-    {
+    public <TPage extends NavigatableEShopPage> TPage goTo(Class<TPage> pageOf) {
         var page = SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
         page.open();
 
         return page;
     }
 
-    public <TPage extends EShopPage> TPage create(Class<TPage> pageOf)
-    {
+    public <TPage extends EShopPage> TPage create(Class<TPage> pageOf) {
         return SingletonFactory.getInstance(pageOf, LoggingSingletonDriver.getInstance());
     }
 
     @Override
     public void close() {
-        if (disposed)
-        {
+        if (disposed) {
             return;
         }
 

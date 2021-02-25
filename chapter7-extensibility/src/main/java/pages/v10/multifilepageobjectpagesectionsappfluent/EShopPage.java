@@ -13,7 +13,6 @@
 
 package pages.v10.multifilepageobjectpagesectionsappfluent;
 
-import core.LoggingSingletonDriver;
 import core.interfaces.ElementFindService;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.CartInfoSection;
 import pages.v10.multifilepageobjectpagesectionsappfluent.Sections.MainMenuSection;
