@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chapter1-defining-high-quality-attributes/chapter1-defining-high-quality-attributes.iml" filepath="$PROJECT_DIR$/chapter1-defining-high-quality-attributes/chapter1-defining-high-quality-attributes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" filepath="$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter2-stabilize-the-tests/chapter2-stabilize-the-tests.iml" filepath="$PROJECT_DIR$/chapter2-stabilize-the-tests/chapter2-stabilize-the-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter3-optimize-the-tests/chapter3-optimize-the-tests.iml" filepath="$PROJECT_DIR$/chapter3-optimize-the-tests/chapter3-optimize-the-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" filepath="$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter5-tests-maintainability/chapter5-tests-maintainability.iml" filepath="$PROJECT_DIR$/chapter5-tests-maintainability/chapter5-tests-maintainability.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter6-api-usability/chapter6-api-usability.iml" filepath="$PROJECT_DIR$/chapter6-api-usability/chapter6-api-usability.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter7-extensibility/chapter7-extensibility.iml" filepath="$PROJECT_DIR$/chapter7-extensibility/chapter7-extensibility.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter8-assessment-system/chapter8-assessment-system.iml" filepath="$PROJECT_DIR$/chapter8-assessment-system/chapter8-assessment-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" filepath="$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/design-patterns-for-high-quality-automated-tests.iml" filepath="$PROJECT_DIR$/design-patterns-for-high-quality-automated-tests.iml" />
+    </modules>
+  </component>
+</project>

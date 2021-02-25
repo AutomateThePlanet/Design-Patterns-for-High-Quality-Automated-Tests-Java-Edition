@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package main.java.attributes;
+package attributes;
 
 public class PlatinumCustomerOrder extends CustomerOrder {
     public PlatinumCustomerOrder() {

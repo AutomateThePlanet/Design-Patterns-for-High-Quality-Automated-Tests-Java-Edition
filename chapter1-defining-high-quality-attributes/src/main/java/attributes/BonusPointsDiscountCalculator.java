@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package main.java.attributes;
+package attributes;
 
 public interface BonusPointsDiscountCalculator {
     double calculateBonusPointsDiscount(double totalPrice, int points);

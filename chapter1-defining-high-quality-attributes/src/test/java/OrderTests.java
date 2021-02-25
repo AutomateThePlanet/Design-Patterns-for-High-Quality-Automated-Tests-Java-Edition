@@ -13,7 +13,10 @@
 
 package test.java;
 
-import main.java.attributes.*;
+import attributes.DiscountCalculator;
+import attributes.GoldDiscountCalculator;
+import attributes.PlatinumDiscountCalculator;
+import attributes.SilverDiscountCalculator;
 import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;

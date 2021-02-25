@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package main.java.attributes;
+package attributes;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
