@@ -22,14 +22,14 @@ import reusebrowser.LoggingDriver;
 import reusebrowser.WebCoreDriver;
 
 public class BaseTest {
-    private static final TestExecutionSubject CURRENT_TEST_EXECUTION_SUBJECT;
-    private static final Driver DRIVER;
+    private static final TestExecutionSubject executionSubject;
+    private static final Driver driver;
     private ITestResult result;
 
     static {
-        CURRENT_TEST_EXECUTION_SUBJECT = new ExecutionSubject();
-        DRIVER = new LoggingDriver(new WebCoreDriver());
-        new BrowserLaunchTestBehaviorObserver(CURRENT_TEST_EXECUTION_SUBJECT, DRIVER);
+        executionSubject = new ExecutionSubject();
+        driver = new LoggingDriver(new WebCoreDriver());
+        new BrowserLaunchTestBehaviorObserver(executionSubject, driver);
     }
 
     public String getTestName() {
@@ -45,13 +45,13 @@ public class BaseTest {
     }
 
     public Driver getDriver() {
-        return DRIVER;
+        return driver;
     }
 
     @AfterSuite
     public void afterSuite() {
-        if (DRIVER != null) {
-            DRIVER.quit();
+        if (driver != null) {
+            driver.quit();
         }
     }
 
@@ -60,18 +60,18 @@ public class BaseTest {
         setTestResult(result);
         var testClass = this.getClass();
         var methodInfo = testClass.getMethod(getTestResult().getMethod().getMethodName());
-        CURRENT_TEST_EXECUTION_SUBJECT.preTestInit(getTestResult(), methodInfo);
+        executionSubject.preTestInit(getTestResult(), methodInfo);
         testInit();
-        CURRENT_TEST_EXECUTION_SUBJECT.postTestInit(getTestResult(), methodInfo);
+        executionSubject.postTestInit(getTestResult(), methodInfo);
     }
 
     @AfterMethod
     public void afterMethod() throws NoSuchMethodException {
         var testClass = this.getClass();
         var methodInfo = testClass.getMethod(getTestResult().getMethod().getMethodName());
-        CURRENT_TEST_EXECUTION_SUBJECT.preTestCleanup(getTestResult(), methodInfo);
+        executionSubject.preTestCleanup(getTestResult(), methodInfo);
         testCleanup();
-        CURRENT_TEST_EXECUTION_SUBJECT.postTestCleanup(getTestResult(), methodInfo);
+        executionSubject.postTestCleanup(getTestResult(), methodInfo);
     }
 
     protected void testInit() {

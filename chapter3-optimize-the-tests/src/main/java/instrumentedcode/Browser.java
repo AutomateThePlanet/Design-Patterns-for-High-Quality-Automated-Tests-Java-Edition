@@ -16,7 +16,7 @@ package instrumentedcode;
 public enum Browser {
     CHROME,
     FIREFOX,
-    Edge,
+    EDGE,
     OPERA,
     SAFARI,
     INTERNET_EXPLORER

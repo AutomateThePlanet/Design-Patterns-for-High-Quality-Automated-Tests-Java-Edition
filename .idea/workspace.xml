@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11b56724-944e-4050-9d9a-3c56c12f5720" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_edge_driver_3_141_59.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_3_141_59.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_opera_driver_3_141_59.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_3_141_59.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/chapter3-optimize-the-tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/chapter3-optimize-the-tests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/instrumentedcode/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/instrumentedcode/Browser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/instrumentedcode/WebCoreDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/instrumentedcode/WebCoreDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowser/browserinfrastructure/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowser/browserinfrastructure/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowsercleansession/WebCoreDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowsercleansession/WebCoreDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowsercleansession/browserinfrastructure/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-optimize-the-tests/src/main/java/reusebrowsercleansession/browserinfrastructure/BaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/chapter1-defining-high-quality-attributes/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BELLATRIX-Java" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
