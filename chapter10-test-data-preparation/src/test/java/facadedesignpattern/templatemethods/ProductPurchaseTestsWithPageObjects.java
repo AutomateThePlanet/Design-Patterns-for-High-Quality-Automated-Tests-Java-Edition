@@ -98,6 +98,21 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
+        // Java 14 Records
+//        var purchaseInfo = new PurchaseInfo(
+//                "info@berlinspaceflowers.com",
+//                "Anton",
+//                "Angelov",
+//                "Space Flowers",
+//                "Germany",
+//                "1 Willi Brandt Avenue Tiergarten",
+//                "Lotzowplatz 17",
+//                "Berlin",
+//                "10115",
+//                "+00498888999281",
+//                false,
+//                false);
+
         checkoutPage.fillBillingInfo(purchaseInfo);
         checkoutPage.assertions().assertOrderReceived();
     }

@@ -144,3 +144,34 @@ public class PurchaseInfo {
         this.shouldCheckPayment = shouldCheckPayment;
     }
 }
+
+// JAVA 14 Records
+
+//public record PurchaseInfo(
+//        String firstName,
+//        String lastName,
+//        String company,
+//        String country,
+//        String address1,
+//        String address2,
+//        String city,
+//        String zip,
+//        String phone,
+//        String email,
+//        Boolean shouldCreateAccount,
+//        Boolean shouldCheckPayment) {
+//    public PurchaseInfo() {
+//        this(ConfigurationService.get(BillingInfoDefaultValues.class).getFirstName(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getLastName(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getCompany(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getCountry(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getAddress1(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getAddress2(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getCity(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getZip(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getPhone(),
+//                ConfigurationService.get(BillingInfoDefaultValues.class).getEmail(),
+//                true,
+//                true);
+//    }
+//}

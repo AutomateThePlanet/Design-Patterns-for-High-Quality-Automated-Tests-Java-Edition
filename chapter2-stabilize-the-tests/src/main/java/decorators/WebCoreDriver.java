@@ -18,7 +18,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
@@ -30,8 +34,7 @@ public class WebCoreDriver extends Driver {
 
     @Override
     public void start(Browser browser) {
-        switch (browser)
-        {
+        switch (browser) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
@@ -41,20 +44,52 @@ public class WebCoreDriver extends Driver {
                 webDriver = new FirefoxDriver();
                 break;
             case EDGE:
-                //_webDriver = new EdgeDriver();
+                WebDriverManager.edgedriver().setup();
+                webDriver = new EdgeDriver();
                 break;
             case OPERA:
-                //_webDriver = new OperaDriver();
+                WebDriverManager.operadriver().setup();
+                webDriver = new OperaDriver();
                 break;
             case SAFARI:
-                //_webDriver = new SafariDriver();
+                webDriver = new SafariDriver();
                 break;
             case INTERNET_EXPLORER:
-                //_webDriver = new InternetExplorerDriver();
+                WebDriverManager.iedriver().setup();
+                webDriver = new InternetExplorerDriver();
                 break;
             default:
                 throw new IllegalArgumentException(browser.name());
         }
+
+        // JAVA version 12:
+//        webDriver = switch (browser) {
+//            case CHROME -> {
+//                WebDriverManager.chromedriver().setup();
+//                yield new ChromeDriver();
+//            }
+//            case FIREFOX -> {
+//                WebDriverManager.firefoxdriver().setup();
+//                yield new FirefoxDriver();
+//            }
+//            case EDGE -> {
+//                WebDriverManager.edgedriver().setup();
+//                yield new EdgeDriver();
+//            }
+//            case OPERA -> {
+//                WebDriverManager.operadriver().setup();
+//                yield new OperaDriver();
+//            }
+//            case SAFARI -> new SafariDriver();
+//            case INTERNET_EXPLORER -> {
+//                WebDriverManager.iedriver().setup();
+//                yield  new InternetExplorerDriver();
+//            }
+//            default-> {
+//                WebDriverManager.chromedriver().setup();
+//                yield new ChromeDriver();
+//            }
+//        };
 
         webDriverWait = new WebDriverWait(webDriver, 30);
     }

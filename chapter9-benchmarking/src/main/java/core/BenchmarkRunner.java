@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10)
 @ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RESTART_EVERY_TIME)
 public class BenchmarkRunner extends BaseBenchmark {
-    private final String TEST_PAGE = "https://shorturl.at/bjGN8";
+    private final String testPage = "https://shorturl.at/bjGN8";
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
@@ -56,7 +56,7 @@ public class BenchmarkRunner extends BaseBenchmark {
 
     @Override
     public void init(Driver driver) {
-        driver.goToUrl(TEST_PAGE);
+        driver.goToUrl(testPage);
     }
 
     @Benchmark

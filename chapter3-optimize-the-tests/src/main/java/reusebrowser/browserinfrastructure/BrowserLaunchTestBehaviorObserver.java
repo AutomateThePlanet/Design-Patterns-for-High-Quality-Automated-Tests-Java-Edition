@@ -18,6 +18,7 @@ import reusebrowser.Browser;
 import reusebrowser.Driver;
 
 import java.lang.reflect.Method;
+import java.util.Optional;
 
 public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver {
     private final Driver driver;
@@ -78,6 +79,12 @@ public class BrowserLaunchTestBehaviorObserver extends BaseTestBehaviorObserver 
 
         return result;
     }
+
+    // Java 8 Optional
+//    private BrowserConfiguration getBrowserConfiguration(Method memberInfo) {
+//        return Optional.ofNullable(getExecutionBrowserMethodLevel(memberInfo)).
+//                orElse(getExecutionBrowserClassLevel(memberInfo.getDeclaringClass()));
+//    }
 
     private BrowserConfiguration getExecutionBrowserMethodLevel(Method memberInfo) {
         var executionBrowserAnnotation = (ExecutionBrowser) memberInfo.getDeclaredAnnotation(ExecutionBrowser.class);
