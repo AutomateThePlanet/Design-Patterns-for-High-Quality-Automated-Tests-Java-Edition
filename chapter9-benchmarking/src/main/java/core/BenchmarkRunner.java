@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 10)
 @ExecutionBrowser(browser = Browser.CHROME, browserBehavior = BrowserBehavior.RESTART_EVERY_TIME)
 public class BenchmarkRunner extends BaseBenchmark {
-    private final String TEST_PAGE = "http://htmlpreview.github.io/?https://github.com/angelovstanton/AutomateThePlanet/blob/master/WebDriver-Series/TestPage.html";
+    private final String TEST_PAGE = "https://shorturl.at/bjGN8";
 
     public static void main(String[] args) throws RunnerException {
         Options opt = new OptionsBuilder()
