@@ -38,6 +38,8 @@ public class ExecutionSubject implements TestExecutionSubject {
 
     @Override
     public void preTestInit(ITestResult result, Method memberInfo) {
+        // Java 8 using streams.
+        // testBehaviorObservers.forEach(o -> o.preTestInit(result, memberInfo));
         for (var currentObserver : testBehaviorObservers) {
             currentObserver.preTestInit(result, memberInfo);
         }

@@ -6,23 +6,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="chapter2-optimize-refactor-flaky-tests" />
         <module name="chapter6-api-usability" />
-        <module name="chapter3-optimize-the-tests" />
         <module name="chapter1-defining-high-quality-attributes" />
         <module name="chapter5-tests-maintainability" />
         <module name="chapter8-assessment-system" />
         <module name="chapter10-test-data-preparation" />
         <module name="chapter7-extensibility" />
         <module name="chapter9-benchmarking" />
-        <module name="chapter2-stabilize-the-tests" />
+        <module name="chapter3-speeding-up-tests" />
         <module name="chapter4-tests-readability" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chapter1-defining-high-quality-attributes" target="1.11" />
       <module name="chapter10-test-data-preparation" target="1.11" />
-      <module name="chapter2-stabilize-the-tests" target="1.11" />
-      <module name="chapter3-optimize-the-tests" target="1.11" />
+      <module name="chapter2-optimize-refactor-flaky-tests" target="1.11" />
+      <module name="chapter3-speeding-up-tests" target="1.11" />
       <module name="chapter4-tests-readability" target="1.11" />
       <module name="chapter5-tests-maintainability" target="1.11" />
       <module name="chapter6-api-usability" target="1.11" />

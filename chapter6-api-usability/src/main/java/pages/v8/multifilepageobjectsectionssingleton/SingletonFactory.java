@@ -20,15 +20,14 @@ import java.util.Map;
 // Based on http://neutrofoton.github.io/blog/2013/08/29/generic-singleton-pattern-in-java/
 // Can be used inside App design pattern.
 public class SingletonFactory {
-    private static final SingletonFactory INSTANCE = new SingletonFactory();
-
+    private static final SingletonFactory instance = new SingletonFactory();
     private final Map<String, Object> mapHolder = new HashMap<>();
 
     private SingletonFactory() {
     }
 
     public static <T> T getInstance(Class<T> classOf) {
-        if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+        if (!instance.mapHolder.containsKey(classOf.getName())) {
             T obj = null;
             try {
                 obj = (T) classOf.getConstructors()[0].newInstance();
@@ -39,15 +38,15 @@ public class SingletonFactory {
             } catch (InvocationTargetException e) {
                 return obj;
             }
-            INSTANCE.mapHolder.put(classOf.getName(), obj);
+            instance.mapHolder.put(classOf.getName(), obj);
         }
 
-        return (T) INSTANCE.mapHolder.get(classOf.getName());
+        return (T) instance.mapHolder.get(classOf.getName());
     }
 
     public static <T> T getSynchronizedInstance(Class<T> classOf) {
         synchronized (SingletonFactory.class) {
-            if (!INSTANCE.mapHolder.containsKey(classOf.getName())) {
+            if (!instance.mapHolder.containsKey(classOf.getName())) {
                 T obj = null;
                 try {
                     obj = (T) classOf.getConstructors()[0].newInstance();
@@ -58,10 +57,10 @@ public class SingletonFactory {
                 } catch (InvocationTargetException e) {
                     return obj;
                 }
-                INSTANCE.mapHolder.put(classOf.getName(), obj);
+                instance.mapHolder.put(classOf.getName(), obj);
             }
 
-            return (T) INSTANCE.mapHolder.get(classOf.getName());
+            return (T) instance.mapHolder.get(classOf.getName());
         }
     }
 }

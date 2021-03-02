@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 public abstract class PurchaseFacade {
-    public void purchaseItem(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException, IOException, URISyntaxException {
+    public void verifyItemPurchase(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException, IOException, URISyntaxException {
         addItemToShoppingCart(rocketName);
         applyCoupon(couponName);
         assertCouponAppliedSuccessfully();

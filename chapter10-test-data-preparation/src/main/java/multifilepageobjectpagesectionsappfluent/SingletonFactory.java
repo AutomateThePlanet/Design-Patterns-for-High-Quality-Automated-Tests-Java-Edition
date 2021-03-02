@@ -19,7 +19,7 @@ import java.util.Map;
 // Based on http://neutrofoton.github.io/blog/2013/08/29/generic-singleton-pattern-in-java/
 // Can be used inside App design pattern.
 public class SingletonFactory {
-    private static final SingletonFactory SINGLETON_FACTORY = new SingletonFactory();
+    private static final SingletonFactory singletonFactory = new SingletonFactory();
 
     private final Map<String,Object> mapHolder = new HashMap<>();
 
@@ -28,13 +28,13 @@ public class SingletonFactory {
     public static <T> T getInstance(Class<T> classOf) {
         try
         {
-            if(!SINGLETON_FACTORY.mapHolder.containsKey(classOf.getName())){
+            if(!singletonFactory.mapHolder.containsKey(classOf.getName())){
 
                 T obj = (T) classOf.getConstructors()[0].newInstance();
-                SINGLETON_FACTORY.mapHolder.put(classOf.getName(), obj);
+                singletonFactory.mapHolder.put(classOf.getName(), obj);
             }
 
-            return (T) SINGLETON_FACTORY.mapHolder.get(classOf.getName());
+            return (T) singletonFactory.mapHolder.get(classOf.getName());
         }
         catch (Exception e)
         {

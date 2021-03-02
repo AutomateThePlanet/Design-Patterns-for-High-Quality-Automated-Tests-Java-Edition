@@ -114,7 +114,7 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        purchaseFacade.purchaseItem("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
+        purchaseFacade.verifyItemPurchase("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
     }
 
     @Test
@@ -131,6 +131,6 @@ public class ProductPurchaseTestsWithPageObjects {
         purchaseInfo.setZip("10115");
         purchaseInfo.setPhone("+00498888999281");
 
-        purchaseFacade.purchaseItem("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
+        purchaseFacade.verifyItemPurchase("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
     }
 }

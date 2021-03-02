@@ -28,7 +28,7 @@ public class PurchaseFacade {
         this.checkoutPage = checkoutPage;
     }
 
-    public void purchaseItem(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException {
+    public void verifyItemPurchase(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException {
         mainPage.open();
         mainPage.addRocketToShoppingCart(rocketName);
         cartPage.applyCoupon(couponName);

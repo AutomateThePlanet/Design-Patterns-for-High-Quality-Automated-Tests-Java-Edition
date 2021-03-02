@@ -14,7 +14,7 @@
 package facadedesignpattern.templatemethods;
 
 public abstract class PurchaseFacade {
-    public void purchaseItem(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException {
+    public void verifyItemPurchase(String rocketName, String couponName, int quantity, String expectedPrice, PurchaseInfo purchaseInfo) throws InterruptedException {
         addItemToShoppingCart(rocketName);
         applyCoupon(couponName);
         assertCouponAppliedSuccessfully();

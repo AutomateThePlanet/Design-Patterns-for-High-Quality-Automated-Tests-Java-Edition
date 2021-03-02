@@ -120,19 +120,19 @@ public class ProductPurchaseTestsWithPageObjects {
     @Test
     public void purchaseFalcon9WithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
-        purchaseFacade.purchaseItem("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
+        purchaseFacade.verifyItemPurchase("Falcon 9", "happybirthday", 2, "114.00€", purchaseInfo);
     }
 
     @Test
     public void purchaseSaturnVWithFacade() throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
-        purchaseFacade.purchaseItem("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
+        purchaseFacade.verifyItemPurchase("Saturn V", "happybirthday", 3, "355.00€", purchaseInfo);
     }
 
     @Test(dataProvider = "getPurchaseInfoData")
     public void purchaseSaturnDataDrivenFacade(String product, String coupon, int quantity, String expectedPrice) throws InterruptedException, IOException, URISyntaxException {
         var purchaseInfo = new PurchaseInfo();
-        purchaseFacade.purchaseItem(product, coupon, quantity, expectedPrice, purchaseInfo);
+        purchaseFacade.verifyItemPurchase(product, coupon, quantity, expectedPrice, purchaseInfo);
     }
 
     @DataProvider
