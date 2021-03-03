@@ -199,20 +199,17 @@ public class ProductPurchaseTests {
         return "@purISQzt%%DYBnLCIhaoG6$";
     }
 
-    private void waitToBeClickable(By by)
-    {
+    private void waitToBeClickable(By by) {
         var webDriverWait = new WebDriverWait(driver, 30);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(by));
     }
 
-    private WebElement waitAndFindElement(By by)
-    {
+    private WebElement waitAndFindElement(By by) {
         var webDriverWait = new WebDriverWait(driver, 30);
         return webDriverWait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    private List<WebElement> waitAndFindElements(By by)
-    {
+    private List<WebElement> waitAndFindElements(By by) {
         var webDriverWait = new WebDriverWait(driver, 30);
         return webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
     }

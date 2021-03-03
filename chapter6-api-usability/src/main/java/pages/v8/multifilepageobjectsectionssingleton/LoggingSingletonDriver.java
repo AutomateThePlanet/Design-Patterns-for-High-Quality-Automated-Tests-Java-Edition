@@ -17,6 +17,7 @@ import core.*;
 import org.openqa.selenium.By;
 
 import java.util.List;
+import java.util.Optional;
 
 public class LoggingSingletonDriver extends DriverDecorator {
     private static LoggingSingletonDriver instance;

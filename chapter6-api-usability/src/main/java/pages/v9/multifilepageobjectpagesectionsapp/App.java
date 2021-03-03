@@ -14,10 +14,6 @@
 package pages.v9.multifilepageobjectpagesectionsapp;
 
 import core.*;
-import pages.v10.multifilepageobjectpagesectionsappfluent.EShopPage;
-import pages.v10.multifilepageobjectpagesectionsappfluent.LoggingSingletonDriver;
-import pages.v10.multifilepageobjectpagesectionsappfluent.NavigatableEShopPage;
-import pages.v10.multifilepageobjectpagesectionsappfluent.SingletonFactory;
 
 public class App implements AutoCloseable {
     private Boolean disposed = false;

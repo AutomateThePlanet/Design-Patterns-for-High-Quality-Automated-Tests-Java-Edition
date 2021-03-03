@@ -18,7 +18,7 @@
         <module name="chapter4-tests-readability" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="15">
       <module name="chapter1-defining-high-quality-attributes" target="1.11" />
       <module name="chapter10-test-data-preparation" target="1.11" />
       <module name="chapter2-optimize-refactor-flaky-tests" target="1.11" />
@@ -31,5 +31,20 @@
       <module name="chapter9-benchmarking" target="1.11" />
       <module name="design-patterns-for-high-quality-automated-tests" target="1.11" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="--enable-preview" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="chapter1-defining-high-quality-attributes" options="" />
+      <module name="chapter10-test-data-preparation" options="" />
+      <module name="chapter2-optimize-refactor-flaky-tests" options="" />
+      <module name="chapter3-speeding-up-tests" options="" />
+      <module name="chapter4-tests-readability" options="" />
+      <module name="chapter5-tests-maintainability" options="" />
+      <module name="chapter6-api-usability" options="" />
+      <module name="chapter7-extensibility" options="" />
+      <module name="chapter8-assessment-system" options="" />
+      <module name="chapter9-benchmarking" options="" />
+    </option>
   </component>
 </project>
