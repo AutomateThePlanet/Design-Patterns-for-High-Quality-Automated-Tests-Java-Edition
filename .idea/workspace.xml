@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11b56724-944e-4050-9d9a-3c56c12f5720" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter1-defining-high-quality-attributes/chapter1-defining-high-quality-attributes.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter1-defining-high-quality-attributes/chapter1-defining-high-quality-attributes.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/chapter10-test-data-preparation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/chapter2-optimize-refactor-flaky-tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/chapter2-optimize-refactor-flaky-tests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/src/main/java/decorators/WebCoreElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/src/main/java/decorators/WebCoreElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/src/test/java/webdriverwait/ProductPurchaseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter2-optimize-refactor-flaky-tests/src/test/java/webdriverwait/ProductPurchaseTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter3-speeding-up-tests/chapter3-speeding-up-tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter3-speeding-up-tests/chapter3-speeding-up-tests.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter4-tests-readability/chapter4-tests-readability.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter5-tests-maintainability/chapter5-tests-maintainability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter5-tests-maintainability/chapter5-tests-maintainability.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter6-api-usability/chapter6-api-usability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter6-api-usability/chapter6-api-usability.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter6-api-usability/src/main/java/pages/v8/multifilepageobjectsectionssingleton/LoggingSingletonDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter6-api-usability/src/main/java/pages/v8/multifilepageobjectsectionssingleton/LoggingSingletonDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter6-api-usability/src/main/java/pages/v9/multifilepageobjectpagesectionsapp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter6-api-usability/src/main/java/pages/v9/multifilepageobjectpagesectionsapp/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter7-extensibility/chapter7-extensibility.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter7-extensibility/chapter7-extensibility.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter8-assessment-system/chapter8-assessment-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter8-assessment-system/chapter8-assessment-system.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chapter9-benchmarking/chapter9-benchmarking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/design-patterns-for-high-quality-automated-tests.iml" beforeDir="false" afterPath="$PROJECT_DIR$/design-patterns-for-high-quality-automated-tests.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
