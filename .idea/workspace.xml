@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="11b56724-944e-4050-9d9a-3c56c12f5720" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/configuration/ConfigurationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/configuration/ConfigurationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/classic/MainPage/MainPageAssertions.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/classic/MainPage/MainPageAssertions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/classic/MainPage/MainPageElements.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/classic/MainPage/MainPageElements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/templatemethods/PurchaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter10-test-data-preparation/src/main/java/facadedesignpattern/templatemethods/PurchaseInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/chapter9-benchmarking/src/main/java/core/BenchmarkRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/chapter1-defining-high-quality-attributes/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BELLATRIX-Java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
